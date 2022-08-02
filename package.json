@@ -2,11 +2,9 @@
   "name": "@aprexis/aprexis-api-utility",
   "version": "1.0.4",
   "description": "This is a utility front end package for working with the Aprexis API.",
-  "main": "src/index",
-  "typings": "src/index",
+  "main": "./index.cjs",
   "type": "module",
   "scripts": {
-    "start": "webpack --watch",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,8 +26,8 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "webpack-cli": "^4.10.0"
   }
 }
