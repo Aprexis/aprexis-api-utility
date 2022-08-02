@@ -121,11 +121,11 @@ function filterHash(hash, { includeKeys, excludeKeys }) {
     .reduce((current, key) => { return Object.assign(current, { [key]: hash[key] }) }, {})
 
   function checkKey(key) {
-    if (valueHelper.isValue(includeKeys) && !includeKeys.contains(key)) {
+    if (valueHelper.isValue(includeKeys) && !includeKeys.includes(key)) {
       return false
     }
 
-    if (valueHelper.isValue(excludeKeys) && excludeKeys.contains(key)) {
+    if (valueHelper.isValue(excludeKeys) && excludeKeys.includes(key)) {
       return false
     }
 
