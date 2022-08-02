@@ -1,7 +1,6 @@
 import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
 import { nameHelper } from './name.helper'
-import { pathHelper } from './path.helper'
 import { apiHelper } from './api.helper'
 import { patientHelper } from './patient.helper'
 import { idHelper } from './id.helper'
@@ -31,7 +30,6 @@ export const caregiverHelper = {
   ...valueHelper.filterHash(nameHelper, { excludeKeys: ['name'] }),
   buildChanged,
   buildNewChanged,
-  canBeCreated,
   canDelete,
   canEdit,
   canModifyField,
@@ -70,15 +68,6 @@ function buildNewChanged(caregiver) {
   return {
     ...caregiver
   }
-}
-
-function canBeCreated(user, pathEntries, context) {
-  if (!pathHelper.isSingular(pathEntries, 'patients') || !valueHelper.isValue(context)) {
-    return false
-  }
-
-  const patient = context.patients
-  return patientHelper.canEdit(user, patient, patientHelper.healthPlan(patient))
 }
 
 function canDelete(user, caregiver) {

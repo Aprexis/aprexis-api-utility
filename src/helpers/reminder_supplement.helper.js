@@ -1,5 +1,5 @@
-import { fieldHelper } from "./field.helper"
-import { patientSupplementHelper } from "./patient_supplement.helper"
+import { fieldHelper } from './field.helper'
+import { patientSupplementHelper } from './patient_supplement.helper'
 
 export const reminderSupplementHelper = {
   buildFromPatientSupplement,
@@ -28,7 +28,7 @@ function buildFromPatientSupplement(patientSupplement) {
 }
 
 function patientSupplement(reminderSupplement) {
-  return fieldHelper.getField(reminderSupplement, "patient_supplement")
+  return fieldHelper.getField(reminderSupplement, 'patient_supplement')
 }
 
 function patientSupplementName(reminderSupplement) {

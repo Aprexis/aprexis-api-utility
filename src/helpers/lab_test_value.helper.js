@@ -8,7 +8,6 @@ import { userHelper } from './user.helper'
 import { valueHelper } from './value.helper'
 import { labTestHelper } from './admin'
 import { patientHelper } from './patient.helper'
-import { userCredentialsHelper } from './user_credentials.helper'
 import { labTestValueTypes } from '../types'
 
 export const labTestValueHelper = {
@@ -122,9 +121,7 @@ function canEdit(user, labTestValue) {
   }
 }
 
-function canModifyField(labTestValue, fieldName) {
-  const currentUser = userCredentialsHelper.get()
-
+function canModifyField(currentUser, labTestValue, fieldName) {
   if (valueHelper.isValue(labTestValueHelper.id(labTestValue)) && !userHelper.hasRole(currentUser, 'aprexis_admin') && !labTestValueEditableFields.includes(fieldName)) {
     return false
   }

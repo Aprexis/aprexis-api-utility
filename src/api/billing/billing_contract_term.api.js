@@ -1,5 +1,5 @@
 import { API } from '../api'
-import { billingContractTermHelper } from '../../helpers/billing/billing_contract.helper'
+import { billingContractTermHelper } from '../../helpers/billing/billing_contract_term.helper'
 
 export const billingContractTermApi = {
   listForBillingContract,

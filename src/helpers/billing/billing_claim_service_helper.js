@@ -1,6 +1,6 @@
 import { dateHelper } from '../date.helper'
 import { fieldHelper } from '../field.helper'
-import { placeOfServiceHelper } from '../place_of_service_helper'
+import { placeOfServiceHelper } from '../admin/place_of_service.helper'
 
 export const billingClaimServiceHelper = {
   charge,

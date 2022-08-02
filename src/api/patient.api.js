@@ -55,7 +55,7 @@ function edit(credentials, id, onSuccess, onFailure) {
     return
   }
 
-  const method = 'GET
+  const method = 'GET'
   const path = `/patients/${id}/edit`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }

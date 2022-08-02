@@ -12,9 +12,9 @@ export const patientPhysicianApi = {
   update
 }
 
-function toJSON(patientMedication) {
+function toJSON(patientPhysician) {
   return {
-    patient_physician: patientPhysicianHelper.toJSON(patientMedication)
+    patient_physician: patientPhysicianHelper.toJSON(patientPhysician)
   }
 }
 

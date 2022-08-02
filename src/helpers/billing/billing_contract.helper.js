@@ -1,10 +1,8 @@
 import { valueHelper } from '../value.helper'
 import { fieldHelper } from '../field.helper'
-import { pathHelper } from '../path.helper'
 import { dateHelper } from '../date.helper'
 import { apiHelper } from '../api.helper'
 import { healthPlanHelper } from '../health_plan.helper'
-import { userHelper } from '../user.helper'
 import { idHelper } from '../id.helper'
 
 export const billingContractHelper = {
@@ -14,7 +12,6 @@ export const billingContractHelper = {
   allowPharmacyStores,
   buildChanged,
   buildNewChanged,
-  canBeCreated,
   canDelete,
   canEdit,
   canModifyField,
@@ -108,14 +105,6 @@ function buildNewChanged(billingContract) {
   return {
     ...billingContract
   }
-}
-
-function canBeCreated(user, pathEntries) {
-  if (!userHelper.canCreateBillingContract(user)) {
-    return false
-  }
-
-  return pathHelper.isSingular(pathEntries, 'health-plans')
 }
 
 function canDelete(_user, _billingContract) {

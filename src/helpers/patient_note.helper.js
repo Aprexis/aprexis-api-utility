@@ -1,23 +1,23 @@
-import { valueHelper } from "./value.helper"
-import { dateHelper } from "./date.helper"
-import { fieldHelper } from "./field.helper"
-import { idHelper } from "./id.helper"
-import { apiHelper } from "./api.helper"
-import { modelDatesHelper } from "./model_dates.helper"
-import { pharmacyStorePatientHelper } from "./pharmacy_store_patient.helper"
+import { valueHelper } from './value.helper'
+import { dateHelper } from './date.helper'
+import { fieldHelper } from './field.helper'
+import { idHelper } from './id.helper'
+import { apiHelper } from './api.helper'
+import { modelDatesHelper } from './model_dates.helper'
+import { pharmacyStorePatientHelper } from './pharmacy_store_patient.helper'
 
 const patientNoteKeys = [
-  "id",
-  "note"
+  'id',
+  'note'
 ]
 
 export const patientNoteHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   buildChanged,
   buildNewChanged,
   canDelete,
   canEdit,
-  createdAt,
   displayDateTime,
   note,
   patientName,
@@ -26,7 +26,6 @@ export const patientNoteHelper = {
   pharmacyStoreName,
   pharmacyStoreNumber,
   toJSON,
-  updatedAt
 }
 
 function buildChanged(patientNote, changedPatientNote) {
@@ -74,7 +73,7 @@ function displayDateTime(patientNote) {
 }
 
 function note(patientNote) {
-  return fieldHelper.getField(patientNote, "note")
+  return fieldHelper.getField(patientNote, 'note')
 }
 
 function patientName(patientNote) {
@@ -82,7 +81,7 @@ function patientName(patientNote) {
 }
 
 function pharmacyStorePatient(patientNote) {
-  return fieldHelper.getField(patientNote, "pharmacy_store_patient")
+  return fieldHelper.getField(patientNote, 'pharmacy_store_patient')
 }
 
 function pharmacyStoreIdentification(patientNote) {

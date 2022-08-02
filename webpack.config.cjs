@@ -1,37 +1,24 @@
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require("path")
 
 module.exports = {
-  entry: './index.js',
+  entry: path.resolve(__dirname, "src/index.js"),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
-    libraryTarget: 'commonjs2'
+    path: path.resolve(__dirname, "dist"),
+    filename: "index.js",
+    libraryTarget: "umd",
   },
-  mode: 'production',
+  resolve: {
+    extensions: ['.ts', '.mjs', '.js']
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        include: path.resolve(__dirname, 'src'),
-        exclude: /(node_modules|bower_components|dist)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env'],
-            plugins: ['transform-object-rest-spread']
-          }
-        }
-      }, {
-        test: /\.*css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            'sass-loader'
-          ]
-        })
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: "babel-loader",
+        resolve: { fullySpecified: false }
       },
-    ]
-  }
-};
+    ],
+  },
+  mode: "development",
+}

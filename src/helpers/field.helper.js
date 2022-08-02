@@ -13,7 +13,6 @@ export const fieldHelper = {
   listField,
   method,
   name,
-  options,
   removeEntry,
   unchanged
 }
@@ -209,56 +208,6 @@ function name({ fieldLabel, fieldMethod, fieldName }) {
   }
 
   return valueHelper.snakeCase(fieldLabel)
-}
-
-function options(props) {
-  const selectName = fieldHelper.name(props).replace(/_/g, '-')
-  const { fieldOptions } = props
-
-  if (Array.isArray(fieldOptions)) {
-    return arrayOptions(fieldOptions)
-  }
-
-  return hashOptions(fieldOptions)
-
-  function arrayOptions(fieldOptions) {
-    return fieldOptions.map(
-      (fieldOption) => {
-        const { value, label } = optionValues(fieldOption)
-
-        return (
-          <option key={`${selectName} -${value} `} value={value}>
-            {label}
-          </option>
-        )
-      }
-    )
-
-    function optionValues(fieldOption) {
-      if (typeof fieldOption === 'string') {
-        return {
-          value: fieldOption,
-          label: fieldOption
-        }
-      }
-
-      return fieldOption
-    }
-  }
-
-  function hashOptions(fieldOptions) {
-    return Object.keys(fieldOptions).map(
-      (fieldOptionKey) => {
-        const fieldOptionValue = fieldOptions[fieldOptionKey]
-
-        return (
-          <option key={`${selectName} -${fieldOptionKey} `} value={fieldOptionKey}>
-            {fieldOptionValue}
-          </option>
-        )
-      }
-    )
-  }
 }
 
 function removeEntry(modelName, model, changedModel, field, matchField, oldEntry) {

@@ -1,9 +1,6 @@
-import { DayCalendar } from '../components/shared'
-
 export const periods = {
   day: {
     beginOn: dayBegins,
-    CalendarComponent: DayCalendar,
     days: 1,
     endOn: dayEnds,
     title: 'Day',

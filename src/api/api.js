@@ -1,4 +1,4 @@
-import { valueHelper } from "../helpers/value.helper"
+import { valueHelper } from '../helpers/value.helper'
 
 export const API = {
   buildQueryString,
@@ -8,30 +8,30 @@ export const API = {
 }
 
 const knownHeaders = {
-  "X-Page": "lastPage.number",
-  "X-Per-Page": "lastPage.size",
-  "X-Total": "lastPage.total"
+  'X-Page': 'lastPage.number',
+  'X-Per-Page': 'lastPage.size',
+  'X-Total': 'lastPage.total'
 }
 
 function buildQueryString(params) {
   if (!valueHelper.isValue(params)) {
-    return ""
+    return ''
   }
 
-  let queryString = ""
-  let delimiter = "?"
+  let queryString = ''
+  let delimiter = '?'
   Object.keys(params).forEach(
     (key) => {
       const value = params[key]
       if (Array.isArray(value)) {
         queryString = addArrayParam(key, value, queryString, delimiter)
-      } else if (typeof value === "object" && !(value instanceof Date)) {
+      } else if (typeof value === 'object' && !(value instanceof Date)) {
         queryString = addHashParam(key, value, queryString, delimiter)
       } else {
         queryString = addSingleParam(key, value, queryString, delimiter)
       }
 
-      delimiter = "&"
+      delimiter = '&'
     }
   )
 
@@ -44,7 +44,7 @@ function buildQueryString(params) {
     array.forEach(
       (value) => {
         myQueryString = `${myQueryString}${myDelimiter}${key}[]=${encodeURIComponent(value)}`
-        myDelimiter = "&"
+        myDelimiter = '&'
       }
     )
 
@@ -59,7 +59,7 @@ function buildQueryString(params) {
       (hashKey) => {
         const value = hash[hashKey]
         myQueryString = `${myQueryString}${myDelimiter}${key}[${hashKey}]=${encodeURIComponent(value)}`
-        myDelimiter = "&"
+        myDelimiter = '&'
       }
     )
 
@@ -72,8 +72,8 @@ function buildQueryString(params) {
 }
 
 function handleError(method, path, error, onFailure, optional = {}) {
-  if (error.message.includes("You need to sign in or sign up before continuing.")) {
-    onFailure("You are not signed in. You may have been signed out due to lack of activity or your username may have been changed by another user. Please sign in.")
+  if (error.message.includes('You need to sign in or sign up before continuing.')) {
+    onFailure('You are not signed in. You may have been signed out due to lack of activity or your username may have been changed by another user. Please sign in.')
     return
   }
 
@@ -88,7 +88,7 @@ function handleError(method, path, error, onFailure, optional = {}) {
 
   function parseErrorMessage(method, path, error, optional = {}) {
     if (!valueHelper.isValue(error.message)) {
-      return `HTTP: "${method} ${path}: ${error.error} (${error.status})"`
+      return `HTTP: '${method} ${path}: ${error.error} (${error.status})'`
     }
 
     if (valueHelper.isSet(optional.isDownload)) {
@@ -98,17 +98,17 @@ function handleError(method, path, error, onFailure, optional = {}) {
 
     const parsedJSON = JSON.parse(error.message)
     return Object.keys(parsedJSON)
-      .filter((key) => typeof parsedJSON[key] === "string" || Array.isArray(parsedJSON[key]))
+      .filter((key) => typeof parsedJSON[key] === 'string' || Array.isArray(parsedJSON[key]))
       .map(
         (key) => {
           const part = parsedJSON[key]
           if (Array.isArray(part)) {
-            return `${key}: ${part.join(" ")}`
+            return `${key}: ${part.join(' ')}`
           }
 
           return `${key}: ${part}`
         }
-      ).join(" ")
+      ).join(' ')
   }
 }
 
@@ -117,14 +117,14 @@ function perform(method, path, queryString, credentials, body, onSuccess, onFail
   let workingPath = path
 
   // If the incoming path includes the Rails relative URL root, remove it.
-  if (valueHelper.isStringValue(railsUrlRoot) && railsUrlRoot != "/" && path.startsWith(railsUrlRoot)) {
+  if (valueHelper.isStringValue(railsUrlRoot) && railsUrlRoot != '/' && path.startsWith(railsUrlRoot)) {
     workingPath = path.substring(railsUrlRoot.length)
   }
   const fullPath = `${baseApiUrl}${workingPath}${queryString}`
   const requestOptions = {
     method,
     headers: {
-      "Accept": "application/json"
+      'Accept': 'application/json'
     }
   }
 
@@ -174,8 +174,8 @@ function perform(method, path, queryString, credentials, body, onSuccess, onFail
     const { username, auth_token } = userCredentials
     const newHeaders = {
       ...existingHeaders,
-      "X-User-Username": username,
-      "X-User-Token": auth_token
+      'X-User-Username': username,
+      'X-User-Token': auth_token
     }
 
     return newHeaders
@@ -193,7 +193,7 @@ function perform(method, path, queryString, credentials, body, onSuccess, onFail
     return {
       headers: {
         ...existingHeaders,
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
     }

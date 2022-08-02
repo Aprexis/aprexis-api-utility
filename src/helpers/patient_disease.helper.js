@@ -1,7 +1,7 @@
-import { fieldHelper } from "./field.helper"
-import { idHelper } from "./id.helper"
-import { diseaseHelper } from "./disease.helper"
-import { patientHelper } from "./patient.helper"
+import { fieldHelper } from './field.helper'
+import { idHelper } from './id.helper'
+import { diseaseHelper } from './admin/disease.helper'
+import { patientHelper } from './patient.helper'
 
 export const patientDiseaseHelper = {
   ...idHelper,
@@ -28,7 +28,7 @@ function canEdit(_user, _patientDisease) {
 }
 
 function disease(patientDisease) {
-  return fieldHelper.getField(patientDisease, "disease")
+  return fieldHelper.getField(patientDisease, 'disease')
 }
 
 function diseaseDescription(patientDisease) {
@@ -40,7 +40,7 @@ function diseaseName(patientDisease) {
 }
 
 function patient(patientDisease) {
-  return fieldHelper.getField(patientDisease, "patient")
+  return fieldHelper.getField(patientDisease, 'patient')
 }
 
 function patientName(patientDisease) {
