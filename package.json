@@ -1,8 +1,9 @@
 {
   "name": "@aprexis/aprexis-api-utility",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This is a utility front end package for working with the Aprexis API.",
-  "main": "src/index.js",
+  "main": "src/index",
+  "typings": "src/index",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
