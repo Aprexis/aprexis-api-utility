@@ -1,5 +1,6 @@
 import { valueHelper } from '../value.helper'
 import { idHelper } from '../id.helper'
+import { fieldHelper } from '../field.helper'
 
 export const medicationHelper = {
   ...idHelper,
