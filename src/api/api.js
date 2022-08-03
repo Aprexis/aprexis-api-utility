@@ -113,7 +113,6 @@ function handleError(method, path, error, onFailure, optional = {}) {
 }
 
 function perform(method, path, queryString, credentials, body, onSuccess, onFailure, optional = {}) {
-  console.log(`Credentials: ${JSON.stringify(credentials, null, 2)}`)
   const { baseApiUrl, railsUrlRoot, userCredentials } = credentials
   let workingPath = path
 
@@ -128,8 +127,6 @@ function perform(method, path, queryString, credentials, body, onSuccess, onFail
       'Accept': 'application/json'
     }
   }
-
-  console.log(`Path: ${fullPath}`)
 
   requestOptions.headers = addUserCredentials(requestOptions.headers, userCredentials)
   const headerBody = jsonBody(requestOptions.headers, body)
