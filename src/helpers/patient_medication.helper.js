@@ -29,6 +29,7 @@ export const patientMedicationHelper = {
   displayStrength,
   displayType,
   filledAt,
+  hasPreviousFill,
   healthPlanId,
   indication,
   label,
@@ -269,6 +270,10 @@ function displayType(patientMedication) {
 
 function filledAt(patientMedication) {
   return fieldHelper.getField(patientMedication, 'filled_at')
+}
+
+function hasPreviousFill(patientMedication) {
+  return fieldHelper.getField(patientMedication, 'has_previous_fill')
 }
 
 function healthPlanId(patientMedication) {
