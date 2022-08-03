@@ -85,6 +85,7 @@ function convertTimeStringToDate(timeString, format, localeString) {
 }
 
 function displayDate(dateValue, format = 'P') {
+  console.log(`Performing display date: ${JSON.stringify(dateValue)} ${format}`)
   if (!valueHelper.isValue(dateValue)) {
     return ''
   }
