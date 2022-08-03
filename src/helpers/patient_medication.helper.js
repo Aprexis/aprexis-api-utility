@@ -25,6 +25,7 @@ export const patientMedicationHelper = {
   directions,
   displayFilledAt,
   displayFilledOn,
+  displayHasPreviousFill,
   displayStrength,
   displayType,
   filledAt,
@@ -34,10 +35,12 @@ export const patientMedicationHelper = {
   medication,
   medicationId,
   medicationLabel,
+  mpr,
   patient,
   patientName,
   pharmacyStore,
   pharmacyStoreId,
+  pharmacyStoreIdentification,
   pharmacyStoreName,
   physician,
   physicianId,
@@ -49,7 +52,8 @@ export const patientMedicationHelper = {
   toJSON,
   type,
   uploadExternalMedical,
-  user
+  user,
+  userId
 }
 
 const patientMedicationEditableFields = [
@@ -225,6 +229,10 @@ function displayFilledOn(patientMedication) {
   return dateHelper.displayDate(filledAt)
 }
 
+function displayHasPreviousFill(patientMedication) {
+  return valueHelper.yesNo(patientMedicationHelper.hasPreviousFill(patientMedication))
+}
+
 function displayStrength(patientMedication) {
   const strength = patientMedicationHelper.strength(patientMedication)
   const strengthUnits = patientMedicationHelper.strengthUnits(patientMedication)
@@ -291,6 +299,10 @@ function medicationLabel(patientMedication) {
   return medicationHelper.label(patientMedicationHelper.medication(patientMedication))
 }
 
+function mpr(patientMedication) {
+  return fieldHelper.getField(patientMedication, 'mpr')
+}
+
 function patient(patientMedication) {
   return fieldHelper.getField(patientMedication, 'patient')
 }
@@ -305,6 +317,10 @@ function pharmacyStore(patientMedication) {
 
 function pharmacyStoreId(patientMedication) {
   return fieldHelper.getField(patientMedication, 'pharmacy_store_id')
+}
+
+function pharmacyStoreIdentification(patientMedication) {
+  return pharmacyStoreHelper.identification(patientMedicationHelper.pharmacyStore(patientMedication))
 }
 
 function pharmacyStoreName(patientMedication) {
@@ -353,4 +369,8 @@ function uploadExternalMedical(patientMedication) {
 
 function user(patientMedication) {
   return fieldHelper.getField(patientMedication, 'user')
+}
+
+function userId(patientMedication) {
+  return userHelper.id(patientMedicationHelper.user(patientMedication))
 }
