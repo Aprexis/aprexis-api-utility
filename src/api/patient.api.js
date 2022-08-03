@@ -65,7 +65,7 @@ function index(credentials, params, onSuccess, onFailure) {
   const path = `/patients`
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
-v
+
 function list(credentials, params, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/patients/list`
