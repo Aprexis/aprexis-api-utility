@@ -1,6 +1,7 @@
 import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
 import { caregiverHelper } from './caregiver.helper'
+import { dateHelper } from './date.helper'
 import { healthPlanHelper } from './health_plan.helper'
 import { idHelper } from './id.helper'
 import { patientHelper } from './patient.helper'
@@ -30,7 +31,14 @@ export const interventionHelper = {
   dateOfService,
   diagnosisCode,
   diagnosisCodeLongDescription,
+  displayConsentFormInitiatedAt,
   displayConsentObtainedFrom,
+  displayConsultEnded,
+  displayConsultStarted,
+  displayDateOfServce,
+  displayPendingUntil,
+  displayUserEnded,
+  displayUserStarted,
   dryRunProgramPatientAssignmentId,
   faxBypassed,
   healthPlanName,
@@ -140,6 +148,11 @@ function diagnosisCodeLongDescription(intervention) {
   return diagnosisCodeHelper.longDescription(fieldHelper.getField(intervention, 'diagnosis_code'))
 }
 
+
+function displayConsentFormInitiatedAt(intervention) {
+  return dateHelper.displayDateTime(interventionHelper.consentFormInitiatedAt(intervention))
+}
+
 function displayConsentObtainedFrom(intervention) {
   const consenter = interventionHelper.consentObtainedFrom(intervention)
   if (!valueHelper.isValue(consenter)) {
@@ -151,6 +164,31 @@ function displayConsentObtainedFrom(intervention) {
 
   return caregiverHelper.displayCaregiverAndRelationship(consenter)
 }
+
+function displayConsultEnded(intervention) {
+  return dateHelper.displayDate(interventionHelper.consultEnded(intervention))
+}
+
+function displayConsultStarted(intervention) {
+  return dateHelper.displayDate(interventionHelper.consultStarted(intervention))
+}
+
+function displayDateOfServce(intervention) {
+  return dateHelper.displayDate(interventionHelper.dateOfService(intervention))
+}
+
+function displayPendingUntil(intervention) {
+  return dateHelper.displayDate(interventionHelper.pendingUntil(intervention))
+}
+
+function displayUserEnded(intervention) {
+  return dateHelper.displayDateTime(interventionHelper.userEnded(intervention))
+}
+
+function displayUserStarted(intervention) {
+  return dateHelper.displayDateTime(interventionHelper.userStarted(intervention))
+}
+
 
 function dryRunProgramPatientAssignmentId(intervention) {
   return fieldHelper.getField(intervention, 'dry_run_program_patient_id')
