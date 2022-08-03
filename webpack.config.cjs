@@ -14,11 +14,17 @@ module.exports = {
     rules: [
       {
         test: /\.(js)$/,
-        exclude: /node_modules/,
-        use: "babel-loader",
+        include: path.resolve(__dirname, 'src'),
+        exclude: /(node_modules|bower_components|dist)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        },
         resolve: { fullySpecified: false }
-      },
+      }
     ],
   },
-  mode: "development",
+  mode: "production"
 }

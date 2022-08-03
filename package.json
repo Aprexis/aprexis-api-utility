@@ -3,7 +3,7 @@
   "version": "1.0.8",
   "description": "This is a utility front end package for working with the Aprexis API.",
   "main": "./index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
+    "@babel/plugin-proposal-object-rest-spread": "^7.18.9",
     "@babel/preset-env": "^7.18.10",
     "babel-loader": "^8.2.5",
     "webpack": "^5.74.0",
