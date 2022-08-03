@@ -52,6 +52,16 @@ function localeFromLocaleString(localeString) {
   }
 }
 
+function determineLocale() {
+  switch (valueHelper.detectHostEnvironment()) {
+    case 'web':
+      return navigator.languages[0]
+
+    default:
+      return 'en-US'
+  }
+}
+
 function convertDateStringToDate(dateString, format, localeString) {
   return dateHelper.parseDate(dateString, format, localeString)
 }
@@ -85,7 +95,6 @@ function convertTimeStringToDate(timeString, format, localeString) {
 }
 
 function displayDate(dateValue, format = 'P') {
-  console.log(`Performing display date: ${JSON.stringify(dateValue)} ${format}`)
   if (!valueHelper.isValue(dateValue)) {
     return ''
   }
