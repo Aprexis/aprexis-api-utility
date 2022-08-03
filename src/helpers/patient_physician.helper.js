@@ -18,6 +18,7 @@ export const patientPhysicianHelper = {
   patientName,
   physician,
   physicianId,
+  physicianLabel,
   physicianName,
   physicianNpi,
   primary,
@@ -140,6 +141,10 @@ function physicianId(patientPhysician) {
 
 function physicianName(patientPhysician) {
   return physicianHelper.name(patientPhysicianHelper.physician(patientPhysician))
+}
+
+function physicianLabel(patientPhysician) {
+  return physicianHelper.label(patientPhysicianHelper.physician(patientPhysician))
 }
 
 function physicianNpi(patientPhysician) {
