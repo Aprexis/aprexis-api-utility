@@ -41,9 +41,7 @@ function localeFromLocaleString(localeString) {
   const myLocaleString = valueHelper.isValue(localeString) ? localeString : 'en-US'
   switch (typeof myLocaleString) {
     case 'string':
-      console.log(`Locale string: ${myLocaleString}`)
-      const result = supportedLocales(myLocaleString)
-      console.log(`Result: ${JSON.stringify(result)}`)
+      const result = supportedLocales[myLocaleString]
       if (valueHelper.isValue(result.default)) {
         return result.default
       }
@@ -87,9 +85,6 @@ function convertTimeStringToDate(timeString, format, localeString) {
 }
 
 function displayDate(dateValue, format = 'P') {
-  console.log(`DV: ${dateValue} Format: ${format}`)
-  console.log(`Host: ${valueHelper.detectHostEnvironment()}`)
-  console.log(`Locale: ${determineLocale()}`)
   if (!valueHelper.isValue(dateValue)) {
     return ''
   }
