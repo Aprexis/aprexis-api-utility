@@ -28,11 +28,20 @@ function determineLocale() {
   }
 }
 
+/*
+  Metro, which is used by Expo, doesn't support dynamic requires. They need to be explicitly loaded. This means that adding support for other languages will require additional entries here. For now, we'll support US English and Spanish.
+*/
+const supportedLocales = {
+  'en-US': require('date-fns/locale/en-US'),
+  'en-CA': require('date-fns/locale/en-CA'),
+  'es': require('date-fns/locale/es')
+}
+
 function localeFromLocaleString(localeString) {
   const myLocaleString = valueHelper.isValue(localeString) ? localeString : 'en-US'
   switch (typeof myLocaleString) {
     case 'string':
-      const result = require(`date-fns/locale/${localeString}`)
+      const result = supportedLocales(myLocaleString)
       if (valueHelper.isValue(result.default)) {
         return result.default
       }
