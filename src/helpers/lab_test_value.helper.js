@@ -25,11 +25,12 @@ export const labTestValueHelper = {
   displayValueTakenAt,
   intervention,
   interventionIdentification,
+  labTest,
+  labTestCategory,
   labTestId,
   labTestKeyCode,
   labTestFullName,
   labTestName,
-  modelName,
   patient,
   patientName,
   pharmacyStore,
@@ -180,24 +181,28 @@ function interventionIdentification(labTestValue) {
   return interventionHelper.identification(intervention)
 }
 
+function labTest(labTestValue) {
+  return fieldHelper.getField(labTestValue, 'lab_test')
+}
+
+function labTestCategory(labTestValue) {
+  return labTestHelper.category(labTestValueHelper.labTest(labTestValue))
+}
+
 function labTestId(labTestValue) {
   return fieldHelper.getField(labTestValue, 'lab_test_id')
 }
 
 function labTestKeyCode(labTestValue) {
-  return labTestHelper.keyCode(fieldHelper.getField(labTestValue, 'lab_test'))
+  return labTestHelper.keyCode(labTestHelper.labTest(labTestValue))
 }
 
 function labTestFullName(labTestValue) {
-  return labTestHelper.fullName(fieldHelper.getField(labTestValue, 'lab_test'))
+  return labTestHelper.fullName(labTestHelper.labTest(labTestValue))
 }
 
 function labTestName(labTestValue) {
-  return labTestHelper.name(fieldHelper.getField(labTestValue, 'lab_test'))
-}
-
-function modelName() {
-  return 'labTestValue'
+  return labTestHelper.name(labTestHelper.labTest(labTestValue))
 }
 
 function patient(labTestValue) {
@@ -221,7 +226,7 @@ function pharmacyStoreIdentification(labTestValue) {
 }
 
 function programName(labTestValue) {
-  return interventionHelper.programName(fieldHelper.getField(labTestValue, 'intervention'))
+  return interventionHelper.programName(labTestHelper.intervention(labTestValue))
 }
 
 function toJSON(labTestValue) {
