@@ -8,7 +8,7 @@ export const fieldHelper = {
   changeValue,
   changeValues,
   combineValues,
-  fieldXs,
+  fieldName,
   getField,
   listField,
   method,
@@ -150,18 +150,12 @@ function combineValues(...values) {
   return filteredValues.join(' ')
 }
 
-function fieldXs(props) {
-  const { fieldXs } = props
-  if (valueHelper.isValue(fieldXs)) {
-    return fieldXs
+function fieldName(fieldName, prefix) {
+  if (!valueHelper.isStringValue(prefix)) {
+    return fieldName
   }
 
-  const { fieldXsTotal } = props
-  if (!valueHelper.isValue(fieldXsTotal)) {
-    return 10
-  }
-
-  return fieldXsTotal - fieldHelper.labelXs(props)
+  return `${prefix}_${fieldName} `
 }
 
 function getField(object, fieldName, prefix) {
