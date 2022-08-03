@@ -194,15 +194,15 @@ function labTestId(labTestValue) {
 }
 
 function labTestKeyCode(labTestValue) {
-  return labTestHelper.keyCode(labTestHelper.labTest(labTestValue))
+  return labTestHelper.keyCode(labTestValueHelper.labTest(labTestValue))
 }
 
 function labTestFullName(labTestValue) {
-  return labTestHelper.fullName(labTestHelper.labTest(labTestValue))
+  return labTestHelper.fullName(labTestValueHelper.labTest(labTestValue))
 }
 
 function labTestName(labTestValue) {
-  return labTestHelper.name(labTestHelper.labTest(labTestValue))
+  return labTestHelper.name(labTestValueHelper.labTest(labTestValue))
 }
 
 function patient(labTestValue) {
@@ -226,7 +226,7 @@ function pharmacyStoreIdentification(labTestValue) {
 }
 
 function programName(labTestValue) {
-  return interventionHelper.programName(labTestHelper.intervention(labTestValue))
+  return interventionHelper.programName(labTestValueHelper.intervention(labTestValue))
 }
 
 function toJSON(labTestValue) {
