@@ -7,10 +7,10 @@
     "sourceMap": true
   },
   "include": [
-    "src/**/*"
+    "dist/**/*"
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "src"
   ]
 }
