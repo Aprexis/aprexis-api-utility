@@ -32,6 +32,7 @@ export const userHelper = {
   pharmacyStores,
   role,
   rolesToOptions,
+  state,
   timeZone,
   username
 }
@@ -159,6 +160,10 @@ function rolesToOptions() {
       }
     }
   )
+}
+
+function state(user) {
+  return fieldHelper.getField(user, 'state')
 }
 
 function timeZone(user) {
