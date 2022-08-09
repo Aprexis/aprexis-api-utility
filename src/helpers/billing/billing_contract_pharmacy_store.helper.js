@@ -31,6 +31,7 @@ export const billingContractPharmacyStoreHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   changePharmacyStore,
   claimsEnabled,
   clinical,
@@ -94,6 +95,10 @@ function canModifyField(billingContractPharmacyStore, fieldName) {
   }
 
   return billingContractPharmacyStoreEditableFields.includes(fieldName)
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('billingContractPharmacyStore', model, changedModel, fieldName, newValue)
 }
 
 function changePharmacyStore(billingContractPharmacyStore, changedBillingContractPharmacyStore, pharmacyStore) {

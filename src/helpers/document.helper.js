@@ -16,6 +16,7 @@ export const documentHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   contentType,
   createdAt,
   filename,
@@ -59,6 +60,10 @@ function canEdit(_user, _document) {
 
 function canModifyField(_document, _fieldName) {
   return false
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('document', model, changedModel, fieldName, newValue)
 }
 
 function contentType(document) {

@@ -31,6 +31,7 @@ export const billingContractPharmacyChainHelper = {
   canModifyField,
   canDelete,
   canEdit,
+  changeField,
   changePharmacyChain,
   claimsEnabled,
   clinical,
@@ -110,6 +111,10 @@ function changePharmacyChain(billingContractPharmacyChain, changedBillingContrac
       pharmacyChain
     }
   }
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('billingContractPharmacyChain', model, changedModel, fieldName, newValue)
 }
 
 function claimsEnabled(billingContractPharmacyChain) {

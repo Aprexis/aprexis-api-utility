@@ -48,6 +48,7 @@ export const billingContractTermHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   contract,
   contractId,
   diagnosis,
@@ -168,6 +169,10 @@ function canModifyField(billingContractTerm, fieldName) {
   }
 
   return billingContractTermEditableFields.includes(fieldName)
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('billingContractTerm', model, changedModel, fieldName, newValue)
 }
 
 function contract(billingContractTerm) {

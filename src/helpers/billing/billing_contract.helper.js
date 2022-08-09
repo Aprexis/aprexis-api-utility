@@ -15,6 +15,7 @@ export const billingContractHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   contractWith,
   displayStartDate,
   displayStopDate,
@@ -121,6 +122,10 @@ function canModifyField(billingContract, fieldName) {
   }
 
   return (billingContractEditableFields.includes(fieldName))
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('billingContract', model, changedModel, fieldName, newValue)
 }
 
 function contractWith(billingContract) {

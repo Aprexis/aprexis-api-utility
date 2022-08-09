@@ -20,6 +20,7 @@ export const reminderHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   dayOfMonth,
   displayAction,
   displayMedications,
@@ -165,6 +166,10 @@ function canModifyField(reminder, fieldName) {
   }
 
   return reminderEditableFields.includes(fieldName)
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('reminder', model, changedModel, fieldName, newValue)
 }
 
 function dayOfMonth(reminder) {

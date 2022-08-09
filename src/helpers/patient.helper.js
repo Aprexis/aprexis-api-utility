@@ -19,6 +19,7 @@ export const patientHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   cognitiveImpairmentDetermined,
   cognitivelyImpaired,
   coverageEffectiveDate,
@@ -162,6 +163,10 @@ function canEdit(user, patient, healthPlan, pharmacyStores) {
 
 function canModifyField(_patient, _fieldName) {
   return true
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('patient', model, changedModel, fieldName, newValue)
 }
 
 function cognitiveImpairmentDetermined(patient) {

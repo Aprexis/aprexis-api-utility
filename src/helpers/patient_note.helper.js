@@ -18,6 +18,7 @@ export const patientNoteHelper = {
   buildNewChanged,
   canDelete,
   canEdit,
+  changeField,
   displayDateTime,
   note,
   patientName,
@@ -62,8 +63,8 @@ function canEdit(_user, _patientNote) {
   return false
 }
 
-function createdAt(note) {
-  return modelDatesHelper.createdAt(note)
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('patientNote', model, changedModel, fieldName, newValue)
 }
 
 function displayDateTime(patientNote) {

@@ -15,6 +15,7 @@ export const pharmacyStorePatientHelper = {
   ...idHelper,
   buildChanged,
   buildNewChanged,
+  changeField,
   patient,
   patientName,
   pharmacyStore,
@@ -38,6 +39,10 @@ function buildNewChanged(pharmacyStorePatient) {
     patient_id: pharmacyStorePatient.patient_id,
     pharmacy_store_id: pharmacyStorePatient.pharmacy_store_id
   }
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('pharmacyStorePatient', model, changedModel, fieldName, newValue)
 }
 
 function patient(pharmacyStorePatient) {

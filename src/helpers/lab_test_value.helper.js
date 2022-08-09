@@ -18,6 +18,7 @@ export const labTestValueHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   confirmed,
   displayCalculated,
   displayConfirmed,
@@ -136,6 +137,10 @@ function canModifyField(currentUser, labTestValue, fieldName) {
     default:
       return !valueHelper.isValue(labTestValueHelper.id(labTestValue)) || userHelper.hasRole(currentUser, 'aprexis_admin')
   }
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('labTestValue', model, changedModel, fieldName, newValue)
 }
 
 function confirmed(labTestValue) {

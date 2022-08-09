@@ -14,6 +14,7 @@ export const appointmentHelper = {
   buildNewChanged,
   canBeCreated,
   canModifyField,
+  changeField,
   changePharmacyStore,
   endDate,
   eventEnds,
@@ -94,6 +95,10 @@ function canBeCreated(currentUser, user) {
 
 function canModifyField(_appointment, fieldName) {
   return fieldName != 'user_id'
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('appointment', model, changedModel, fieldName, newValue)
 }
 
 function changePharmacyStore(appointment, changedAppointment, pharmacyStore) {

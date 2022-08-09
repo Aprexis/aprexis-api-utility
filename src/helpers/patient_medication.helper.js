@@ -18,6 +18,7 @@ export const patientMedicationHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   changeMedication,
   changePharmacyStore,
   changePhysician,
@@ -151,6 +152,10 @@ function canModifyField(patientMedication, fieldName) {
   }
 
   return (patientMedicationEditableFields.includes(fieldName))
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('patientMedication', model, changedModel, fieldName, newValue)
 }
 
 function changeMedication(patientMedication, changedPatientMedication, medication) {

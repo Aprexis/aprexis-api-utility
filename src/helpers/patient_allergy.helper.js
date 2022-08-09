@@ -15,6 +15,7 @@ export const patientAllergyHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   changeGoldStandardAllergy,
   goldStandardAllergy,
   goldStandardAllergyDescription,
@@ -109,6 +110,9 @@ function canModifyField(patientAllergy, fieldName) {
   return (patientAllergyEditableFields.includes(fieldName))
 }
 
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('patientAllergy', model, changedModel, fieldName, newValue)
+}
 function changeGoldStandardAllergy(modelName, model, changedModel, goldStandardAllergy) {
   const allergyName = goldStandardAllergyHelper.allergyName(goldStandardAllergy)
   const allergyId = goldStandardAllergyHelper.allergyId(goldStandardAllergy)

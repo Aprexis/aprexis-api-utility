@@ -33,6 +33,7 @@ export const caregiverHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   displayCaregiverAndRelationship,
   displayIsCurrentCaregiver,
   isCurrentCaregiver,
@@ -82,6 +83,10 @@ function canEdit(user, caregiver) {
 
 function canModifyField(_caregiver, fieldName) {
   return fieldName != 'patient_id'
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('caregiver', model, changedModel, fieldName, newValue)
 }
 
 function displayIsCurrentCaregiver(caregiver) {
