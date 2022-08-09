@@ -15,7 +15,6 @@ export const physicianHelper = {
   canEdit,
   clinic,
   credentials,
-  displayBusinessPhone,
   displayNpiDeactivationDate,
   displayNpiReactivationDate,
   einNumber,
@@ -57,11 +56,6 @@ function clinic(physician) {
 
 function credentials(physician) {
   return fieldHelper.getField(physician, 'credentials')
-}
-
-function displayBusinessPhone(physician) {
-  const businessPhone = physicianHelper.businessPhone(physician)
-  return fieldHelper.phoneNumberForDisplay(businessPhone)
 }
 
 function displayNpiDeactivationDate(physician) {
