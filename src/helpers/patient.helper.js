@@ -30,6 +30,8 @@ export const patientHelper = {
   hasUser,
   healthPlan,
   healthPlanName,
+  healthPlanNumber,
+  healthPlanRequiresPersonNumber,
   latitude,
   longitude,
   memberNumber,
@@ -231,6 +233,20 @@ function healthPlan(patient) {
 
 function healthPlanName(patient) {
   return healthPlanHelper.name(patientHelper.healthPlan(patient))
+}
+
+function healthPlanNumber(patient) {
+  let number = patientHelper.memberNumber(patient)
+
+  if (patientHelper.healthPlanRequiresPersonNumber(patient)) {
+    number = `${number}-${patientHelper.personNumber(patient)}`
+
+    return number
+  }
+}
+
+function healthPlanRequiresPersonNumber(patient) {
+  return healthPlanHelper.requiresPersonNumber(patientHelper.healthPlan(patient))
 }
 
 function latitude(patient) {
