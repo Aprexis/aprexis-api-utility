@@ -3,6 +3,7 @@ import { API } from './api'
 export const userApi = {
   account,
   actAs,
+  changePassword,
   index,
   indexForHealthPlan,
   show
@@ -26,6 +27,16 @@ function actAs(credentials, id, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/admin/users/${id}/act_as`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function changePassword(credentials, id, currentPassword, newPassword, onSuccess, onFailure) {
+  if (!API.validateId('user ID', id, onFailure)) {
+    return
+  }
+
+  const method = 'PUT'
+  const path = `/admin/users/${id}/change_password`
+  API.perform(method, path, API.buildQueryString({ current_password: currentPassword, password: newPassword, password_confirmation: newPassword }), credentials, undefined, onSuccess, onFailure)
 }
 
 function index(credentials, params, onSuccess, onFailure) {
