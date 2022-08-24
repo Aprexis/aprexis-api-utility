@@ -16,6 +16,7 @@ export const interventionHelper = {
   billLater,
   canDelete,
   canEdit,
+  canModifyField,
   closedReason,
   closedReasonDetail,
   consentFormInitiatedAt,
@@ -125,6 +126,19 @@ const interventionKeys = [
   'venue'
 ]
 
+const interventionFixedFields = [
+  'id',
+  'health_plan_id',
+  'patient_id',
+  'user_id',
+  'recommending_intervention_id',
+  'meta',
+  'state',
+  'state_path'
+]
+
+const interventionEditableFields = interventionKeys.filter((fieldName) => !interventionFixedFields.includes(fieldName))
+
 function billLater(intervention) {
   return fieldHelper.getField(intervention, 'bill_later')
 }
@@ -135,6 +149,14 @@ function canDelete(_user, _intervention) {
 
 function canEdit(_user, _intervention) {
   return false
+}
+
+function canModifyField(currentUser, intervention, fieldName) {
+  if (valueHelper.isValue(interventionHelper.id(intervention)) && !userHelper.hasRole(currentUser, 'aprexis_admin') && !interventionEditableFields.includes(fieldName)) {
+    return false
+  }
+
+  return !valueHelper.isValue(interventionHelper.id(intervention)) || userHelper.hasRole(currentUser, 'aprexis_admin')
 }
 
 function closedReason(intervention) {
