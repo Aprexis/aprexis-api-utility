@@ -14,9 +14,12 @@ import { diagnosisCodeHelper, placeOfServiceHelper } from './admin'
 export const interventionHelper = {
   ...idHelper,
   billLater,
+  buildChanged,
+  buildNewChanged,
   canDelete,
   canEdit,
   canModifyField,
+  changeField,
   closedReason,
   closedReasonDetail,
   consentFormInitiatedAt,
@@ -143,6 +146,38 @@ function billLater(intervention) {
   return fieldHelper.getField(intervention, 'bill_later')
 }
 
+function buildChanged(intervention, changedIntervention) {
+  if (valueHelper.isValue(changedIntervention)) {
+    return changedIntervention
+  }
+
+  if (valueHelper.isValue(intervention.id)) {
+    return copyIdentifiers(intervention)
+  }
+
+  return interventionHelper.buildNewChanged(intrervention)
+
+  function copyIdentifiers(intervention) {
+    return {
+      id: intervention.id,
+      diagnosis_code_id: intervention.diagnosis_code_id,
+      health_plan_id: intervention.health_plan_id,
+      patient_id: intervention.patient_id,
+      pharmacist_id: intervention.pharmacist_id,
+      pharmacy_store_id: intervention.pharmacy_store_id,
+      place_of_service: intervention.place_of_service,
+      recommending_intervention_id: intervention.recommending_intervention_id,
+      user_id: intervention.user_id
+    }
+  }
+}
+
+function buildNewChanged(intervention) {
+  return {
+    ...intervention
+  }
+}
+
 function canDelete(_user, _intervention) {
   return false
 }
@@ -157,6 +192,10 @@ function canModifyField(currentUser, intervention, fieldName) {
   }
 
   return !valueHelper.isValue(interventionHelper.id(intervention)) || userHelper.hasRole(currentUser, 'aprexis_admin')
+}
+
+function changeField(model, changedModel, fieldName, newValue) {
+  return fieldHelper.changeValue('intervention', model, changedModel, fieldName, newValue)
 }
 
 function closedReason(intervention) {
