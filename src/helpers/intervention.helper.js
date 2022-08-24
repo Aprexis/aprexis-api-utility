@@ -155,7 +155,7 @@ function buildChanged(intervention, changedIntervention) {
     return copyIdentifiers(intervention)
   }
 
-  return interventionHelper.buildNewChanged(intrervention)
+  return interventionHelper.buildNewChanged(intervention)
 
   function copyIdentifiers(intervention) {
     return {
