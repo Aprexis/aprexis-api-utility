@@ -1,11 +1,55 @@
+import { valueHelper } from '../helpers/value.helper'
+import { patientHelper } from '../helpers/intervention.helper'
 import { API } from './api'
 
 export const interventionApi = {
+  buildNewExternal,
+  createExternal,
   list,
   listForPatient,
   listForPharmacyStore,
   profile,
   show
+}
+
+function toJSON(intervention) {
+  return {
+    intervention: interventionHelper.toJSON(intervention)
+  }
+}
+
+function buildNewExternal(credentials, patient_id, pharmacy_store_id, onSuccess, onFailure) {
+  if (!API.validateId('patient ID', patient_id, onFailure)) {
+    return
+  }
+
+  const params = {}
+  if (valueHelper.isValue(pharmacy_store_id)) {
+    if (!API.validateId('pharmacy store ID', pharmacy_store_id, onFailure)) {
+      return
+    }
+
+    params.pharmacy_store_id = pharmacy_store_id
+  }
+
+  const method = 'GET'
+  const path = `/patients/${patient_id}/interventions/external/new`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function createExternal(credentials, externalIntervention, onSuccess, onFailure) {
+  if (!API.validateId('patient ID', externalIntervention.patient_id, onFailure)) {
+    return
+  }
+
+  if (!API.validateId('pharmacy store ID', externalIntervention.pharmacy_store_id, onFailure)) {
+    return
+  }
+
+
+  const method = 'POST'
+  const path = `/patients/${externalIntervention.patient_id}/interventions/external`
+  API.perform(method, path, '', credentials, toJSON(intervention), onSuccess, onFailure)
 }
 
 function list(credentials, params, onSuccess, onFailure) {

@@ -1,5 +1,6 @@
 import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
+import { apiHelper } from './api.helper'
 import { caregiverHelper } from './caregiver.helper'
 import { dateHelper } from './date.helper'
 import { healthPlanHelper } from './health_plan.helper'
@@ -69,8 +70,60 @@ export const interventionHelper = {
   userEnded,
   userName,
   userStarted,
+  toJSON,
   venue
 }
+
+const interventionKeys = [
+  'id',
+  'consent_obtained_from_id',
+  'contract_term_id',
+  'diagnosis_code_id',
+  'dry_run_program_patient_assignment_id',
+  'patient_id',
+  'health_plan_id',
+  'pharmacist_id',
+  'pharmacy_store_id',
+  'program_id',
+  'recommending_intervention_id',
+  'user_id',
+  'bill_later',
+  'closed_reason',
+  'closed_reason_detail',
+  'commercial_insurance_payment_amount',
+  'commercial_insurance_payment_status',
+  'consent_form_initiated_at',
+  'consent_form_initiated_by',
+  'consent_form_on_file',
+  'consent_obtained_from_type',
+  'consent_via',
+  'consult_end_date',
+  'consult_session_duration',
+  'consult_session_duration_exact',
+  'consult_session_duration_face_to_face',
+  'consult_start_date',
+  'contact_attempts',
+  'date_of_service',
+  'fax_bypassed',
+  'medicare_payment_amount',
+  'medicare_payment_status',
+  'meta',
+  'new_patient',
+  'pending_until',
+  'pharmacist_agreed_to_submit_claim_at',
+  'pharmacy_claim_tracking_number',
+  'pharmacy_store_assignments',
+  'physicians_response',
+  'physicians_response_recorded_at',
+  'place_of_service',
+  'provider_fee',
+  'recipient',
+  'state',
+  'state_path',
+  'user_end_date',
+  'user_start_date',
+  'venue'
+]
 
 function billLater(intervention) {
   return fieldHelper.getField(intervention, 'bill_later')
@@ -308,6 +361,10 @@ function userName(intervention) {
 
 function userStarted(intervention) {
   return fieldHelper.getField(intervention, 'user_start_date')
+}
+
+function toJSON(intervention) {
+  return apiHelper.toJSON(intervention, interventionKeys)
 }
 
 function venue(intervention) {
