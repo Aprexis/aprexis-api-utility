@@ -6,6 +6,7 @@ export const userApi = {
   changePassword,
   index,
   indexForHealthPlan,
+  search,
   show
 }
 
@@ -52,6 +53,12 @@ function indexForHealthPlan(credentials, health_plan_id, params, onSuccess, onFa
 
   const method = 'GET'
   const path = `/health_plans/${health_plan_id}/users`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function search(credentials, params, onSuccess, onFailure) {
+  const method = 'GET'
+  const path = '/admin/users/search'
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 

@@ -59,10 +59,12 @@ export const interventionHelper = {
   pendingUntil,
   personNumber,
   pharmacist,
+  pharmacistId,
   pharmacistAgreedToSubmitClaimAt,
   pharmacistDisplay,
   pharmacyClaimTrackingNumber,
   pharmacyStore,
+  pharmacyStoreId,
   pharmacyStoreDisplay,
   physiciansResponse,
   physiciansResponseRecordedAt,
@@ -393,6 +395,10 @@ function pharmacist(intervention) {
   return fieldHelper.getField(intervention, 'pharmacist')
 }
 
+function pharmacistId(intervention) {
+  return fieldHelper.getField(intervention, 'pharmacist_id')
+}
+
 function pharmacistAgreedToSubmitClaimAt(intervention) {
   return fieldHelper.getField(intervention, 'pharmacist_agreed_to_submit_claim_at')
 }
@@ -411,6 +417,10 @@ function pharmacyStore(intervention) {
 
 function pharmacyStoreDisplay(intervention) {
   return pharmacyStoreHelper.display(interventionHelper.pharmacyStore(intervention))
+}
+
+function pharmacyStoreId(intervention) {
+  return fieldHelper.getField(intervention, 'pharmacy_store_id')
 }
 
 function physiciansResponse(intervention) {
