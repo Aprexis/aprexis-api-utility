@@ -19,6 +19,7 @@ export const interventionHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeDiagnosisCode,
   changeField,
   closedReason,
   closedReasonDetail,
@@ -194,6 +195,35 @@ function canModifyField(currentUser, intervention, fieldName) {
   }
 
   return !valueHelper.isValue(interventionHelper.id(intervention)) || userHelper.hasRole(currentUser, 'aprexis_admin')
+}
+
+function changeDiagnosisCode(modelName, model, changedModel, diagnosisCode) {
+  const diagnosisCodeType = diagnosisCodeHelper.type(diagnosisCode)
+  const diagnosisCodeId = diagnosisCodeHelper.id(diagnosisCode)
+
+  const updated = fieldHelper.changeValue(
+    modelName,
+    model,
+    changedModel,
+    'diagnosis_code_type',
+    diagnosisCodeType
+  )
+  updated = fieldHelper.changeValue(
+    modelName,
+    updated[modelName],
+    updated[valueHelper.changedModelName(modelName)],
+    'diagnosis_code_id',
+    diagnosisCodeId
+  )
+  updated = fieldHelper.changeValue(
+    modelName,
+    updated[modelName],
+    updated[valueHelper.changedModelName(modelName)],
+    'diagnosis_code',
+    diagnosisCode
+  )
+
+  return updated
 }
 
 function changeField(model, changedModel, fieldName, newValue) {

@@ -113,6 +113,7 @@ function canModifyField(patientAllergy, fieldName) {
 function changeField(model, changedModel, fieldName, newValue) {
   return fieldHelper.changeValue('patientAllergy', model, changedModel, fieldName, newValue)
 }
+
 function changeGoldStandardAllergy(modelName, model, changedModel, goldStandardAllergy) {
   const allergyName = goldStandardAllergyHelper.allergyName(goldStandardAllergy)
   const allergyId = goldStandardAllergyHelper.allergyId(goldStandardAllergy)
