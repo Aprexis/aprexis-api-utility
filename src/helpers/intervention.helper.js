@@ -64,6 +64,7 @@ export const interventionHelper = {
   pharmacyStoreDisplay,
   physiciansResponse,
   physiciansResponseRecordedAt,
+  placeOfService,
   program,
   programDisplay,
   programName,
@@ -382,6 +383,10 @@ function physiciansResponse(intervention) {
 
 function physiciansResponseRecordedAt(intervention) {
   return fieldHelper.getField(intervention, 'physicians_response_recorded_at')
+}
+
+function placeOfService(intervention) {
+  return fieldHelper.getField(intervention, 'place_of_service')
 }
 
 function program(intervention) {
