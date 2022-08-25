@@ -1,6 +1,6 @@
 {
   "name": "@aprexis/aprexis-api-utility",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "This is a utility front end package for working with the Aprexis API.",
   "main": "./index.js",
   "type": "module",
