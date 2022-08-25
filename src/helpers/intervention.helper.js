@@ -201,7 +201,7 @@ function changeDiagnosisCode(modelName, model, changedModel, diagnosisCode) {
   const diagnosisCodeType = diagnosisCodeHelper.type(diagnosisCode)
   const diagnosisCodeId = diagnosisCodeHelper.id(diagnosisCode)
 
-  const updated = fieldHelper.changeValue(
+  let updated = fieldHelper.changeValue(
     modelName,
     model,
     changedModel,
