@@ -85,6 +85,7 @@ const interventionKeys = [
   'id',
   'consent_obtained_from_id',
   'contract_term_id',
+  'diagnosis_code_type',
   'diagnosis_code_id',
   'dry_run_program_patient_assignment_id',
   'patient_id',
