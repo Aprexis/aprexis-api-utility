@@ -6,11 +6,7 @@
     "preserveConstEnums": true,
     "sourceMap": true
   },
-  "include": [
-    "**/*"
-  ],
   "exclude": [
-    "node_modules",
-    "src"
+    "node_modules"
   ]
 }

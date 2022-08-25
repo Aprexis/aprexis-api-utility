@@ -3,5 +3,6 @@ export * from './disease.api'
 export * from './lab_test.api'
 export * from './medication.api'
 export * from './physician.api'
+export * from './place_of_service.api'
 export * from './system_setting.api'
 
