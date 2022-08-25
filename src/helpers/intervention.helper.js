@@ -35,6 +35,7 @@ export const interventionHelper = {
   contactAttempts,
   dateOfService,
   diagnosisCode,
+  diagnosisCodeId,
   diagnosisCodeLongDescription,
   displayConsentFormInitiatedAt,
   displayConsentObtainedFrom,
@@ -257,6 +258,10 @@ function dateOfService(intervention) {
 
 function diagnosisCode(intervention) {
   return diagnosisCodeHelper.code(fieldHelper.getField(intervention, 'diagnosis_code'))
+}
+
+function diagnosisCodeId(intervention) {
+  return fieldHelper.getField(intervention, 'diagnosis_code_id')
 }
 
 function diagnosisCodeLongDescription(intervention) {

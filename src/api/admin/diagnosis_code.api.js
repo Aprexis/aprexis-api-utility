@@ -3,6 +3,7 @@ import { API } from '../api'
 export const diagnosisCodeApi = {
   list,
   listForDisease,
+  search,
   show
 }
 
@@ -12,7 +13,6 @@ function list(credentials, params, onSuccess, onFailure) {
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
-
 function listForDisease(credentials, disease_id, params, onSuccess, onFailure) {
   if (!API.validateId('disease ID', disease_id, onFailure)) {
     return
@@ -20,6 +20,12 @@ function listForDisease(credentials, disease_id, params, onSuccess, onFailure) {
 
   const method = 'GET'
   const path = `/admin/diseases/${disease_id}/diagnosis_codes/list`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function search(credentials, params, onSuccess, onFailure) {
+  const method = 'GET'
+  const path = '/admin/diagnosis_codes/search'
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
