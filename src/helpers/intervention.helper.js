@@ -20,6 +20,7 @@ export const interventionHelper = {
   canEdit,
   canModifyField,
   changeDiagnosisCode,
+  changePharmacist,
   changeField,
   closedReason,
   closedReasonDetail,
@@ -224,6 +225,27 @@ function changeDiagnosisCode(modelName, model, changedModel, diagnosisCode) {
     updated[valueHelper.changedModelName(modelName)],
     'diagnosis_code',
     diagnosisCode
+  )
+
+  return updated
+}
+
+function changePharmacist(modelName, model, changedModel, pharmacist) {
+  const pharmacistId = userHelper.id(pharmacist)
+
+  let updated = fieldHelper.changeValue(
+    modelName,
+    model,
+    changedModel,
+    'pharmacist_id',
+    pharmacistId
+  )
+  updated = fieldHelper.changeValue(
+    modelName,
+    updated[modelName],
+    updated[valueHelper.changedModelName(modelName)],
+    'pharmacist',
+    pharmacist
   )
 
   return updated
