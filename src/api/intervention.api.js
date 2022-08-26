@@ -49,7 +49,7 @@ function createExternal(credentials, externalIntervention, onSuccess, onFailure)
 
   const method = 'POST'
   const path = `/patients/${externalIntervention.patient_id}/interventions/external`
-  API.perform(method, path, '', credentials, toJSON(intervention), onSuccess, onFailure)
+  API.perform(method, path, '', credentials, toJSON(externalIntervention), onSuccess, onFailure)
 }
 
 function list(credentials, params, onSuccess, onFailure) {
