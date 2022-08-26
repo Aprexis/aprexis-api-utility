@@ -35,7 +35,7 @@ The account on  https://www.npmjs.com/ is used to publish the module. You will n
 ### Build the module
 Run the command:
 
-`yarn build`
+`yarn install`
 
 ### Update the module version
 Run the command:
