@@ -1,5 +1,5 @@
 import { valueHelper } from '../helpers/value.helper'
-import { patientHelper } from '../helpers/intervention.helper'
+import { interventionHelper } from '../helpers/intervention.helper'
 import { API } from './api'
 
 export const interventionApi = {
