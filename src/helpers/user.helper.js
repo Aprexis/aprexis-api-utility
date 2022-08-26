@@ -24,6 +24,7 @@ export const userHelper = {
   isAccessLocked,
   isExpired,
   isLoginAllowed,
+  label,
   patient,
   patientId,
   pharmacistDisplay,
@@ -105,6 +106,16 @@ function hasRole(user, role) {
 
 function healthPlans(user) {
   return fieldHelper.getField(user, 'health_plans')
+}
+
+function label(user) {
+  const name = userHelper.fullName(user)
+  const npi = userHelper.npi(user)
+  if (!userHelper.hasRole(['pharmacy_store_admin', 'pharmacy_store_user']) || !valueHelper.isStringValue(npi)) {
+    return name
+  }
+
+  return `${name} (${npi})`
 }
 
 function isAccessLocked(user) {
