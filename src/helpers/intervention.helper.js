@@ -294,7 +294,12 @@ function diagnosisCode(intervention) {
 }
 
 function diagnosisCodeId(intervention) {
-  return fieldHelper.getField(intervention, 'diagnosis_code_id')
+  const diagnosisCodeId = fieldHelper.getField(intervention, 'diagnosis_code_id')
+  if (valueHelper.isNumberValue(diagnosisCodeId)) {
+    return diagnosisCodeId
+  }
+
+  return diagnosisCodeHelper.id(interventionHelper.diagnosisCode(intervention))
 }
 
 function diagnosisCodeLongDescription(intervention) {
@@ -396,7 +401,12 @@ function pharmacist(intervention) {
 }
 
 function pharmacistId(intervention) {
-  return fieldHelper.getField(intervention, 'pharmacist_id')
+  const pharmacistId = fieldHelper.getField(intervention, 'pharmacist_id')
+  if (valueHelper.isNumberValue(pharmacistId)) {
+    return pharmacistId
+  }
+
+  return userHelper.id(interventionHelper.pharmacist(intervention))
 }
 
 function pharmacistAgreedToSubmitClaimAt(intervention) {
@@ -420,7 +430,12 @@ function pharmacyStoreDisplay(intervention) {
 }
 
 function pharmacyStoreId(intervention) {
-  return fieldHelper.getField(intervention, 'pharmacy_store_id')
+  const pharmacyStoreId = fieldHelper.getField(intervention, 'pharmacy_store_id')
+  if (valueHelper.isNumberValue(pharmacyStoreId)) {
+    return pharmacyStoreId
+  }
+
+  return pharmacyStoreHelper.id(interventionHelper.pharmacyStore(intervention))
 }
 
 function physiciansResponse(intervention) {
