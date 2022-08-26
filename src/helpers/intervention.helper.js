@@ -202,20 +202,12 @@ function canModifyField(currentUser, intervention, fieldName) {
 }
 
 function changeDiagnosisCode(modelName, model, changedModel, diagnosisCode) {
-  const diagnosisCodeType = diagnosisCodeHelper.type(diagnosisCode)
   const diagnosisCodeId = diagnosisCodeHelper.id(diagnosisCode)
 
   let updated = fieldHelper.changeValue(
     modelName,
     model,
     changedModel,
-    'diagnosis_code_type',
-    diagnosisCodeType
-  )
-  updated = fieldHelper.changeValue(
-    modelName,
-    updated[modelName],
-    updated[valueHelper.changedModelName(modelName)],
     'diagnosis_code_id',
     diagnosisCodeId
   )
