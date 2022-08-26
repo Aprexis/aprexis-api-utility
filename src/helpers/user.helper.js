@@ -110,12 +110,11 @@ function healthPlans(user) {
 
 function label(user) {
   const name = userHelper.fullName(user)
-  const npi = userHelper.npi(user)
-  if (!userHelper.hasRole(['pharmacy_store_admin', 'pharmacy_store_user']) || !valueHelper.isStringValue(npi)) {
+  if (!userHelper.hasRole(['pharmacy_store_admin', 'pharmacy_store_user']) || !userHelper.canHaveNpi(user)) {
     return name
   }
 
-  return `${name} (${npi})`
+  return `${name} (${userHelper.pharmacistNPI(user)})`
 }
 
 function isAccessLocked(user) {
