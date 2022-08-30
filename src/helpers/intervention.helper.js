@@ -19,6 +19,7 @@ export const interventionHelper = {
   canDelete,
   canEdit,
   canModifyField,
+  changeConsentObtainedFrom,
   changeDiagnosisCode,
   changePharmacist,
   changeField,
@@ -200,9 +201,35 @@ function canModifyField(currentUser, intervention, fieldName) {
   return !valueHelper.isValue(interventionHelper.id(intervention)) || userHelper.hasRole(currentUser, 'aprexis_admin')
 }
 
+function changeConsentObtainedFrom(modelName, model, changedModel, consentObtainedFromType, consentObtainedFrom) {
+  const consentObtainedFromId = idHelper.id(consentObtainedFrom)
+  let updated = fieldHelper.changeValue(
+    modelName,
+    model,
+    changedModel,
+    'consent_obtained_from_id',
+    consentObtainedFromId
+  )
+  updated = fieldHelper.changeValue(
+    modelName,
+    updated[modelName],
+    updated[valueHelper.changedModelName(modelName)],
+    'consent_obtained_from_type',
+    consentObtainedFromType
+  )
+  updated = fieldHelper.changeValue(
+    modelName,
+    updated[modelName],
+    updated[valueHelper.changedModelName(modelName)],
+    'consent_obtained_from',
+    consentObtainedFrom
+  )
+
+  return updated
+}
+
 function changeDiagnosisCode(modelName, model, changedModel, diagnosisCode) {
   const diagnosisCodeId = diagnosisCodeHelper.id(diagnosisCode)
-
   let updated = fieldHelper.changeValue(
     modelName,
     model,
@@ -223,7 +250,6 @@ function changeDiagnosisCode(modelName, model, changedModel, diagnosisCode) {
 
 function changePharmacist(modelName, model, changedModel, pharmacist) {
   const pharmacistId = userHelper.id(pharmacist)
-
   let updated = fieldHelper.changeValue(
     modelName,
     model,
