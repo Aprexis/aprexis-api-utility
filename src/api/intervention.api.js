@@ -9,7 +9,8 @@ export const interventionApi = {
   listForPatient,
   listForPharmacyStore,
   profile,
-  show
+  show,
+  verify
 }
 
 function toJSON(intervention) {
@@ -87,5 +88,15 @@ function show(credentials, id, onSuccess, onFailure) {
 
   const method = 'GET'
   const path = `/interventions/${id}`
+  API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function verify(credentials, id, onSuccess, onFailure) {
+  if (!API.validateId('intervention ID', id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `interventions/${id}/verify`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
