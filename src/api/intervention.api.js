@@ -97,6 +97,6 @@ function verify(credentials, id, onSuccess, onFailure) {
   }
 
   const method = 'GET'
-  const path = `interventions/${id}/verify`
+  const path = `/interventions/${id}/verify`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
