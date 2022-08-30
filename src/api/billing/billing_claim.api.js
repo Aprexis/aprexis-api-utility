@@ -1,10 +1,21 @@
 import { API } from '../api'
 
 export const billingClaimApi = {
+  createForIntervention,
   listForHealthPlan,
   listForPharmacyStore,
   profile,
   show
+}
+
+function createForIntervention(credentials, intervention_id, onSuccess, onFailure) {
+  if (!API.validateId('intervention ID', intervention_id, onFailure)) {
+    return
+  }
+
+  const method = 'POST'
+  const path = `/interventions/${intervention_id}/billing/claims`
+  API.perform(method, path, '', credentials, { intervention: { id: intervention_id } }, onSuccess, onFailure)
 }
 
 function listForHealthPlan(credentials, health_plan_id, params, onSuccess, onFailure) {
