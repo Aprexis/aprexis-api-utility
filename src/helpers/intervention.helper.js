@@ -141,6 +141,8 @@ const interventionFixedFields = [
   'health_plan_id',
   'patient_id',
   'user_id',
+  'pharmacy_claim_tracking_number',
+  'pharmacy_store_assignments',
   'recommending_intervention_id',
   'meta',
   'state',
@@ -203,7 +205,7 @@ function canModifyField(currentUser, intervention, fieldName) {
     return false
   }
 
-  return !valueHelper.isValue(interventionHelper.id(intervention)) || userHelper.hasRole(currentUser, 'aprexis_admin')
+  return true
 }
 
 function changeConsentObtainedFrom(modelName, model, changedModel, consentObtainedFromType, consentObtainedFrom) {
