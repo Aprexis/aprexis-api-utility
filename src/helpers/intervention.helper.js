@@ -189,8 +189,13 @@ function canDelete(_user, _intervention) {
   return false
 }
 
-function canEdit(_user, _intervention) {
-  return false
+function canEdit(user, intervention) {
+  if (!userHelper.hasRole(user, ['aprexis_admin', 'pharmacy_store_admin', 'pharmacy_store_tech', 'pharmacy_store_user'])) {
+    return false
+  }
+
+  const patient = interventionHelper.patient(intervention)
+  return patientHelper.canEdit(user, patient)
 }
 
 function canModifyField(currentUser, intervention, fieldName) {
