@@ -10,6 +10,7 @@ export const interventionApi = {
   listForPharmacyStore,
   profile,
   show,
+  update,
   verify
 }
 
@@ -89,6 +90,12 @@ function show(credentials, id, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/interventions/${id}`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function update(credentials, intervention, onSuccess, onFailure) {
+  const method = 'PUT'
+  const path = `/interventions/${intervention.id}`
+  API.perform(method, path, '', credentials, toJSON(intervention), onSuccess, onFailure)
 }
 
 function verify(credentials, id, onSuccess, onFailure) {
