@@ -147,7 +147,6 @@ const interventionFixedFields = [
   'pharmacy_store_assignments',
   'recommending_intervention_id',
   'meta',
-  'state',
   'state_path'
 ]
 
