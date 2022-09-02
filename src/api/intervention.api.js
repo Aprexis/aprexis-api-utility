@@ -5,6 +5,7 @@ import { API } from './api'
 export const interventionApi = {
   buildNewExternal,
   createExternal,
+  edit,
   list,
   listForPatient,
   listForPharmacyStore,
@@ -48,10 +49,19 @@ function createExternal(credentials, externalIntervention, onSuccess, onFailure)
     return
   }
 
-
   const method = 'POST'
   const path = `/patients/${externalIntervention.patient_id}/interventions/external`
   API.perform(method, path, '', credentials, toJSON(externalIntervention), onSuccess, onFailure)
+}
+
+function edit(credentials, id, onSuccess, onFailure) {
+  if (!API.validateId('intervention ID', id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/interventions/${id}/edit`
+  API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
 
 function list(credentials, params, onSuccess, onFailure) {
