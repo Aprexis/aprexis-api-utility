@@ -534,7 +534,7 @@ function serviceLocation(intervention) {
 }
 
 function state(intervention) {
-  return valueHelper.titleize(fieldHelper.getField(intervention, 'state'))
+  return fieldHelper.getField(intervention, 'state')
 }
 
 function userEnded(intervention) {
