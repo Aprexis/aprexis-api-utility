@@ -16,6 +16,8 @@ export const interventionHelper = {
   billLater,
   buildChanged,
   buildNewChanged,
+  canBeBilled,
+  canBeChanged,
   canDelete,
   canEdit,
   canModifyField,
@@ -187,11 +189,23 @@ function buildNewChanged(intervention) {
   }
 }
 
+function canBeBilled(intervention) {
+  return fieldHelper.getField(intervention, 'can_be_billed')
+}
+
+function canBeChanged(intervention) {
+  return fieldHelper.getField(intervention, 'can_be_changed')
+}
+
 function canDelete(_user, _intervention) {
   return false
 }
 
 function canEdit(user, intervention) {
+  if (!valueHelper.isSet(interventionHelper.canBeChanged(intervention))) {
+    return false
+  }
+
   if (!userHelper.hasRole(user, ['aprexis_admin', 'pharmacy_store_admin', 'pharmacy_store_tech', 'pharmacy_store_user'])) {
     return false
   }
