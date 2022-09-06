@@ -59,6 +59,7 @@ export const interventionHelper = {
   memberNumber,
   newPatient,
   patient,
+  patientId,
   patientName,
   pendingUntil,
   personNumber,
@@ -441,6 +442,15 @@ function newPatient(intervention) {
 
 function patient(intervention) {
   return fieldHelper.getField(intervention, 'patient')
+}
+
+function patientId(intervention) {
+  const patientId = fieldHelper.getField(intervention, 'patient_id')
+  if (valueHelper.isNumberValue(patientId)) {
+    return patientId
+  }
+
+  return patientHelper.id(interventionHelper.patient(intervention))
 }
 
 function patientName(intervention, prefix = '', allowBlank = false) {
