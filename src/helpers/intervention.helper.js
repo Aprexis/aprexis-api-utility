@@ -31,6 +31,8 @@ export const interventionHelper = {
   consentFormInitiator,
   consentFormOnFile,
   consentObtainedFrom,
+  consentObtainedFromId,
+  consentObtainedFromType,
   consentVia,
   consultEnded,
   consultSessionDuration,
@@ -109,6 +111,7 @@ const interventionKeys = [
   'consent_form_initiated_at',
   'consent_form_initiated_by',
   'consent_form_on_file',
+  'consent_obtained_from_id',
   'consent_obtained_from_type',
   'consent_via',
   'consult_end_date',
@@ -171,6 +174,8 @@ function buildChanged(intervention, changedIntervention) {
   function copyIdentifiers(intervention) {
     return {
       id: intervention.id,
+      consent_obtained_from_type: intervention.consent_obtained_from_type,
+      consent_obtained_from_id: intervention.consent_obtained_from_id,
       diagnosis_code_id: intervention.diagnosis_code_id,
       health_plan_id: intervention.health_plan_id,
       patient_id: intervention.patient_id,
@@ -315,6 +320,19 @@ function consentFormOnFile(intervention) {
 
 function consentObtainedFrom(intervention) {
   return fieldHelper.getField(intervention, 'consent_obtained_from')
+}
+
+function consentObtainedFromId(intervention) {
+  const consentObtainedFromId = fieldHelper.getField(intervention, 'consent_obtained_from_id')
+  if (valueHelper.isNumberValue(consentObtainedFromId)) {
+    return consentObtainedFromId
+  }
+
+  return idHelper.id(interventionHelper.consentObtainedFrom(intervention))
+}
+
+function consentObtainedFromType(intervention) {
+  return fieldHelper.getField(intervention, 'consent_obtained_from_type')
 }
 
 function consentVia(intervention) {
