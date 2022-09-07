@@ -14,7 +14,7 @@ export const caregiverApi = {
   edit,
   listForPatient,
   profile,
-  search,
+  searchForPatient,
   show,
   update
 }
@@ -83,9 +83,13 @@ function profile(credentials, id, onSuccess, onFailure) {
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
 
-function search(credentials, params, onSuccess, onFailure) {
+function searchForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+  if (!API.validateId('patient ID', patient_id, onFailure)) {
+    return
+  }
+
   const method = 'GET'
-  const path = '/caregivers/search'
+  const path = `/patients/${patient_id}/caregivers/search`
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
