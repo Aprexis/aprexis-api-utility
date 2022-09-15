@@ -6,9 +6,11 @@ import { interventionHelper } from './intervention.helper'
 import { pharmacyStoreHelper } from './pharmacy_store.helper'
 import { userHelper } from './user.helper'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const appointmentHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   allDay,
   buildChanged,
   buildNewChanged,

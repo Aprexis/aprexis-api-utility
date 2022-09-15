@@ -6,9 +6,11 @@ import { valueHelper } from './value.helper'
 import { userHelper } from './user.helper'
 import { faxDeliveryStatuses } from '../types'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const faxHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   attachableType,
   canDelete,
   canEdit,

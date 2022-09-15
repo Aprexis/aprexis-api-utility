@@ -9,9 +9,11 @@ import { patientSupplementHelper } from './patient_supplement.helper'
 import { userHelper } from './user.helper'
 import { valueHelper } from './value.helper'
 import { reminderActions, reminderTypes, timeZones } from '../types'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const reminderHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   action,
   addingReminderMedication,
   addingReminderSupplement,

@@ -2,9 +2,11 @@ import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
 import { idHelper } from './id.helper'
 import { healthPlanHelper } from './health_plan.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const programHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   active,
   canDelete,
   canEdit,

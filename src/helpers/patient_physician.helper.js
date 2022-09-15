@@ -4,8 +4,12 @@ import { apiHelper } from './api.helper'
 import { patientHelper } from './patient.helper'
 import { userHelper } from './user.helper'
 import { physicianHelper } from './admin/physician.helper'
+import { modelDatesHelper } from './model_dates.helper'
+import { idHelper } from './id.helper'
 
 export const patientPhysicianHelper = {
+  ...idHelper,
+  ...modelDatesHelper,
   buildChanged,
   buildNewChanged,
   canDelete,
@@ -13,7 +17,6 @@ export const patientPhysicianHelper = {
   canModifyField,
   changeField,
   changePhysician,
-  id,
   patient,
   patientId,
   patientName,
@@ -118,10 +121,6 @@ function changePhysician(patientPhysician, changedPatientPhysician, physician) {
       physician
     }
   }
-}
-
-function id(patientPhysician) {
-  return fieldHelper.getField(patientPhysician, 'id')
 }
 
 function patient(patientPhysician) {

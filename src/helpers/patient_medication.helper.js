@@ -9,9 +9,11 @@ import { medicationHelper } from './admin/medication.helper'
 import { physicianHelper } from './admin/physician.helper'
 import { patientMedications } from '../types/patient_medications.type'
 import { dateHelper } from './date.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const patientMedicationHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   additionalInformation,
   buildChanged,
   buildNewChanged,

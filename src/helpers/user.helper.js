@@ -4,11 +4,13 @@ import { idHelper } from './id.helper'
 import { userRoles } from '../types'
 import { contactHelper } from './contact.helper'
 import { nameHelper } from './name.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const userHelper = {
   ...idHelper,
   ...valueHelper.filterHash(nameHelper, { excludeKeys: ['name'] }),
   ...valueHelper.filterHash(contactHelper, { excludeKeys: ['keys'] }),
+  ...modelDatesHelper,
   canDelete,
   canEdit,
   canHaveNpi,

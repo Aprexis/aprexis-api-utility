@@ -8,9 +8,11 @@ import { programHelper } from '../program.helper'
 import { userHelper } from '../user.helper'
 import { valueHelper } from '../value.helper'
 import { idHelper } from '../id.helper'
+import { modelDatesHelper } from '../model_dates.helper'
 
 export const billingClaimHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   amountPaid,
   billingStatus,
   canDelete,

@@ -1,9 +1,11 @@
 import { valueHelper } from '../value.helper'
 import { idHelper } from '../id.helper'
 import { fieldHelper } from '../field.helper'
+import { modelDatesHelper } from '../model_dates.helper'
 
 export const medicationHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   activeIngredUnit,
   activeNumeratorStrength,
   applicationNumber,

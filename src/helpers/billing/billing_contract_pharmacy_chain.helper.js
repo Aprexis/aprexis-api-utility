@@ -5,6 +5,7 @@ import { pharmacyChainHelper } from '../pharmacy_chain.helper'
 import { userHelper } from '../user.helper'
 import { valueHelper } from '../value.helper'
 import { idHelper } from '../id.helper'
+import { modelDatesHelper } from '../model_dates.helper'
 
 const billingContractPharmacyChainEditableFields = [
   'claims_enabled',
@@ -25,6 +26,7 @@ const billingContractPharmacyChainKeys = [
 
 export const billingContractPharmacyChainHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   buildChanged,
   buildNewChanged,
   canBeCreated,

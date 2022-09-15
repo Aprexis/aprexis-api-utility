@@ -3,9 +3,11 @@ import { fieldHelper } from './field.helper'
 import { interventionHelper } from './intervention.helper'
 import { valueHelper } from './value.helper'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const interventionMedicationHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   canDelete,
   canEdit,
   displayType,

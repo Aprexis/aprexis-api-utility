@@ -2,6 +2,7 @@ import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
 import { apiHelper } from './api.helper'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 const documentKeys = [
   'id',
@@ -11,6 +12,7 @@ const documentKeys = [
 
 export const documentHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   buildChanged,
   buildNewChanged,
   canDelete,

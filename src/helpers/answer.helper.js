@@ -2,9 +2,11 @@ import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
 import { questionHelper } from './question.helper'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_times.helper'
 
 export const answerHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   canDelete,
   canEdit,
   displayValue,

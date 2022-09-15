@@ -1,6 +1,8 @@
 import { fieldHelper } from '../field.helper'
+import { modelDatesHelper } from '../model_dates.helper'
 
 export const goldStandardAllergyHelper = {
+  ...modelDatesHelper,
   allergyDescription,
   allergyId,
   allergyName,

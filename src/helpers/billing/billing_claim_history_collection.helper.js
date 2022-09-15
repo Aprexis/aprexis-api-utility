@@ -2,9 +2,11 @@ import { fieldHelper } from '../field.helper'
 import { dateHelper } from '../date.helper'
 import { valueHelper } from '../value.helper'
 import { idHelper } from '../id.helper'
+import { modelDatesHelper } from '../model_dates.helper'
 
 export const billingClaimHistoryCollectionHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   canDelete,
   canEdit,
   displayFinishedAt,

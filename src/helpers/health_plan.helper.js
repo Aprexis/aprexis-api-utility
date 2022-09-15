@@ -4,11 +4,13 @@ import { addressHelper } from './address.helper'
 import { contactHelper } from './contact.helper'
 import { userHelper } from './user.helper'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const healthPlanHelper = {
   ...idHelper,
   ...valueHelper.filterHash(addressHelper, { excludeKeys: ['keys'] }),
   ...valueHelper.filterHash(contactHelper, { excludeKeys: ['keys'] }),
+  ...modelDatesHelper,
   active,
   activePatients,
   allowManuallyAddedPatients,

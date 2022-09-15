@@ -4,9 +4,11 @@ import { patientHelper } from './patient.helper'
 import { physicianHelper } from './admin'
 import { valueHelper } from './value.helper'
 import { dateHelper } from './date.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const patientSupplementHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   canDelete,
   canEdit,
   displayStartDate,

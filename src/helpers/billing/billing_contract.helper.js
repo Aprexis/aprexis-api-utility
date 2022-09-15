@@ -4,9 +4,11 @@ import { dateHelper } from '../date.helper'
 import { apiHelper } from '../api.helper'
 import { healthPlanHelper } from '../health_plan.helper'
 import { idHelper } from '../id.helper'
+import { modelDatesHelper } from '../model_dates.helper'
 
 export const billingContractHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   active,
   allowPharmacyChains,
   allowPharmacyStores,

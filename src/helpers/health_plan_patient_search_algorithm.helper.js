@@ -1,8 +1,10 @@
 import { fieldHelper } from './field.helper'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const healthPlanPatientSearchAlgorithmHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   canDelete,
   canEdit,
   lastRun,

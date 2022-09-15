@@ -8,11 +8,13 @@ import { healthPlanHelper } from './health_plan.helper'
 import { nameHelper } from './name.helper'
 import { userHelper } from './user.helper'
 import { contactMethods } from '../types/contact_methods.type'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const patientHelper = {
   ...idHelper,
   ...valueHelper.filterHash(addressHelper, { excludeKeys: ['keys'] }),
   ...valueHelper.filterHash(contactHelper, { excludeKeys: ['keys'] }),
+  ...modelDatesHelper,
   ...valueHelper.filterHash(nameHelper, { excludeKeys: ['name'] }),
   buildChanged,
   buildNewChanged,

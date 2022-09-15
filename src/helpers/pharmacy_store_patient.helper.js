@@ -4,6 +4,7 @@ import { apiHelper } from './api.helper'
 import { patientHelper } from './patient.helper'
 import { pharmacyStoreHelper } from './pharmacy_store.helper'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 const pharmacyStorePatientKeys = [
   'id',
@@ -13,6 +14,7 @@ const pharmacyStorePatientKeys = [
 
 export const pharmacyStorePatientHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   buildChanged,
   buildNewChanged,
   changeField,

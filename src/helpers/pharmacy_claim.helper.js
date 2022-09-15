@@ -4,9 +4,11 @@ import { patientHelper } from './patient.helper'
 import { pharmacyStoreHelper } from './pharmacy_store.helper'
 import { medicationHelper, physicianHelper } from './admin'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const pharmacyClaimHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   canDelete,
   canEdit,
   claimNumber,

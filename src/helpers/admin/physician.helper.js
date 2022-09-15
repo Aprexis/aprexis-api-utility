@@ -4,10 +4,12 @@ import { addressHelper } from '../address.helper'
 import { dateHelper } from '../date.helper'
 import { nameHelper } from '../name.helper'
 import { valueHelper } from '../value.helper'
+import { modelDatesHelper } from '../model_dates.helper'
 
 export const physicianHelper = {
   ...idHelper,
   ...valueHelper.filterHash(addressHelper, { excludeKeys: ['keys'] }),
+  ...modelDatesHelper,
   ...valueHelper.filterHash(nameHelper, { excludeKeys: ['name'] }),
   businessFax,
   businessPhone,

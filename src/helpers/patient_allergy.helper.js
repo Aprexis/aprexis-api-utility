@@ -5,9 +5,11 @@ import { apiHelper } from './api.helper'
 import { patientHelper } from './patient.helper'
 import { userHelper } from './user.helper'
 import { goldStandardAllergyHelper } from './gold_standard'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const patientAllergyHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   allergyName,
   allergyType,
   buildChanged,

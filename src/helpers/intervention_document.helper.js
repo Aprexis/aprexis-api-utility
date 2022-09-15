@@ -4,9 +4,11 @@ import { fieldHelper } from './field.helper'
 import { interventionHelper } from './intervention.helper'
 import { localeLanguages } from '../types'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const interventionDocumentHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   canDelete,
   canEdit,
   consultEndDate,

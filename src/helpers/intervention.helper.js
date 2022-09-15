@@ -10,9 +10,11 @@ import { pharmacyStoreHelper } from './pharmacy_store.helper'
 import { programHelper } from './program.helper'
 import { userHelper } from './user.helper'
 import { diagnosisCodeHelper, placeOfServiceHelper } from './admin'
+import { modelDatesHelper } from './model_dates.helper'
 
 export const interventionHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   billLater,
   buildChanged,
   buildNewChanged,

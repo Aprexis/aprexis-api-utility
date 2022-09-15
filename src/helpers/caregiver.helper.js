@@ -4,6 +4,7 @@ import { nameHelper } from './name.helper'
 import { apiHelper } from './api.helper'
 import { patientHelper } from './patient.helper'
 import { idHelper } from './id.helper'
+import { modelDatesHelper } from './model_dates.helper'
 
 const caregiverKeys = [
   'id',
@@ -27,6 +28,7 @@ const caregiverKeys = [
 
 export const caregiverHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   ...valueHelper.filterHash(nameHelper, { excludeKeys: ['name'] }),
   buildChanged,
   buildNewChanged,

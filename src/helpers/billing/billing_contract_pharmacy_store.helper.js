@@ -5,6 +5,7 @@ import { pharmacyStoreHelper } from '../pharmacy_store.helper'
 import { userHelper } from '../user.helper'
 import { valueHelper } from '../value.helper'
 import { idHelper } from '../id.helper'
+import { modelDatesHelper } from '../model_dates.helper'
 
 const billingContractPharmacyStoreEditableFields = [
   'claims_enabled',
@@ -25,6 +26,7 @@ const billingContractPharmacyStoreKeys = [
 
 export const billingContractPharmacyStoreHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   buildChanged,
   buildNewChanged,
   canBeCreated,

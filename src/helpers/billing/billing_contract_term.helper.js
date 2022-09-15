@@ -4,6 +4,7 @@ import { userHelper } from '../user.helper'
 import { valueHelper } from '../value.helper'
 import { apiHelper } from '../api.helper'
 import { idHelper } from '../id.helper'
+import { modelDatesHelper } from '../model_dates.helper'
 
 const billingContractTermEditableFields = [
   'allow_claims_despite_physician_denial',
@@ -41,6 +42,7 @@ const billingContractTermEditableFields = [
 
 export const billingContractTermHelper = {
   ...idHelper,
+  ...modelDatesHelper,
   allowClaimsDespitePhysicianDenial,
   aprexisFee,
   buildChanged,
