@@ -71,8 +71,10 @@ export const interventionHelper = {
   pharmacistDisplay,
   pharmacyClaimTrackingNumber,
   pharmacyStore,
-  pharmacyStoreId,
   pharmacyStoreDisplay,
+  pharmacyStoreFullAddress,
+  pharmacyStoreId,
+  pharmacyStoreIdentification,
   physiciansResponse,
   physiciansResponseRecordedAt,
   placeOfService,
@@ -425,7 +427,6 @@ function displayUserStarted(intervention) {
   return dateHelper.displayDateTime(interventionHelper.userStarted(intervention))
 }
 
-
 function dryRunProgramPatientAssignmentId(intervention) {
   return fieldHelper.getField(intervention, 'dry_run_program_patient_id')
 }
@@ -516,6 +517,10 @@ function pharmacyStoreDisplay(intervention) {
   return pharmacyStoreHelper.display(interventionHelper.pharmacyStore(intervention))
 }
 
+function pharmacyStoreFullAddress(intervention) {
+  return pharmacyStoreHelper.fullAddress(interventionHelper.pharmacyStore(intervention))
+}
+
 function pharmacyStoreId(intervention) {
   const pharmacyStoreId = fieldHelper.getField(intervention, 'pharmacy_store_id')
   if (valueHelper.isNumberValue(pharmacyStoreId)) {
@@ -523,6 +528,10 @@ function pharmacyStoreId(intervention) {
   }
 
   return pharmacyStoreHelper.id(interventionHelper.pharmacyStore(intervention))
+}
+
+function pharmacyStoreIdentification(intervention) {
+  return pharmacyStoreHelper.identification(interventionHelper.pharmacyStore(intervention))
 }
 
 function physiciansResponse(intervention) {

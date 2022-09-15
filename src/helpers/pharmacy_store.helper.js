@@ -67,7 +67,7 @@ function display(pharmacyStore) {
   }
 
   const pharmacyChainName = pharmacyChainHelper.name(fieldHelper.getField(pharmacyStore, 'pharmacy'))
-  return `${pharmacyChainName} - ${identification(pharmacyStore)}`
+  return `${pharmacyChainName} - ${pharmacyStoreHelper.identification(pharmacyStore)}`
 }
 
 function einNumber(pharmacyStore) {
