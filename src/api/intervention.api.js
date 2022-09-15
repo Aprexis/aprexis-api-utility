@@ -93,7 +93,7 @@ function profile(credentials, id, onSuccess, onFailure) {
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
 
-function listForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+function queueForPatient(credentials, patient_id, params, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/patients/${patient_id}/interventions/queue`
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
