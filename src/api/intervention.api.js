@@ -6,6 +6,9 @@ export const interventionApi = {
   buildNewExternal,
   createExternal,
   edit,
+  index,
+  indexForPatient,
+  indexForPharmacyStore,
   list,
   listForPatient,
   listForPharmacyStore,
@@ -63,6 +66,24 @@ function edit(credentials, id, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/interventions/${id}/edit`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function index(credentials, params, onSuccess, onFailure) {
+  const method = 'GET'
+  const path = `/interventions`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+  const method = 'GET'
+  const path = `/patients/${patient_id}/interventions`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForPharmacyStore(credentials, pharmacy_store_id, params, onSuccess, onFailure) {
+  const method = 'GET'
+  const path = `/pharmacy_stores/${pharmacy_store_id}/interventions`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function list(credentials, params, onSuccess, onFailure) {

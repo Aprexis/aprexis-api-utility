@@ -6,6 +6,7 @@ export const reminderApi = {
   create,
   destroy,
   edit,
+  indexForPatient,
   listForPatient,
   profile,
   show,
@@ -64,6 +65,16 @@ function edit(credentials, reminder_id, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/reminders/${reminder_id}/edit`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+  if (!API.validateId('patient ID', patient_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/patients/${patient_id}/reminders`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function listForPatient(credentials, patient_id, params, onSuccess, onFailure) {
