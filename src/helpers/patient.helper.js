@@ -32,6 +32,7 @@ export const patientHelper = {
   hasSubscriber,
   hasUser,
   healthPlan,
+  healthPlanId,
   healthPlanName,
   healthPlanNumber,
   healthPlanRequiresPersonNumber,
@@ -236,6 +237,15 @@ function hasUser(patient) {
 
 function healthPlan(patient) {
   return fieldHelper.getField(patient, 'health_plan')
+}
+
+function healthPlanId(patient) {
+  const healthPlanId = fieldHelper.getField(patient, 'health_plan_id')
+  if (valueHelper.isNumberValue(healthPlanId)) {
+    return healthPlanId
+  }
+
+  return healthPlanHelper.id(patientHelper.healthPlan(patient))
 }
 
 function healthPlanName(patient) {
