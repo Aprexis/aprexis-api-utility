@@ -165,7 +165,7 @@ const interventionFixedFields = [
 const interventionEditableFields = interventionKeys.filter((fieldName) => !interventionFixedFields.includes(fieldName))
 
 function appointment(intervention) {
-  return fieldHelper.getField('appointment', intervention)
+  return fieldHelper.getField(intervention, 'appointment')
 }
 
 function appointmentId(intervention) {
