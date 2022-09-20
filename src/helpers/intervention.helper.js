@@ -1,6 +1,7 @@
 import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
 import { apiHelper } from './api.helper'
+import { appointmentHelper } from './appointment.helper'
 import { caregiverHelper } from './caregiver.helper'
 import { dateHelper } from './date.helper'
 import { healthPlanHelper } from './health_plan.helper'
@@ -15,6 +16,9 @@ import { modelDatesHelper } from './model_dates.helper'
 export const interventionHelper = {
   ...idHelper,
   ...modelDatesHelper,
+  appointment,
+  appointmentId,
+  appointmentScheduledAt,
   billLater,
   buildChanged,
   buildNewChanged,
@@ -159,6 +163,23 @@ const interventionFixedFields = [
 ]
 
 const interventionEditableFields = interventionKeys.filter((fieldName) => !interventionFixedFields.includes(fieldName))
+
+function appointment(intervention) {
+  return fieldHelper.getField('appointment', intervention)
+}
+
+function appointmentId(intervention) {
+  const appointmentId = fieldHelper.getField(intervention, 'appointment_id')
+  if (valueHelper.isNumberValue(appointmentId)) {
+    return appointmentId
+  }
+
+  return appointmentHelper.id(interventionHelper.appointment(intervention))
+}
+
+function appointmentScheduledAt(intervention) {
+  return appointmentHelper.scheduledAt(interventionHelper.appointment(intervention))
+}
 
 function billLater(intervention) {
   return fieldHelper.getField(intervention, 'bill_later')
