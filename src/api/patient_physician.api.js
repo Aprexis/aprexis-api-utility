@@ -18,14 +18,14 @@ function toJSON(patientPhysician) {
   }
 }
 
-function buildNew(credentials, patient_id, params, onSuccess, onFailure) {
+function buildNew(credentials, patient_id, onSuccess, onFailure) {
   if (!API.validateId('patient ID', patient_id, onFailure)) {
     return
   }
 
   const method = 'GET'
   const path = `/patients/${patient_id}/patient_physicians/new`
-  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+  API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
 
 function create(credentials, patientPhysician, onSuccess, onFailure) {
