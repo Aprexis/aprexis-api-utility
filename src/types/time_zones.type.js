@@ -2,13 +2,13 @@ export const usaTimeZones = {
   'Eastern Time (US & Canada)': 'America/New_York',
   'Central Time (US & Canada)': 'America/Chicago',
   'Mountain Time (US & Canada)': 'America/Denver',
-  'Arizona': 'America/Phoenix',
   'Pacific Time (US & Canada)': 'America/Los_Angeles',
   'Alaska': 'America/Juneau',
-  'American Samoa': 'Pacific/Pago_Pago',
-  'Guam': 'Pacific/Guam',
+  'Arizona': 'America/Phoenix',
   'Hawaii': 'Pacific/Honolulu',
   'Indiana (East)': 'America/Indiana/Indianapolis',
+  'American Samoa': 'Pacific/Pago_Pago',
+  'Guam': 'Pacific/Guam',
   'Midway Island': 'Pacific/Midway',
   'Puerto Rico': 'America/Puerto_Rico'
 }
