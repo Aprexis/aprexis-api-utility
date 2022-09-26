@@ -212,6 +212,7 @@ function displayPreferredContactMethod(patient) {
 
 function displayTimeZone(patient) {
   const timeZone = patientHelper.timeZone(patient)
+  console.log(`Time Zone: ${timeZone} => ${timeZoneHelper.displayTimeZone(timeZone)}`)
 
   return timeZoneHelper.displayTimeZone(timeZone)
 }
