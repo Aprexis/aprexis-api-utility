@@ -15,7 +15,7 @@ function displayTimeZone(timeZone) {
   )
 
   if (valueHelper.isValue(tz)) {
-    return timeZones[tz]
+    return tz
   }
 
   return timeZone
