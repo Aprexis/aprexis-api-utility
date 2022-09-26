@@ -41,10 +41,10 @@ export const reminderHelper = {
   patientId,
   patientName,
   patientSupplements,
+  patientTimeZone,
   recurFrom,
   recurTo,
   remindAt,
-  remindAtTimeZone,
   reminderMedications,
   reminderSupplements,
   saturday,
@@ -69,7 +69,6 @@ const reminderKeys = [
   'recur_from',
   'recur_to',
   'remind_at',
-  'remind_at_time_zone',
   { key: 'reminder_medications', jsonKey: 'reminder_medications_attributes', childKeys: ['id', 'reminder_id', 'medication_id', '_destroy'] },
   { key: 'reminder_supplements', jsonKey: 'reminder_supplements_attributes', childKeys: ['id', 'reminder_id', 'patient_supplement_id', '_destroy'] },
   'saturday',
@@ -90,7 +89,6 @@ const reminderEditableFields = [
   'recur_from',
   'recur_to',
   'remind_at',
-  'remind_at_time_zone',
   'reminder_medicaions',
   'reminder_supplements',
   'saturday',
@@ -213,7 +211,7 @@ function displayRemindAt(reminder) {
     return ''
   }
 
-  let remindAtTimeZone = reminderHelper.remindAtTimeZone(reminder)
+  let remindAtTimeZone = reminderHelper.patientTimeZone(reminder)
   if (!valueHelper.isStringValue(remindAtTimeZone)) {
     remindAtTimeZone = 'America/New_York'
   } else if (valueHelper.isStringValue(timeZones[remindAtTimeZone])) {
@@ -277,6 +275,10 @@ function patientSupplements(reminder) {
   return fieldHelper.getField(reminder, 'patient_supplements')
 }
 
+function patientTimeZone(reminder) {
+  return patientHelper.timeZone(reminderHelper.patient(reminder))
+}
+
 function recurFrom(reminder) {
   return fieldHelper.getField(reminder, 'recur_from')
 }
@@ -295,10 +297,6 @@ function reminderMedications(reminder) {
 
 function reminderSupplements(reminder) {
   return fieldHelper.getField(reminder, 'reminder_supplements')
-}
-
-function remindAtTimeZone(reminder) {
-  return fieldHelper.getField(reminder, 'remind_at_time_zone')
 }
 
 function saturday(reminder) {

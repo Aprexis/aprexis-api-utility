@@ -47,6 +47,7 @@ export const patientHelper = {
   primaryCareProviderNpi,
   race,
   subscriberName,
+  timeZone,
   toJSON
 }
 
@@ -83,6 +84,7 @@ const patientKeys = [
   'subscriber_date_of_birth',
   'subscriber_gender',
   'subscriber_name',
+  'time_zone',
   ...addressHelper.keys('subscriber'),
   ...addressHelper.keys('user'),
   'user_phone'
@@ -308,6 +310,10 @@ function race(patient) {
 
 function subscriberName(patient) {
   return fieldHelper.getField(patient, 'name', 'subscriber')
+}
+
+function timeZone(patient) {
+  return fieldHelper.getField(patient, 'time_zone')
 }
 
 function toJSON(patient) {
