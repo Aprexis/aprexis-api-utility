@@ -9,6 +9,7 @@ import { nameHelper } from './name.helper'
 import { userHelper } from './user.helper'
 import { contactMethods } from '../types/contact_methods.type'
 import { modelDatesHelper } from './model_dates.helper'
+import { timeZoneHelper } from './time_zone.helper'
 
 export const patientHelper = {
   ...idHelper,
@@ -28,6 +29,7 @@ export const patientHelper = {
   coverageEndDate,
   dateOfBirth,
   displayPreferredContactMethod,
+  displayTimeZone,
   gender,
   hasSubscriber,
   hasUser,
@@ -206,6 +208,12 @@ function displayPreferredContactMethod(patient) {
   }
 
   return contactMethod.label
+}
+
+function displayTimeZone(patient) {
+  const timeZone = patientHelper.timeZone(patient)
+
+  return timeZoneHelper.displayTimeZone(timeZone)
 }
 
 function gender(patient, prefix = '') {
