@@ -1,5 +1,6 @@
 import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
+import { patientHelper } from './patient.helper'
 import { questionHelper } from './question.helper'
 import { idHelper } from './id.helper'
 import { modelDatesHelper } from './model_dates.helper'
