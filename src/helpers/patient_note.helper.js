@@ -22,8 +22,9 @@ export const patientNoteHelper = {
   displayDateTime,
   note,
   patientName,
-  pharmacyStorePatient,
   pharmacyStoreIdentification,
+  pharmacyStorePatient,
+  pharmacyStorePatientId,
   pharmacyStoreName,
   pharmacyStoreNumber,
   toJSON,
@@ -83,6 +84,10 @@ function patientName(patientNote) {
 
 function pharmacyStorePatient(patientNote) {
   return fieldHelper.getField(patientNote, 'pharmacy_store_patient')
+}
+
+function pharmacyStorePatientId(patientNote) {
+  return idHelper.associatedId(patientNote, 'pharmacy_store_patient', patientNoteHelper)
 }
 
 function pharmacyStoreIdentification(patientNote) {

@@ -15,9 +15,11 @@ export const patientSupplementHelper = {
   label,
   name,
   patient,
+  patientId,
   patientName,
   physician,
   physicianFirstName,
+  physicianId,
   physicianLastName,
   physicianMiddleName,
   physicianName,
@@ -60,6 +62,10 @@ function patient(patientSupplement) {
   return fieldHelper.getField(patientSupplement, 'patient')
 }
 
+function patientId(patientSupplement) {
+  return idHelper.associatedId(patientSupplement, 'patient', patientSupplementHelper)
+}
+
 function patientName(patientSupplement) {
   return patientHelper.name(patientSupplementHelper.patient(patientSupplement))
 }
@@ -70,6 +76,10 @@ function physician(patientSupplement) {
 
 function physicianFirstName(patientSupplement) {
   return physicianHelper.firstName(patientSupplementHelper.physician(patientSupplement))
+}
+
+function physicianId(patientSupplement) {
+  return idHelper.associatedId(patientSupplement, 'physician', patientSupplementHelper)
 }
 
 function physicianLastName(patientSupplement) {

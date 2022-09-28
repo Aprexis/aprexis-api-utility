@@ -264,7 +264,7 @@ function patient(reminder) {
 }
 
 function patientId(reminder) {
-  return fieldHelper.getField(reminder, 'patient_id')
+  return idHelper.associatedId(reminder, 'patient', reminderHelper)
 }
 
 function patientName(reminder) {

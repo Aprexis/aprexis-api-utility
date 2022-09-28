@@ -22,16 +22,20 @@ export const pharmacyClaimHelper = {
   frequencyUnits,
   healthPlanPatientPharmacyClaimIdentifier,
   medication,
+  medicationid,
   medicationLabel,
   memberNumber,
   ndc,
   patient,
+  patientId,
   patientName,
   personNumber,
   pharmacyNpi,
   pharmacyStore,
+  pharmacyStoreId,
   pharmacyStoreIdentification,
   physician,
+  physicianId,
   physicianName,
   physicianNpi,
   prescriptionNumber,
@@ -96,6 +100,10 @@ function medication(pharmacyClaim) {
   return fieldHelper.getField(pharmacyClaim, 'medication')
 }
 
+function medicationid(pharmacyClaim) {
+  return idHelper.associatedId(pharmacyClaim, 'medication', pharmacyClaimHelper)
+}
+
 function medicationLabel(pharmacyClaim) {
   return medicationHelper.label(pharmacyClaimHelper.medication(pharmacyClaim))
 }
@@ -110,6 +118,10 @@ function ndc(pharmacyClaim) {
 
 function patient(pharmacyClaim) {
   return fieldHelper.getField(pharmacyClaim, 'patient')
+}
+
+function patientId(pharmacyClaim) {
+  return idHelper.associatedId(pharmacyClaim, 'patient', pharmacyClaimHelper)
 }
 
 function patientName(pharmacyClaim) {
@@ -128,12 +140,20 @@ function pharmacyStore(pharmacyClaim) {
   return fieldHelper.getField(pharmacyClaim, 'pharmacy_store')
 }
 
+function pharmacyStoreId(pharmacyClaim) {
+  return idHelper.associatedId(pharmacyClaim, 'pharmacy_store', pharmacyClaimHelper)
+}
+
 function pharmacyStoreIdentification(pharmacyClaim) {
   return pharmacyStoreHelper.identification(pharmacyClaimHelper.pharmacyStore(pharmacyClaim))
 }
 
 function physician(pharmacyClaim) {
   return fieldHelper.getField(pharmacyClaim, 'physician')
+}
+
+function physicianId(pharmacyClaim) {
+  return idHelper.associatedId(pharmacyClaim, 'physician', pharmacyClaimHelper)
 }
 
 function physicianName(pharmacyClaim) {

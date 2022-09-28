@@ -25,6 +25,7 @@ export const patientAllergyHelper = {
   goldStandardAllergyName,
   healthPlanId,
   patient,
+  patientId,
   patientName,
   reaction,
   toJSON,
@@ -171,6 +172,10 @@ function healthPlanId(patientAllergy) {
 
 function patient(patientAllergy) {
   return fieldHelper.getField(patientAllergy, 'patient')
+}
+
+function patientId(patientAllergy) {
+  return idHelper.associatedId(patientAllergy, 'patient', patientAllergyHelper)
 }
 
 function patientName(patientAllergy) {

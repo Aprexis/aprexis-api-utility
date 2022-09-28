@@ -6,8 +6,8 @@ import { patientMedicationHelper } from './patient_medication.helper'
 export const reminderMedicationHelper = {
   ...idHelper,
   buildFromPatientMedication,
-  medicationId,
   medication,
+  medicationId,
   medicationLabel
 }
 
@@ -28,7 +28,7 @@ function medication(reminderMedication) {
 }
 
 function medicationId(reminderMedication) {
-  return fieldHelper.getField(reminderMedication, 'medication_id')
+  return idHelper.associatedId(reminderMedication, 'medication', reminderMedicationHelper)
 }
 
 function medicationLabel(reminderMedication) {

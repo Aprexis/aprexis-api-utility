@@ -23,8 +23,10 @@ export const faxHelper = {
   faxableType,
   faxNumberTo,
   intervention,
+  interventionId,
   patientName,
   physician,
+  physicianId,
   physicianName,
   programName,
   user,
@@ -98,6 +100,10 @@ function intervention(fax) {
   return fieldHelper.getField(fax, 'intervention')
 }
 
+function interventionId(fax) {
+  return idHelper.associatedId(fax, 'intervention', faxHelper)
+}
+
 function patientName(fax) {
   return interventionHelper.patientName(faxHelper.intervention(fax))
 }
@@ -108,6 +114,10 @@ function physician(fax) {
   }
 
   return fieldHelper.getField(fax, 'physician')
+}
+
+function physicianId(fax) {
+  return idHelper.associatedId(fax, 'physician', faxHelper)
 }
 
 function physicianName(fax) {

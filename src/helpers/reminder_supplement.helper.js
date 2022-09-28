@@ -1,9 +1,11 @@
 import { fieldHelper } from './field.helper'
+import { idHelper } from './id.helper'
 import { patientSupplementHelper } from './patient_supplement.helper'
 
 export const reminderSupplementHelper = {
   buildFromPatientSupplement,
   patientSupplement,
+  patientSupplementId,
   patientSupplementName,
   patientSupplementPhysicianName,
   patientSupplementPhysicianNpi
@@ -29,6 +31,10 @@ function buildFromPatientSupplement(patientSupplement) {
 
 function patientSupplement(reminderSupplement) {
   return fieldHelper.getField(reminderSupplement, 'patient_supplement')
+}
+
+function patientSupplementId(reminderSupplement) {
+  return idHelper.associatedId(reminderSupplement, 'patient_supplement', reminderSupplementHelper)
 }
 
 function patientSupplementName(reminderSupplement) {

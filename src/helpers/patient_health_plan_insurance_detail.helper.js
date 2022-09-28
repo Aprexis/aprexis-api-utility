@@ -13,6 +13,7 @@ export const patientHealthPlanInsuranceDetailHelper = {
   hasCommercialInsurance,
   hasMedicare,
   patient,
+  patientId,
   patientName,
   planName,
   primaryInsuranceType,
@@ -41,6 +42,10 @@ function hasMedicare(patientHealthPlanInsuranceDetail) {
 
 function patient(patientHealthPlanInsuranceDetail) {
   return fieldHelper.getField(patientHealthPlanInsuranceDetail, 'patient')
+}
+
+function patientId(patientHealthPlanInsuranceDetail) {
+  return idHelper.associatedId(patientHealthPlanInsuranceDetail, 'patient', patientHealthPlanInsuranceDetailHelper)
 }
 
 function patientName(patientHealthPlanInsuranceDetail) {

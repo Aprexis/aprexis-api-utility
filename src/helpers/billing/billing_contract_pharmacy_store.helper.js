@@ -136,7 +136,7 @@ function contract(billingContractPharmacyStore) {
 }
 
 function contractId(billingContractPharmacyStore) {
-  return fieldHelper.getField(billingContractPharmacyStore, 'contract_id')
+  return idHelper.associatedId(billingContractPharmacyStore, 'contract', billingContractPharmacyStoreHelper)
 }
 
 function healthPlanName(billingContractPharmacyStore) {
@@ -150,7 +150,7 @@ function pharmacyStore(billingContractPharmacyStore) {
 }
 
 function pharmacyStoreId(billingContractPharmacyStore) {
-  return fieldHelper.getField(billingContractPharmacyStore, 'pharmacy_store_id')
+  return idHelper.associatedId(billingContractPharmacyStore, 'pharmacy_store', billingContractPharmacyStoreHelper)
 }
 
 function pharmacyStoreName(billingContractPharmacyStore) {

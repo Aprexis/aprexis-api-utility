@@ -12,8 +12,10 @@ export const interventionMedicationHelper = {
   canEdit,
   displayType,
   intervention,
+  interventionId,
   interventionIdentification,
   medication,
+  medicationId,
   medicationLabel,
   medicationText,
   patientName,
@@ -37,12 +39,20 @@ function intervention(interventionMedication) {
   return fieldHelper.getField(interventionMedication, 'intervention')
 }
 
+function interventionId(interventionMedication) {
+  return idHelper.associatedId(interventionMedication, 'intervention', interventionMedicationHelper)
+}
+
 function interventionIdentification(interventionMedication) {
   return interventionHelper.identification(interventionMedicationHelper.intervention(interventionMedication))
 }
 
 function medication(interventionMedication) {
   return fieldHelper.getField(interventionMedication, 'medication')
+}
+
+function medicationId(interventionMedication) {
+  return idHelper.associatedId(interventionMedication, 'medication', interventionMedicationHelper)
 }
 
 function medicationLabel(interventionMedication) {

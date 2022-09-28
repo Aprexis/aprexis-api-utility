@@ -19,8 +19,10 @@ export const pharmacyStorePatientHelper = {
   buildNewChanged,
   changeField,
   patient,
+  patientId,
   patientName,
   pharmacyStore,
+  pharmacyStoreId,
   pharmacyStoreIdentification,
   pharmacyStoreName,
   pharmacyStoreNumber,
@@ -51,6 +53,10 @@ function patient(pharmacyStorePatient) {
   return fieldHelper.getField(pharmacyStorePatient, 'patient')
 }
 
+function patientId(pharmacyStorePatient) {
+  return idHelper.associatedId(pharmacyStorePatient, 'patient', pharmacyStorePatientHelper)
+}
+
 function patientName(pharmacyStorePatient) {
   return patientHelper.name(pharmacyStorePatientHelper.patient(pharmacyStorePatient))
 }
@@ -61,6 +67,10 @@ function pharmacyStore(pharmacyStorePatient) {
 
 function pharmacyStoreIdentification(pharmacyStorePatient) {
   return pharmacyStoreHelper.identification(pharmacyStorePatientHelper.pharmacyStore(pharmacyStorePatient))
+}
+
+function pharmacyStoreId(pharmacyStorePatient) {
+  return idHelper.associatedId(pharmacyStorePatient, 'pharmacy_store', pharmacyStorePatientHelper)
 }
 
 function pharmacyStoreName(pharmacyStorePatient) {

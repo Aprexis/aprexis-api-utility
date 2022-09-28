@@ -128,7 +128,7 @@ function patient(patientPhysician) {
 }
 
 function patientId(patientPhysician) {
-  return fieldHelper.getField(patientPhysician, 'patient_id')
+  return idHelper.associatedId(patientPhysician, 'patient', patientPhysicianHelper)
 }
 
 function patientName(patientPhysician) {
@@ -140,7 +140,7 @@ function physician(patientPhysician) {
 }
 
 function physicianId(patientPhysician) {
-  return fieldHelper.getField(patientPhysician, 'physician_id')
+  return idHelper.associatedId(patientPhysician, 'physician', patientPhysicianHelper)
 }
 
 function physicianName(patientPhysician) {

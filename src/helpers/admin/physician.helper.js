@@ -32,6 +32,7 @@ export const physicianHelper = {
   practiceSpecialty,
   providerLastUpdateDate,
   sourceId,
+  source,
   sourceNotes,
   sourceType
 }
@@ -128,8 +129,12 @@ function providerLastUpdateDate(physician) {
   return fieldHelper.getField(physician, 'provider_last_update_date')
 }
 
+function source(physician) {
+  return fieldHelper.getField(physician, 'source')
+}
+
 function sourceId(physician) {
-  return fieldHelper.getField(physician, 'source_id')
+  return idHelper.associatedId(physician, 'source', physicianHelper)
 }
 
 function sourceNotes(physician) {

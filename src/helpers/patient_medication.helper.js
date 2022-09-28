@@ -41,6 +41,7 @@ export const patientMedicationHelper = {
   medicationLabel,
   mpr,
   patient,
+  patientId,
   patientName,
   pharmacyStore,
   pharmacyStoreId,
@@ -304,7 +305,7 @@ function medication(patientMedication) {
 }
 
 function medicationId(patientMedication) {
-  return fieldHelper.getField(patientMedication, 'medication_id')
+  return idHelper.associatedId(patientMedication, 'medication', patientMedicationHelper)
 }
 
 function medicationLabel(patientMedication) {
@@ -319,6 +320,10 @@ function patient(patientMedication) {
   return fieldHelper.getField(patientMedication, 'patient')
 }
 
+function patientId(patientMedication) {
+  return idHelper.associatedId(patientMedication, 'patient', patientMedicationHelper)
+}
+
 function patientName(patientMedication, prefix = '') {
   return patientHelper.name(patientMedicationHelper.patient(patientMedication), prefix)
 }
@@ -328,7 +333,7 @@ function pharmacyStore(patientMedication) {
 }
 
 function pharmacyStoreId(patientMedication) {
-  return fieldHelper.getField(patientMedication, 'pharmacy_store_id')
+  return idHelper.associatedId(patientMedication, 'pharmacy_store', patientMedicationHelper)
 }
 
 function pharmacyStoreIdentification(patientMedication) {
@@ -344,7 +349,7 @@ function physician(patientMedication) {
 }
 
 function physicianId(patientMedication) {
-  return fieldHelper.getField(patientMedication, 'physician_id')
+  return idHelper.associatedId(patientMedication, 'physician', patientMedicationHelper)
 }
 
 function physicianName(patientMedication) {
@@ -384,5 +389,5 @@ function user(patientMedication) {
 }
 
 function userId(patientMedication) {
-  return userHelper.id(patientMedicationHelper.user(patientMedication))
+  return idHelper.associatedId(patientMedication, 'user', patientMedicationHelper)
 }

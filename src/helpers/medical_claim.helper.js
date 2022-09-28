@@ -13,6 +13,7 @@ export const medicalClaimHelper = {
   healthPlanPatientMedicalClaimIdentifier,
   memberNumber,
   patient,
+  patientId,
   patientName,
   personNumber,
   processedDate,
@@ -48,6 +49,10 @@ function patient(medicalClaim) {
   return fieldHelper.getField(medicalClaim, 'patient')
 }
 
+function patientId(medicalClaim) {
+  return idHelper.associatedId(medicalClaim, 'patient', medicalClaimHelper)
+}
+
 function patientName(medicalClaim) {
   return patientHelper.name(medicalClaimHelper.patient(medicalClaim))
 }
@@ -69,7 +74,7 @@ function serviceDate(medicalClaim) {
 }
 
 function uploadId(medicalClaim) {
-  return fieldHelper.getField(medicalClaim, 'upload_id')
+  return idHelper.associatedId(medicalClaim, 'upload', medicalClaimHelper)
 }
 
 function uploadType(medicalClaim) {

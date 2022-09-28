@@ -229,12 +229,7 @@ function pharmacyStore(appointment) {
 }
 
 function pharmacyStoreId(appointment) {
-  let pharmacyStoreId = fieldHelper.getField('pharmacy_store_id', appointment)
-  if (!valueHelper.isValue(pharmacyStoreId)) {
-    pharmacyStoreId = pharmacyStoreHelper.id(appointmentHelper.pharmacyStore(appointment))
-  }
-
-  return pharmacyStoreId
+  return idHelper.associatedId(appointment, 'pharmacy_store', appointmentHelper)
 }
 
 function pharmacyStoreIdentification(appointment) {

@@ -10,6 +10,10 @@ export const answerHelper = {
   canDelete,
   canEdit,
   displayValue,
+  patient,
+  patientId,
+  pharmacyStore,
+  pharmacyStoreId,
   question,
   questionKey,
   questionType,
@@ -20,8 +24,10 @@ function canDelete(_user, _answer) {
   return false
 }
 
-function canEdit(_user, _answer) {
-  return false
+function canEdit(user, answer) {
+  const patient = answerHelper.patient(answer)
+
+  return patientHelper.canEdit(user, patient, patientHelper.healthPlan(patient))
 }
 
 function displayValue(answer) {
@@ -32,6 +38,27 @@ function displayValue(answer) {
   }
 
   return questionHelper.displayValue(question, value)
+}
+
+function patient(answer) {
+  return fieldHelper.getField(answer, 'patient')
+}
+
+function patientId(answer) {
+  const answerId = fieldHelper.getField('answer', 'patient_id')
+  if (valueHelper.isNumberValue(answerId)) {
+    return answerId
+  }
+
+  return patientHelper.id(answerHelper.patient(answer))
+}
+
+function pharmacyStore(answer) {
+  return fieldHelper.getField(answer, 'pharmacy_store')
+}
+
+function pharmacyStoreId(answer) {
+  return idHelper.associatedId(answer, 'pharmacy_store', answerHelper)
 }
 
 function question(answer) {

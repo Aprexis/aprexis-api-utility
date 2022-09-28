@@ -151,7 +151,7 @@ function healthPlan(billingContract) {
 }
 
 function healthPlanId(billingContract) {
-  return fieldHelper.getField(billingContract, 'id')
+  return idHelper.associatedId(billingContract, 'health_plan', billingContractHelper)
 }
 
 function healthPlanName(billingContract) {

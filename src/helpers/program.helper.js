@@ -13,6 +13,7 @@ export const programHelper = {
   display,
   endDate,
   healthPlan,
+  healthPlanId,
   healthPlanName,
   kind,
   name,
@@ -46,6 +47,10 @@ function endDate(program) {
 
 function healthPlan(program) {
   return fieldHelper.getField(program, 'health_plan')
+}
+
+function healthPlanId(program) {
+  return idHelper.associatedId(program, 'health_plan', programHelper)
 }
 
 function healthPlanName(program) {

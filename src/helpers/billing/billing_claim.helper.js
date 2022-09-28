@@ -44,13 +44,17 @@ export const billingClaimHelper = {
   displayPayerClaimTrackingNumber,
   displaySubmittedAt,
   healthPlan,
+  healthPlanId,
   healthPlanName,
   intervention,
+  interventionId,
   interventionIdentification,
   patient,
+  patientId,
   patientName,
   payerClaimTrackingNumber,
   pharmacyStore,
+  pharmacyStoreId,
   pharmacyStoreIdentification,
   referenceNumber,
   statusDescription,
@@ -214,6 +218,10 @@ function healthPlan(billingClaim) {
   return fieldHelper.getField(billingClaim, 'health_plan')
 }
 
+function healthPlanId(billingClaim) {
+  return idHelper.associatedId(billingClaim, 'health_plan', billingClaimHelper)
+}
+
 function healthPlanName(billingClaim) {
   return healthPlanHelper.name(billingClaimHelper.healthPlan(billingClaim))
 }
@@ -222,12 +230,20 @@ function intervention(billingClaim) {
   return fieldHelper.getField(billingClaim, 'intervention')
 }
 
+function interventionId(billingClaim) {
+  return idHelper.associatedId(billingClaim, 'intervention', billingClaimHelper)
+}
+
 function interventionIdentification(billingClaim) {
   return interventionHelper.identification(billingClaimHelper.intervention(billingClaim))
 }
 
 function patient(billingClaim) {
   return fieldHelper.getField(billingClaim, 'patient')
+}
+
+function patientId(billingClaim) {
+  return idHelper.associatedId(billingClaim, 'patient', billingClaimHelper)
 }
 
 function patientName(billingClaim) {
@@ -242,8 +258,12 @@ function pharmacyStore(billingClaim) {
   return fieldHelper.getField(billingClaim, 'pharmacy_store')
 }
 
+function pharmacyStoreId(billingClaim) {
+  return idHelper.associatedId(billingClaim, 'pharmacy_store', billingClaimHelper)
+}
+
 function pharmacyStoreIdentification(billingClaim) {
-  return pharmacyStoreHelper.id(billingClaimHelper.pharmacyStore(billingClaim))
+  return pharmacyStoreHelper.identification(billingClaimHelper.pharmacyStore(billingClaim), true)
 }
 
 function referenceNumber(billingClaim) {

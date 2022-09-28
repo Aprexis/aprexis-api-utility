@@ -22,6 +22,7 @@ export const documentHelper = {
   contentType,
   createdAt,
   filename,
+  healthPlan,
   healthPlanId,
   slug,
   toJSON,
@@ -80,8 +81,12 @@ function filename(document) {
   return fieldHelper.getField(document, 'filename')
 }
 
+function healthPlan(document) {
+  return fieldHelper.getField(document, 'health_plan')
+}
+
 function healthPlanId(document) {
-  return fieldHelper.getField(document, 'health_plan_id')
+  return idHelper.associatedId(document, 'health_plan', documentHelper)
 }
 
 function slug(document) {

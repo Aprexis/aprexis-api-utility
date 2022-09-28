@@ -182,7 +182,7 @@ function contract(billingContractTerm) {
 }
 
 function contractId(billingContractTerm) {
-  return fieldHelper.getField(billingContractTerm, 'contract_id')
+  return idHelper.associatedId(billingContractTerm, 'contract', billingContractTermHelper)
 }
 
 function diagnosis(billingContractTerm) {

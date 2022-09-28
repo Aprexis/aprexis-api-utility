@@ -11,6 +11,7 @@ export const healthPlanProgramLimitHelper = {
   canEdit,
   displayProgramType,
   healthPlan,
+  healthPlanId,
   healthPlanName,
   limitValue,
   programType
@@ -35,6 +36,10 @@ function displayProgramType(healthPlanProgramLimit) {
 
 function healthPlan(healthPlanProgramLimit) {
   return fieldHelper.getField(healthPlanProgramLimit, 'health_plan')
+}
+
+function healthPlanId(healthPlanProgramLimit) {
+  return idHelper.associatedId(healthPlanProgramLimit, 'health_plan', healthPlanProgramLimitHelper)
 }
 
 function healthPlanName(healthPlanProgramLimit) {

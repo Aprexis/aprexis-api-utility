@@ -136,7 +136,7 @@ function patient(user) {
 }
 
 function patientId(user) {
-  return fieldHelper.getField(user, 'id')
+  return idHelper.associatedId(user, 'patient', userHelper)
 }
 
 function pharmacistDisplay(user) {

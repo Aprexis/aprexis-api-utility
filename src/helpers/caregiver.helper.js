@@ -116,7 +116,7 @@ function patient(caregiver) {
 }
 
 function patientId(caregiver) {
-  return fieldHelper.getField(caregiver, 'patient_id')
+  return idHelper.associatedId(caregivier, 'patient', caregiverHelper)
 }
 
 function patientName(caregiver) {

@@ -58,8 +58,11 @@ export const interventionHelper = {
   displayPendingUntil,
   displayUserEnded,
   displayUserStarted,
+  dryRunProgramPatientAssignment,
   dryRunProgramPatientAssignmentId,
   faxBypassed,
+  healthPlan,
+  healthPlanId,
   healthPlanName,
   identification,
   medicarePaymentAmount,
@@ -86,12 +89,15 @@ export const interventionHelper = {
   placeOfService,
   program,
   programDisplay,
+  programId,
   programName,
   programType,
   providerFee,
   serviceLocation,
   state,
+  user,
   userEnded,
+  userId,
   userName,
   userStarted,
   toJSON,
@@ -169,12 +175,7 @@ function appointment(intervention) {
 }
 
 function appointmentId(intervention) {
-  const appointmentId = fieldHelper.getField(intervention, 'appointment_id')
-  if (valueHelper.isNumberValue(appointmentId)) {
-    return appointmentId
-  }
-
-  return appointmentHelper.id(interventionHelper.appointment(intervention))
+  return idHelper.associatedId(intervention, 'appointment', interventionHelper)
 }
 
 function appointmentScheduledAt(intervention) {
@@ -348,12 +349,7 @@ function consentObtainedFrom(intervention) {
 }
 
 function consentObtainedFromId(intervention) {
-  const consentObtainedFromId = fieldHelper.getField(intervention, 'consent_obtained_from_id')
-  if (valueHelper.isNumberValue(consentObtainedFromId)) {
-    return consentObtainedFromId
-  }
-
-  return idHelper.id(interventionHelper.consentObtainedFrom(intervention))
+  return idHelper.associatedId(intervention, 'conset_obtained_from', interventionHelper)
 }
 
 function consentObtainedFromType(intervention) {
@@ -397,18 +393,12 @@ function diagnosisCode(intervention) {
 }
 
 function diagnosisCodeId(intervention) {
-  const diagnosisCodeId = fieldHelper.getField(intervention, 'diagnosis_code_id')
-  if (valueHelper.isNumberValue(diagnosisCodeId)) {
-    return diagnosisCodeId
-  }
-
-  return diagnosisCodeHelper.id(interventionHelper.diagnosisCode(intervention))
+  return idHelper.associatedId(intervention, 'diagnosis_code', interventionHelper)
 }
 
 function diagnosisCodeLongDescription(intervention) {
   return diagnosisCodeHelper.longDescription(fieldHelper.getField(intervention, 'diagnosis_code'))
 }
-
 
 function displayConsentFormInitiatedAt(intervention) {
   return dateHelper.displayDateTime(interventionHelper.consentFormInitiatedAt(intervention))
@@ -450,16 +440,28 @@ function displayUserStarted(intervention) {
   return dateHelper.displayDateTime(interventionHelper.userStarted(intervention))
 }
 
+function dryRunProgramPatientAssignment(intervention) {
+  return fieldHelper.getField(intervention, 'dry_run_program_patient_assignment')
+}
+
 function dryRunProgramPatientAssignmentId(intervention) {
-  return fieldHelper.getField(intervention, 'dry_run_program_patient_id')
+  return idHelper.associatedId(intervention, 'dry_run_program_patient_assignment', intervention)
 }
 
 function faxBypassed(intervention) {
   return fieldHelper.getField(intervention, 'fax_bypassed')
 }
 
+function healthPlan(intervention) {
+  return fieldHelper.getField(intervention, 'health_plan')
+}
+
+function healthPlanId(intervention) {
+  return idHelper.associatedId(intervention, 'health_plan', interventionHelper)
+}
+
 function healthPlanName(intervention) {
-  return healthPlanHelper.name(fieldHelper.getField(intervention, 'health_plan'))
+  return healthPlanHelper.name(interventionHelper.healthPlan(intervention))
 }
 
 function identification(intervention) {
@@ -487,12 +489,7 @@ function patient(intervention) {
 }
 
 function patientId(intervention) {
-  const patientId = fieldHelper.getField(intervention, 'patient_id')
-  if (valueHelper.isNumberValue(patientId)) {
-    return patientId
-  }
-
-  return patientHelper.id(interventionHelper.patient(intervention))
+  return idHelper.associatedId(intervention, 'patient', interventionHelper)
 }
 
 function patientName(intervention, prefix = '', allowBlank = false) {
@@ -512,12 +509,7 @@ function pharmacist(intervention) {
 }
 
 function pharmacistId(intervention) {
-  const pharmacistId = fieldHelper.getField(intervention, 'pharmacist_id')
-  if (valueHelper.isNumberValue(pharmacistId)) {
-    return pharmacistId
-  }
-
-  return userHelper.id(interventionHelper.pharmacist(intervention))
+  return idHelper.associatedId(intervention, 'pharmacist', interventionHelper)
 }
 
 function pharmacistAgreedToSubmitClaimAt(intervention) {
@@ -577,6 +569,10 @@ function programDisplay(intervention) {
   return programHelper.display(interventionHelper.program(intervention))
 }
 
+function programId(intervention) {
+  return idHelper.associatedId(intervention, 'program', interventionHelper)
+}
+
 function programName(intervention) {
   return programHelper.name(interventionHelper.program(intervention))
 }
@@ -597,12 +593,20 @@ function state(intervention) {
   return fieldHelper.getField(intervention, 'state')
 }
 
+function user(intervention) {
+  return fieldHelper.getField(intervention, 'user')
+}
+
 function userEnded(intervention) {
   return fieldHelper.getField(intervention, 'user_end_date')
 }
 
+function userId(intervention) {
+  return idHelper.associatedId(intervention, 'user', interventionHelper)
+}
+
 function userName(intervention) {
-  return userHelper.fullName(fieldHelper.getField(intervention, 'user'))
+  return userHelper.fullName(interventionHelper.user(intervention))
 }
 
 function userStarted(intervention) {

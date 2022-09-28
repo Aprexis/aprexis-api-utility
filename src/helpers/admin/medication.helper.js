@@ -157,13 +157,9 @@ function superset(medication) {
 }
 
 function supersetId(medication) {
-  return fieldHelper.getField(medication, 'superset_id')
+  return idHelper.associatedId(medication, 'superset', medicationHelper)
 }
 
 function supersetLabel(medication) {
-  if (valueHelper.isSet(medicationHelper.medicationSuperset(medication))) {
-    return
-  }
-
   return medicationHelper.label(medicationHelper.superset(medication))
 }

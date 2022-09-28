@@ -250,12 +250,7 @@ function healthPlan(patient) {
 }
 
 function healthPlanId(patient) {
-  const healthPlanId = fieldHelper.getField(patient, 'health_plan_id')
-  if (valueHelper.isNumberValue(healthPlanId)) {
-    return healthPlanId
-  }
-
-  return healthPlanHelper.id(patientHelper.healthPlan(patient))
+  return idHelper.associatedId(patient, 'health_plan', patientHelper)
 }
 
 function healthPlanName(patient) {

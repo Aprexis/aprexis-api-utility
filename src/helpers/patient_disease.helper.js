@@ -12,8 +12,10 @@ export const patientDiseaseHelper = {
   canEdit,
   disease,
   diseaseDescription,
+  diseaseId,
   diseaseName,
   patient,
+  patientId,
   patientName
 }
 
@@ -37,12 +39,20 @@ function diseaseDescription(patientDisease) {
   return diseaseHelper.description(patientDiseaseHelper.disease(patientDisease))
 }
 
+function diseaseId(patientDisease) {
+  return idHelper.associatedId(patientDisease, 'disease', patientDiseaseHelper)
+}
+
 function diseaseName(patientDisease) {
   return diseaseHelper.name(patientDiseaseHelper.disease(patientDisease))
 }
 
 function patient(patientDisease) {
   return fieldHelper.getField(patientDisease, 'patient')
+}
+
+function patientId(patientDisease) {
+  return idHelper.associatedId(patientDisease, 'patient', patientDiseaseHelper)
 }
 
 function patientName(patientDisease) {

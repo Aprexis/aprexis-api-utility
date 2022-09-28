@@ -29,6 +29,8 @@ export const pharmacyStoreHelper = {
   npiReactivationDate,
   notes,
   overridePharmacyOrganizationBillingInfo,
+  pharmacyChain,
+  pharmacyChainId,
   storeNumber,
   stripeCustomer,
   stripePharmacistLicensePrice,
@@ -77,6 +79,10 @@ function einNumber(pharmacyStore) {
 }
 
 function identification(pharmacyStore) {
+  if (!valueHelper.isValue(pharmacyStore)) {
+    return
+  }
+
   const id = pharmacyStoreHelper.id(pharmacyStore)
   const name = pharmacyStoreHelper.name(pharmacyStore)
   const number = pharmacyStoreHelper.storeNumber(pharmacyStore)
@@ -126,6 +132,14 @@ function npiReactivationDate(pharmacyStore) {
 
 function overridePharmacyOrganizationBillingInfo(pharmacyStore) {
   return fieldHelper.getField(pharmacyStore, 'override_pharmacy_organization_billing_info')
+}
+
+function pharmacyChain(pharmacyStore) {
+  return fieldHelper.getField(pharmacyStore, 'pharmacy')
+}
+
+function pharmacyChainId(pharmacyStore) {
+  return idHelper.associatedId(pharmacyStore, 'pharmacy', pharmacyStoreHelper)
 }
 
 function storeNumber(pharmacyStore) {
