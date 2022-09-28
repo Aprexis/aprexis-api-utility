@@ -1,17 +1,26 @@
 import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
 import { idHelper } from './id.helper'
+import { questionKeyHelper } from './question_key.helper'
 
 export const questionOptionHelper = {
+  ...questionKeyHelper,
   ...idHelper,
+  displayPopopIf,
   displayValue,
+  is,
   label,
-  option
+  option,
+  popupText
 }
 
-function displayValue(options, value) {
-  const option = questionOptionHelper.option(options, value)
-  const label = questionOptionHelper.label(option)
+function displayPopopIf(questionOption) {
+  return fieldHelper.getField(questionOption, 'display_popup_if')
+}
+
+function displayValue(questionOptions, value) {
+  const questionOption = questionOptionHelper.option(questionOptions, value)
+  const label = questionOptionHelper.label(questionOption)
   if (!valueHelper.isValue(label)) {
     return value
   }
@@ -19,20 +28,28 @@ function displayValue(options, value) {
   return label
 }
 
-function label(option) {
-  return fieldHelper.getField(option, 'label')
+function is(questionOption) {
+  fieldHelper.getField(questionOption, 'is')
 }
 
-function option(options, value) {
-  if (!valueHelper.isValue(options)) {
+function label(questionOption) {
+  return fieldHelper.getField(questionOption, 'label')
+}
+
+function option(questionOptions, value) {
+  if (!valueHelper.isValue(questionOptions)) {
     return
   }
 
-  return options.find(
-    (option) => {
-      const id = questionOptionHelper.id(option)
+  return questionOptions.find(
+    (questionOption) => {
+      const id = questionOptionHelper.id(questionOption)
 
       return id == value
     }
   )
+}
+
+function popupText(questionOption) {
+  return fieldHelper.getField(questionOption, 'popup_text')
 }

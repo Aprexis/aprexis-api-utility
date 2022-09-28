@@ -1,9 +1,11 @@
 import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
 import { idHelper } from './id.helper'
+import { questionKeyHelper } from './question_key.helper'
 
 export const questionChoiceHelper = {
   ...idHelper,
+  ...questionKeyHelper,
   choice,
   displayValue,
   value
