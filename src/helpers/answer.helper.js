@@ -1,4 +1,5 @@
 import { valueHelper } from './value.helper'
+import { apiHelper } from './api.helper'
 import { fieldHelper } from './field.helper'
 import { patientHelper } from './patient.helper'
 import { questionHelper } from './question.helper'
@@ -8,6 +9,8 @@ import { modelDatesHelper } from './model_dates.helper'
 export const answerHelper = {
   ...idHelper,
   ...modelDatesHelper,
+  buildChanged,
+  buildNewChanged,
   canDelete,
   canEdit,
   displayValue,
@@ -18,7 +21,43 @@ export const answerHelper = {
   question,
   questionKey,
   questionType,
+  toJSON,
   value
+}
+
+const answerKeys = [
+  'id',
+  'patient_id',
+  'pharmacy_store_id',
+  'question_key',
+  'value'
+]
+
+function buildChanged(answer, changedAnswer) {
+  if (valueHelper.isValue(changedAnswer)) {
+    return changedAnswer
+  }
+
+  if (valueHelper.isValue(answer.id)) {
+    return copyIdentifiers(answer)
+  }
+
+  return answerHelper.buildNewChanged(answer)
+
+  function copyIdentifiers(answer) {
+    return {
+      id: answer.id,
+      patient_id: answer.patient_id,
+      pharmacy_store_id: answer.pharmacy_store_id,
+      question_key: answer.question_key
+    }
+  }
+}
+
+function buildNewChanged(answer) {
+  return {
+    ...answer
+  }
 }
 
 function canDelete(_user, _answer) {
@@ -72,6 +111,11 @@ function questionKey(answer) {
 
 function questionType(answer) {
   return questionHelper.questionType(answerHelper.question(answer))
+}
+
+
+function toJSON(answer) {
+  return apiHelper.toJSON(answer, answerKeys)
 }
 
 function value(answer) {
