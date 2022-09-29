@@ -1,7 +1,7 @@
 import { fieldHelper } from "./field.helper"
 import { questionKeyHelper } from "./question_key.helper"
 
-export const questionChoiceOptionHelper = {
+export const questionChoiceOptionsHelper = {
   ...questionKeyHelper,
   includeBlank,
   choicePrompt,
