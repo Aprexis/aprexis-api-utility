@@ -204,8 +204,12 @@ function humanize(str) {
   return `${firstWord} ${additionalWords.join(' ')}`
 }
 
-function isNumberValue(value) {
+function isNumberValue(value, allowBlank = true) {
   if (!valueHelper.isValue(value)) {
+    return false
+  }
+
+  if (!valueHelper.isSet(allowBlank) && !valueHelper.isStringValue(value)) {
     return false
   }
 
