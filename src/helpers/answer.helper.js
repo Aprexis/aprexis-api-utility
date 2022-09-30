@@ -27,8 +27,10 @@ export const answerHelper = {
 
 const answerKeys = [
   'id',
+  'intervention_id',
   'patient_id',
   'pharmacy_store_id',
+  'user_id',
   'question_key',
   'value'
 ]
@@ -47,8 +49,10 @@ function buildChanged(answer, changedAnswer) {
   function copyIdentifiers(answer) {
     return {
       id: answer.id,
+      intervention_id: answer.intervention_id,
       patient_id: answer.patient_id,
       pharmacy_store_id: answer.pharmacy_store_id,
+      user_id: answer.user_id,
       question_key: answer.question_key
     }
   }
