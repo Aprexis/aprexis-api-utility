@@ -113,7 +113,6 @@ function questionType(answer) {
   return questionHelper.questionType(answerHelper.question(answer))
 }
 
-
 function toJSON(answer) {
   return apiHelper.toJSON(answer, answerKeys)
 }
