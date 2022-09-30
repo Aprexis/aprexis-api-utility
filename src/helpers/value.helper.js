@@ -209,7 +209,7 @@ function isNumberValue(value, allowBlank = true) {
     return false
   }
 
-  if (!valueHelper.isSet(allowBlank) && !valueHelper.isStringValue(value)) {
+  if (!valueHelper.isSet(allowBlank) && value.length === 0) {
     return false
   }
 
