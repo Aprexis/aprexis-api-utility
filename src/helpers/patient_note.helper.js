@@ -19,6 +19,7 @@ export const patientNoteHelper = {
   buildNewChanged,
   canDelete,
   canEdit,
+  canModifyField,
   changeField,
   displayDateTime,
   displayPatientViewable,
@@ -65,6 +66,11 @@ function canDelete(_user, _patientNote) {
 
 function canEdit(_user, _patientNote) {
   return false
+}
+
+
+function canModifyField(_patientNote, fieldName) {
+  return fieldName != 'id'
 }
 
 function changeField(model, changedModel, fieldName, newValue) {
