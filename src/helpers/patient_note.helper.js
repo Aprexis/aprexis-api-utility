@@ -8,7 +8,8 @@ import { pharmacyStorePatientHelper } from './pharmacy_store_patient.helper'
 
 const patientNoteKeys = [
   'id',
-  'note'
+  'note',
+  'patient_viewable'
 ]
 
 export const patientNoteHelper = {
@@ -22,6 +23,7 @@ export const patientNoteHelper = {
   displayDateTime,
   note,
   patientName,
+  patientViewable,
   pharmacyStoreIdentification,
   pharmacyStorePatient,
   pharmacyStorePatientId,
@@ -80,6 +82,10 @@ function note(patientNote) {
 
 function patientName(patientNote) {
   return pharmacyStorePatientHelper.patientName(patientNoteHelper.pharmacyStorePatient(patientNote))
+}
+
+function patientViewable(patientNote) {
+  return fieldHelper.getField(patientNote, 'patient_viewable')
 }
 
 function pharmacyStorePatient(patientNote) {

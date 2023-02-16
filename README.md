@@ -16,12 +16,12 @@ To build the aprexis-api-utility module, you will need:
 
 To create a new version of the module, perform the following:
 
-  1 Make your code changes using your preferred editor
-  2 Commit and push your changes to `github`
-  3 Build the module using `yarn`
-  4 Update the version using `npm`
-  5 Push the build and version changes to `github`
-  6 Publish the new version using `npm`
+  1. Make your code changes using your preferred editor
+  2. Commit and push your changes to `github`
+  3. Build the module using `yarn`
+  4. Update the version using `npm`
+  5. Push the build and version changes to `github`
+  6. Publish the new version using `npm`
 
 ### NPM
 `npm` is used to update the version and to publish the module when you've updated it.
