@@ -21,6 +21,7 @@ export const patientNoteHelper = {
   canEdit,
   changeField,
   displayDateTime,
+  displayPatientViewable,
   note,
   patientName,
   patientViewable,
@@ -74,6 +75,10 @@ function displayDateTime(patientNote) {
   const dateTime = updatedAt(patientNote);
 
   return dateHelper.displayDateTime(dateTime);
+}
+
+function displayPatientViewable(patientNote) {
+  return valueHelper.yesNo(patientNoteHelper.patientViewable(patientNote))
 }
 
 function note(patientNote) {
