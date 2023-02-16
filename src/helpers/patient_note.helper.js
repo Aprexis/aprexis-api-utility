@@ -8,7 +8,8 @@ import { pharmacyStorePatientHelper } from './pharmacy_store_patient.helper'
 
 const patientNoteKeys = [
   'id',
-  'note'
+  'note',
+  'patient_viewable'
 ]
 
 export const patientNoteHelper = {
@@ -18,10 +19,13 @@ export const patientNoteHelper = {
   buildNewChanged,
   canDelete,
   canEdit,
+  canModifyField,
   changeField,
   displayDateTime,
+  displayPatientViewable,
   note,
   patientName,
+  patientViewable,
   pharmacyStoreIdentification,
   pharmacyStorePatient,
   pharmacyStorePatientId,
@@ -64,6 +68,11 @@ function canEdit(_user, _patientNote) {
   return false
 }
 
+
+function canModifyField(_patientNote, fieldName) {
+  return fieldName != 'id'
+}
+
 function changeField(model, changedModel, fieldName, newValue) {
   return fieldHelper.changeValue('patientNote', model, changedModel, fieldName, newValue)
 }
@@ -74,12 +83,20 @@ function displayDateTime(patientNote) {
   return dateHelper.displayDateTime(dateTime);
 }
 
+function displayPatientViewable(patientNote) {
+  return valueHelper.yesNo(patientNoteHelper.patientViewable(patientNote))
+}
+
 function note(patientNote) {
   return fieldHelper.getField(patientNote, 'note')
 }
 
 function patientName(patientNote) {
   return pharmacyStorePatientHelper.patientName(patientNoteHelper.pharmacyStorePatient(patientNote))
+}
+
+function patientViewable(patientNote) {
+  return fieldHelper.getField(patientNote, 'patient_viewable')
 }
 
 function pharmacyStorePatient(patientNote) {
