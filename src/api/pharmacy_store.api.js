@@ -2,6 +2,7 @@ import { API } from './api'
 
 export const pharmacyStoreApi = {
   list,
+  listForPatient,
   listForPharmacyChain,
   listForUser,
   search,
@@ -11,6 +12,16 @@ export const pharmacyStoreApi = {
 function list(credentials, params, onSuccess, onFailure) {
   const method = "GET"
   const path = "/pharmacy_stores/list"
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function listForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+  if (!API.validateId("patient ID", patient_id, onFailure)) {
+    return
+  }
+
+  const method = "GET"
+  const path = `/patients/${patient_id}/pharmacy_stores/list`
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
