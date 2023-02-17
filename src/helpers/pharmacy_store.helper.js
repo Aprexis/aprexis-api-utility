@@ -87,6 +87,10 @@ function identification(pharmacyStore) {
   const name = pharmacyStoreHelper.name(pharmacyStore)
   const number = pharmacyStoreHelper.storeNumber(pharmacyStore)
 
+  if (!valueHelper.isStringValue(name)) {
+    return pharmacyStoreHelper.npi(pharmacyStore)
+  }
+
   if (valueHelper.isStringValue(number)) {
     return `${name} ${number}`
   }
