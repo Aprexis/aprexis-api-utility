@@ -7,6 +7,10 @@ export const idHelper = {
 }
 
 function associatedId(object, idFor, objectHelper) {
+  if (valueHelper.isValue(object)) {
+    return
+  }
+
   const forName = valueHelper.camelCase(idFor)
   const associatedId = object[`${idFor}_id`]
   if (valueHelper.isNumberValue(associatedId)) {
