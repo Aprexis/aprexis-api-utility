@@ -7,7 +7,7 @@ export const idHelper = {
 }
 
 function associatedId(object, idFor, objectHelper) {
-  if (valueHelper.isValue(object)) {
+  if (!valueHelper.isValue(object)) {
     return
   }
 
