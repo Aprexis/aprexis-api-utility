@@ -20,13 +20,11 @@ export const documentHelper = {
   canModifyField,
   changeField,
   contentType,
-  createdAt,
   filename,
   healthPlan,
   healthPlanId,
   slug,
-  toJSON,
-  updatedAt
+  toJSON
 }
 
 function buildChanged(document, changedDocument) {
@@ -73,10 +71,6 @@ function contentType(document) {
   return fieldHelper.getField(document, 'content_type')
 }
 
-function createdAt(document) {
-  return fieldHelper.getField(document, 'created_at')
-}
-
 function filename(document) {
   return fieldHelper.getField(document, 'filename')
 }
@@ -95,8 +89,4 @@ function slug(document) {
 
 function toJSON(document) {
   return apiHelper.toJSON(document, documentKeys)
-}
-
-function updatedAt(document) {
-  return fieldHelper.getField(document, 'updated_at')
 }

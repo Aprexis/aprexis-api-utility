@@ -17,7 +17,6 @@ export const faxHelper = {
   createdAt,
   dateOfService,
   deliveryStatus,
-  displayCreatedAt,
   displayDateOfService,
   displayDeliveryStatus,
   faxableType,
@@ -55,15 +54,6 @@ function dateOfService(fax) {
 
 function deliveryStatus(fax) {
   return fieldHelper.getField(fax, 'delivery_status')
-}
-
-function displayCreatedAt(fax) {
-  const createdAt = faxHelper.createdAt(fax)
-  if (!dateHelper.isDateValue(createdAt)) {
-    return
-  }
-
-  return dateHelper.displayDateTime(createdAt)
 }
 
 function displayDateOfService(fax) {

@@ -13,7 +13,6 @@ export const interventionDocumentHelper = {
   canEdit,
   consultEndDate,
   consultStartDate,
-  createdAt,
   displayConsultEndDate,
   displayConsultStartDate,
   displayLocale,
@@ -26,8 +25,7 @@ export const interventionDocumentHelper = {
   patientName,
   pharmacyStoreDisplay,
   programName,
-  title,
-  updatedAt
+  title
 }
 
 function canDelete(_user, _interventionDocument) {
@@ -44,10 +42,6 @@ function consultEndDate(interventionDocument) {
 
 function consultStartDate(interventionDocument) {
   return fieldHelper.getField(interventionDocument, 'consult_start_date')
-}
-
-function createdAt(interventionDocument) {
-  return fieldHelper.getField(interventionDocument, 'created_at')
 }
 
 function displayConsultEndDate(interventionDocument) {
@@ -105,8 +99,4 @@ function programName(interventionDocument) {
 
 function title(interventionDocument) {
   return fieldHelper.getField(interventionDocument, 'title')
-}
-
-function updatedAt(interventionDocument) {
-  return fieldHelper.getField(interventionDocument, 'updated_at')
 }
