@@ -5,12 +5,14 @@ import { contactHelper } from './contact.helper'
 import { idHelper } from './id.helper'
 import { pharmacyChainHelper } from './pharmacy_chain.helper'
 import { userHelper } from './user.helper'
+import { modelConfigsHelper } from './model_configs.helper'
 import { modelDatesHelper } from './model_dates.helper'
 
 export const pharmacyStoreHelper = {
   ...idHelper,
   ...valueHelper.filterHash(addressHelper, { excludeKeys: ['keys'] }),
   ...valueHelper.filterHash(contactHelper, { excludeKeys: ['keys'] }),
+  ...modelConfigsHelper,
   ...modelDatesHelper,
   canDelete,
   canEdit,
