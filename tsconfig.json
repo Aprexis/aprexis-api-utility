@@ -10,7 +10,7 @@
   "include": [
     "src",
     "dist",
-    "module.d.ts"
+    ".d.ts"
   ],
   "exclude": [
     "node_modules"
