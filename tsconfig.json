@@ -9,7 +9,8 @@
   },
   "include": [
     "src",
-    "dist"
+    "dist",
+    "module.d.ts"
   ],
   "exclude": [
     "node_modules"
