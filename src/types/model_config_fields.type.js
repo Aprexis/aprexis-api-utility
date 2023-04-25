@@ -86,11 +86,11 @@ const usersFields = {
 
 const videoFields = {
   phone_call_enabled: {
-    label: "Phone Call Enabled?",
+    label: "Phone Call Enabled",
     type: "OneZero"
   },
   video_call_enabled: {
-    label: "Video Call Enabled?",
+    label: "Video Call Enabled",
     type: "OneZero"
   }
 }
