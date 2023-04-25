@@ -1416,14 +1416,9 @@ buffer-from@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
   integrity sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==
 
-caniuse-lite@^1.0.30001370:
-  version "1.0.30001453"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001453.tgz"
-  integrity sha512-R9o/uySW38VViaTrOtwfbFEiBFUh7ST3uIG4OEymIG3/uKdHDO4xk/FaqfUw0d+irSUyFPy3dZszf9VvSTPnsA==
-
-caniuse-lite@^1.0.30001449:
+caniuse-lite@^1.0.30001370, caniuse-lite@^1.0.30001449:
   version "1.0.30001481"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001481.tgz#f58a717afe92f9e69d0e35ff64df596bfad93912"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001481.tgz"
   integrity sha512-KCqHwRnaa1InZBtqXzP98LPg0ajCVujMKjqKDhZEthIpAsJl/YEIa3YvXjGXPVqzZVguccuu7ga9KOE1J9rKPQ==
 
 chalk@^2.0.0:

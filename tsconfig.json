@@ -1,18 +1,8 @@
 {
+  "extends": "./tsconfig-base.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true,
-    "baseUrl": "./src"
-  },
-  "include": [
-    "src",
-    "dist",
-    ".d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "module": "esnext",
+    "outDir": "dist/mjs",
+    "target": "esnext"
+  }
 }

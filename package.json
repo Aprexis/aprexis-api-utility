@@ -5,7 +5,7 @@
   "main": "./index.js",
   "type": "module",
   "scripts": {
-    "build": "webpack",
+    "build": "rm -fr dist/* && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && ./fixup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,7 +31,11 @@
     "webpack": "^5.80.0",
     "webpack-cli": "^5.0.2"
   },
+  "module": "dist/mjs/index.js",
   "exports": {
-    ".": "./src/**/*.js"
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
+    }
   }
 }
