@@ -171,11 +171,12 @@ function perform(method, path, queryString, credentials, body, onSuccess, onFail
       return existingHeaders
     }
 
-    const { username, auth_token } = userCredentials
+    const { username, token, uuid } = userCredentials
     const newHeaders = {
       ...existingHeaders,
       'X-User-Username': username,
-      'X-User-Token': auth_token
+      'X-User-Token': token,
+      'X-User-Uuid': uuid
     }
 
     return newHeaders
