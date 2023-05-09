@@ -168,7 +168,7 @@ function displayType(labTestValue) {
 }
 
 function displayValueTakenAt(labTestValue) {
-  const valueTakenAt = this.valueTakenAt(labTestValue)
+  const valueTakenAt = labTestValueHelper.valueTakenAt(labTestValue)
 
   return dateHelper.displayDateTime(valueTakenAt)
 }
