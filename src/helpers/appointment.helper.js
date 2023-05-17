@@ -202,7 +202,7 @@ function findScheduledEvent(appointments, currentDate, hour, minute, minutes) {
     const dayEnd = new Date(periodEnd.getFullYear(), periodEnd.getMonth(), periodEnd.getDate())
     const appointmentStart = appointmentHelper.scheduledAt(appointment)
     const duration = appointmentHelper.duration(appointment)
-    const appointmentEnd = moment(appointmentState)
+    const appointmentEnd = moment(appointmentStart).add(duration, 'm').toDate()
 
     return !((+appointmentEnd < +dayStart) || (+appointmentStart > +dayEnd))
   }
