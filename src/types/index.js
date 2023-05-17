@@ -1,4 +1,5 @@
 export * from './allergy_categories.type'
+export * from './appointment_durations.type'
 export * from './contact_methods.type'
 export * from './diagnosis_codes.type'
 export * from './fax_delivery_statuses.type'

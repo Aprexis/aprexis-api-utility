@@ -1,3 +1,4 @@
+import moment from 'moment'
 import { valueHelper } from './value.helper'
 import { dateHelper } from './date.helper'
 import { fieldHelper } from './field.helper'
@@ -18,6 +19,7 @@ export const appointmentHelper = {
   canModifyField,
   changeField,
   changePharmacyStore,
+  duration,
   endDate,
   eventEnds,
   eventLabel,
@@ -29,7 +31,6 @@ export const appointmentHelper = {
   pharmacyStoreId,
   pharmacyStoreIdentification,
   scheduledAt,
-  scheduledUntil,
   startDate,
   text,
   title,
@@ -44,7 +45,7 @@ const appointmentKeys = [
   'user_id',
   'all_day',
   'scheduled_at',
-  'scheduled_until',
+  'duration',
   'title',
   'venue'
 ]
@@ -120,14 +121,16 @@ function changePharmacyStore(appointment, changedAppointment, pharmacyStore) {
   }
 }
 
+function duration(appointment) {
+  return fieldHelper.getField(appointment, 'duration')
+}
+
 function endDate(appointment) {
-  const scheduledUntil = dateHelper.makeDate(appointmentHelper.scheduledUntil(appointment))
+  const startTime = dateHelper.makeDate(appointmentHelper.scheduledAt(appointment))
+  const duration = appointmentHelper.duration(appointment)
+  const endTime = moment(startTime).add(duration, 'm').toDate()
 
-  if (valueHelper.isValue(scheduledUntil)) {
-    return new Date(scheduledUntil.getFullYear(), scheduledUntil.getMonth(), scheduledUntil.getDate())
-  }
-
-  return appointmentHelper.startDate(appointment)
+  return new Date(endTime.getFullYear(), endTime.getMonth(), endTime.getDate())
 }
 
 function eventEnds(appointment, hour, minute, minutes) {
@@ -135,12 +138,17 @@ function eventEnds(appointment, hour, minute, minutes) {
     return false
   }
 
-  const scheduledUntil = dateHelper.makeDate(appointmentHelper.scheduledUntil(appointment))
-  if (scheduledUntil.getHours() > hour) {
+  const startTime = dateHelper.makeDate(appointmentHelper.scheduledAt(appointment))
+  const duration = appointmentHelper.duration(appointment)
+  const endTime = moment(startTime).add(duration, 'm').toDate()
+  const scheduledHour = endTime.getHours()
+  if (scheduledHour < hour) {
     return false
+  } else if (scheduledHour > hour) {
+    return true
   }
 
-  const scheduledMinute = scheduledUntil.getMinutes()
+  const scheduledMinute = endTime.getMinutes()
   if (scheduledMinute < minute) {
     return false
   }
@@ -199,8 +207,9 @@ function findScheduledEvent(appointments, currentDate, hour, minute, minutes) {
   function checkAllDayAppointment(appointment, periodStart, periodEnd) {
     const dayStart = new Date(periodStart.getFullYear(), periodStart.getMonth(), periodStart.getDate())
     const dayEnd = new Date(periodEnd.getFullYear(), periodEnd.getMonth(), periodEnd.getDate())
-    const appointmentStart = appointmentHelper.startDate(appointment)
-    const appointmentEnd = appointmentHelper.endDate(appointment)
+    const appointmentStart = appointmentHelper.scheduledAt(appointment)
+    const duration = appointmentHelper.duration(appointment)
+    const appointmentEnd = moment(appointmentStart).add(duration, 'm').toDate()
 
     return !((+appointmentEnd < +dayStart) || (+appointmentStart > +dayEnd))
   }
@@ -211,8 +220,9 @@ function findScheduledEvent(appointments, currentDate, hour, minute, minutes) {
     }
 
     const scheduledAt = dateHelper.makeDate(appointmentHelper.scheduledAt(appointment))
-    const scheduledUntil = dateHelper.makeDate(appointmentHelper.scheduledUntil(appointment))
-    return !((+scheduledUntil < +periodStart) || (+scheduledAt > +periodEnd))
+    const duration = appointmentHelper.duration(appointment)
+    const scheduledUntil = moment(scheduledAt).add(duration, 'm').toDate()
+    return !((+scheduledUntil <= +periodStart) || (+scheduledAt >= +periodEnd))
   }
 }
 
@@ -238,10 +248,6 @@ function pharmacyStoreIdentification(appointment) {
 
 function scheduledAt(appointment) {
   return fieldHelper.getField(appointment, 'scheduled_at')
-}
-
-function scheduledUntil(appointment) {
-  return fieldHelper.getField(appointment, 'scheduled_until')
 }
 
 function startDate(appointment) {
