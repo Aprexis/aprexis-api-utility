@@ -130,7 +130,7 @@ function endDate(appointment) {
   const duration = appointmentHelper.duration(appointment)
   const endTime = moment(startDate).add(duration, 'm').toDate()
 
-  return new Date(endTime.getFullYear(), endTime.getMonth(), scheduledAt.getDate())
+  return new Date(endTime.getFullYear(), endTime.getMonth(), endTime.getDate())
 }
 
 function eventEnds(appointment, _hour, minute, minutes) {
