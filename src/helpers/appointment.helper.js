@@ -6,7 +6,6 @@ import { apiHelper } from './api.helper'
 import { interventionHelper } from './intervention.helper'
 import { pharmacyStoreHelper } from './pharmacy_store.helper'
 import { userHelper } from './user.helper'
-import { appointmentHelper } from './appointment.helper'
 import { idHelper } from './id.helper'
 import { modelDatesHelper } from './model_dates.helper'
 
