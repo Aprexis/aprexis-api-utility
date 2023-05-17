@@ -222,7 +222,7 @@ function findScheduledEvent(appointments, currentDate, hour, minute, minutes) {
     const scheduledAt = dateHelper.makeDate(appointmentHelper.scheduledAt(appointment))
     const duration = appointmentHelper.duration(appointment)
     const scheduledUntil = moment(scheduledAt).add(duration, 'm').toDate()
-    return !((+scheduledUntil <= +periodStart) || (+scheduledAt > +periodEnd))
+    return !((+scheduledUntil <= +periodStart) || (+scheduledAt >= +periodEnd))
   }
 }
 
