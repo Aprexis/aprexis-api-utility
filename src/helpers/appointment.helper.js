@@ -128,8 +128,9 @@ function duration(appointment) {
 function endDate(appointment) {
   const startDate = appointmentHelper.startDate(appointment)
   const duration = appointmentHelper.duration(appointment)
+  const endTime = moment(startDate).add(duration, 'm').toDate()
 
-  return moment(startDate).add(duration, 'm').toDate()
+  return new Date(endTime.getFullYear(), endTime.getMonth(), scheduledAt.getDate())
 }
 
 function eventEnds(appointment, _hour, minute, minutes) {
@@ -137,8 +138,10 @@ function eventEnds(appointment, _hour, minute, minutes) {
     return false
   }
 
-  const endDate = appointmentHelper.endDate(appointment)
-  const scheduledMinute = endDate.getMinutes()
+  const startDate = appointmentHelper.startDate(appointment)
+  const duration = appointmentHelper.duration(appointment)
+  const endTime = moment(startDate).add(duration, 'm').toDate()
+  const scheduledMinute = endTime.getMinutes()
   if (scheduledMinute < minute) {
     return false
   }
@@ -197,8 +200,9 @@ function findScheduledEvent(appointments, currentDate, hour, minute, minutes) {
   function checkAllDayAppointment(appointment, periodStart, periodEnd) {
     const dayStart = new Date(periodStart.getFullYear(), periodStart.getMonth(), periodStart.getDate())
     const dayEnd = new Date(periodEnd.getFullYear(), periodEnd.getMonth(), periodEnd.getDate())
-    const appointmentStart = appointmentHelper.startDate(appointment)
-    const appointmentEnd = appointmentHelper.endDate(appointment)
+    const appointmentStart = appointmentHelper.scheduledAt(appointment)
+    const duration = appointmentHelper.duration(appointment)
+    const appointmentEnd = moment(appointmentState)
 
     return !((+appointmentEnd < +dayStart) || (+appointmentStart > +dayEnd))
   }
