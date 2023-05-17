@@ -1,1 +1,1 @@
-export const appointmentDurations = [15, 30, 45, 60]
+export const appointmentDurations = ['15', '30', '45', '60']
