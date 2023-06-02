@@ -10,6 +10,10 @@ const healthPlansFields = {
     label: "Days for Explicit Authorization",
     type: "Number"
   },
+  follow_ups_inherit_answers: {
+    label: "Follow-Ups Inherit Answers",
+    type: 'OneZero'
+  },
   generate_completed_interventions_report: {
     label: "Generate Completed Interventions Report",
     type: "OneZero"
