@@ -2,7 +2,9 @@ import { API } from './api'
 
 export const patientSearchAlgorithmApi = {
   forHealthPlan,
-  legitimate
+  legitimate,
+  profile,
+  show
 }
 
 function forHealthPlan(credentials, healthPlanId, params, onSuccess, onFailure) {
@@ -18,5 +20,26 @@ function forHealthPlan(credentials, healthPlanId, params, onSuccess, onFailure) 
 function legitimate(credentials, onSuccess, onFailure) {
   const method = 'GET'
   const path = '/patient_search_algorithms/legitimate'
+  API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function profile(credentials, id, onSuccess, onFailure) {
+  if (!API.validateId('patient search algorithm ID', id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/patient-search-algorithms/${id}/profile`
+  API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+
+function show(credentials, id, onSuccess, onFailure) {
+  if (!API.validateId('patient search algorithm ID', id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/patient-search-algorithms/${id}`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
