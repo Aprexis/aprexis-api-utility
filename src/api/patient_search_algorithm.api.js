@@ -29,10 +29,9 @@ function profile(credentials, id, onSuccess, onFailure) {
   }
 
   const method = 'GET'
-  const path = `/patient-search-algorithms/${id}/profile`
+  const path = `/patient_search_algorithms/${id}/profile`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
-
 
 function show(credentials, id, onSuccess, onFailure) {
   if (!API.validateId('patient search algorithm ID', id, onFailure)) {
@@ -40,6 +39,6 @@ function show(credentials, id, onSuccess, onFailure) {
   }
 
   const method = 'GET'
-  const path = `/patient-search-algorithms/${id}`
+  const path = `/patient_search_algorithms/${id}`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }

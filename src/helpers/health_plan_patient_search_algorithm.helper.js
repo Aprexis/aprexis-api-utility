@@ -6,6 +6,7 @@ import { modelDatesHelper } from './model_dates.helper'
 export const healthPlanPatientSearchAlgorithmHelper = {
   ...idHelper,
   ...modelDatesHelper,
+  batches,
   canDelete,
   canEdit,
   healthPlan,
@@ -14,6 +15,10 @@ export const healthPlanPatientSearchAlgorithmHelper = {
   lastRun,
   name,
   type
+}
+
+function batches(healthPlanPatientSearchAlgorithm) {
+  return fieldHelper.getField(healthPlanPatientSearchAlgorithm, 'batches')
 }
 
 function canDelete(_user, _healthPlanPatientSearchAlgorithm) {
