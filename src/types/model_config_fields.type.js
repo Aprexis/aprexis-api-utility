@@ -1,3 +1,5 @@
+import { venues } from "./venues.type"
+
 const customDocumentationFields = {
   "custom_documentation_folder": {
     label: "Custom Documentation Folder",
@@ -61,7 +63,7 @@ const pharmacyStoresFields = {
   config_venue_defaults: {
     label: "Venue Defaults",
     type: "Select",
-    values: ['In-Person', 'Telephone']
+    values: venues
   },
   drx_security_key: {
     label: "DRX Security Key",
