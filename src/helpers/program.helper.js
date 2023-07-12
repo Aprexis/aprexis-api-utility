@@ -17,6 +17,8 @@ export const programHelper = {
   healthPlanName,
   kind,
   name,
+  numberActiveInterventions,
+  numberDryRuns,
   startDate,
   type
 }
@@ -62,7 +64,15 @@ function kind(program) {
 }
 
 function name(program) {
-  return valueHelper.titleize(fieldHelper.getField(program, 'name'))
+  return valueHelper.titleize(fieldHelper.getField(program, 'name'), true)
+}
+
+function numberActiveInterventions(program) {
+  return fieldHelper.getField(program, 'number_active_interventions')
+}
+
+function numberDryRuns(program) {
+  return fieldHelper.getField(program, 'number_dry_runs')
 }
 
 function startDate(program) {
@@ -70,5 +80,5 @@ function startDate(program) {
 }
 
 function type(program) {
-  return valueHelper.titleize(fieldHelper.getField(program, 'type'))
+  return valueHelper.titleize(fieldHelper.getField(program, 'type'), true)
 }

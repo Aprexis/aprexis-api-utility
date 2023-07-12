@@ -279,8 +279,22 @@ function splitCapitalized(str) {
   return str.split(/(?=[A-Z ])/).map((c) => c.trim())
 }
 
-function titleize(str) {
-  return valueHelper.capitalizeWords(valueHelper.humanize(str))
+function titleize(str, squash = false) {
+  let titleized = valueHelper.capitalizeWords(valueHelper.humanize(str))
+
+  if (!squash) {
+    return titleized
+  }
+
+  // Remove spaces between capital letters followed by space.
+  titleized = titleized.replace(/([A-Z]+?)\s([A-Z]+?)\s/g, "$1$2")
+
+  // Remove spaces between capital letters at the end of the string.
+  titleized = titleized.replace(/([A-Z]+?)\s([A-Z]+?)$/, "$1$2")
+
+  // Remove spaces between capital letters slash capital letter space.
+  titleized = titleized.replace(/([A-Z]+?)\/\s([A-Z]?)/g, "$1/$2")
+  return titleized
 }
 
 function yesNo(value) {

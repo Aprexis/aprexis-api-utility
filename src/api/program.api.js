@@ -3,6 +3,7 @@ import { API } from './api'
 export const programApi = {
   list,
   listForHealthPlan,
+  profile,
   show
 }
 
@@ -21,6 +22,17 @@ function listForHealthPlan(credentials, health_plan_id, params, onSuccess, onFai
   const path = `/health_plans/${health_plan_id}/programs/list`
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
+
+function profile(credentials, id, onSuccess, onFailure) {
+  if (!API.validateId('program ID', id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/programs/${id}/profile`
+  API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
 
 function show(credentials, id, onSuccess, onFailure) {
   if (!API.validateId('program ID', id, onFailure)) {
