@@ -1,9 +1,20 @@
 import { API } from './api'
 
 export const patientDiseaseApi = {
+  indexForPatient,
   listForPatient,
   profile,
   show
+}
+
+function indexForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+  if (!API.validateId('patient ID', patient_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/patients/${patient_id}/patient_diseases`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function listForPatient(credentials, patient_id, params, onSuccess, onFailure) {

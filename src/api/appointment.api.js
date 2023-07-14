@@ -6,6 +6,7 @@ export const appointmentApi = {
   create,
   destroy,
   edit,
+  indexForUser,
   listForUser,
   update
 }
@@ -59,6 +60,16 @@ function edit(credentials, id, onSuccess, onFailure) {
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
 
+function indexForUser(credentials, user_id, params, onSuccess, onFailure) {
+  if (!API.validateId('user ID', user_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/admin/users/${user_id}/appointments`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
 function listForUser(credentials, user_id, params, onSuccess, onFailure) {
   if (!API.validateId('user ID', user_id, onFailure)) {
     return
@@ -68,6 +79,7 @@ function listForUser(credentials, user_id, params, onSuccess, onFailure) {
   const path = `/admin/users/${user_id}/appointments/list`
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
+
 
 function update(credentials, appointment, onSuccess, onFailure) {
   const method = 'PUT'

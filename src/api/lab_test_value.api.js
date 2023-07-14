@@ -5,10 +5,12 @@ export const labTestValueApi = {
   buildNewForPatient,
   create,
   edit,
+  indexForIntervention,
+  indexForPatient,
   listForIntervention,
   listForPatient,
-  show,
   profile,
+  show,
   update
 }
 
@@ -66,6 +68,27 @@ function edit(credentials, lab_test_value_id, onSuccess, onFailure) {
   const path = `/lab_test_values/${lab_test_value_id}/edit`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
+
+function indexForIntervention(credentials, intervention_id, params, onSuccess, onFailure) {
+  if (!API.validateId('intervention ID', intervention_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/interventions/${intervention_id}/lab_test_values`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+  if (!API.validateId('patient ID', patient_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/patients/${patient_id}/lab_test_values`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
 
 function listForIntervention(credentials, intervention_id, params, onSuccess, onFailure) {
   if (!API.validateId('intervention ID', intervention_id, onFailure)) {

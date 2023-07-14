@@ -6,6 +6,7 @@ export const patientMedicationApi = {
   buildNew,
   create,
   edit,
+  indexForPatient,
   listForPatient,
   searchForPatient,
   profile,
@@ -66,6 +67,16 @@ function edit(credentials, patient_medication_id, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/patient_medications/${patient_medication_id}/edit`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+  if (!API.validateId('patient ID', patient_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/patients/${patient_id}/patient_medications`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function listForPatient(credentials, patient_id, params, onSuccess, onFailure) {

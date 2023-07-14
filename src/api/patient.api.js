@@ -6,6 +6,8 @@ export const patientApi = {
   create,
   edit,
   index,
+  indexForHealthPlan,
+  indexForPharmacyStore,
   list,
   listForHealthPlan,
   listForPharmacyStore,
@@ -63,6 +65,26 @@ function edit(credentials, id, onSuccess, onFailure) {
 function index(credentials, params, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/patients`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForHealthPlan(credentials, health_plan_id, params, onSuccess, onFailure) {
+  if (!API.validateId('health plan ID', health_plan_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/health_plans/${health_plan_id}/patients`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForPharmacyStore(credentials, pharmacy_store_id, params, onSuccess, onFailure) {
+  if (!API.validateId('pharmacy store ID', pharmacy_store_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/pharmacy_stores/${pharmacy_store_id}/patients`
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 

@@ -9,10 +9,10 @@ export const goldStandardAllergyApi = {
 function match_name(credentials, allergyName, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/gold_standard/allergies/match_name?allergy_name=${allergyName}`
-  API.perform(method, path, '', userCredentials, undefined, onSuccess, onFailure)
+  API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
 
-function search(userCredentials, params, onSuccess, onFailure) {
+function search(credentials, params, onSuccess, onFailure) {
   const method = 'GET'
   const path = '/gold_standard/allergies/search'
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)

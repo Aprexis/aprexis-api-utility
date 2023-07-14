@@ -1,12 +1,52 @@
 import { API } from './api'
 
 export const pharmacyStoreApi = {
+  index,
+  indexForPatient,
+  indexForPharmacyChain,
+  indexForUser,
   list,
   listForPatient,
   listForPharmacyChain,
   listForUser,
   search,
   show
+}
+
+function index(credentials, params, onSuccess, onFailure) {
+  const method = "GET"
+  const path = "/pharmacy_stores"
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+  if (!API.validateId("patient ID", patient_id, onFailure)) {
+    return
+  }
+
+  const method = "GET"
+  const path = `/patients/${patient_id}/pharmacy_stores`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForPharmacyChain(credentials, pharmacy_chain_id, params, onSuccess, onFailure) {
+  if (!API.validateId("pharmacy chain ID", pharmacy_chain_id, onFailure)) {
+    return
+  }
+
+  const method = "GET"
+  const path = `/pharmacies/${pharmacy_chain_id}/pharmacy_stores`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForUser(credentials, user_id, params, onSuccess, onFailure) {
+  if (!API.validateId("user ID", user_id, onFailure)) {
+    return
+  }
+
+  const method = "GET"
+  const path = `/admin/users/${user_id}/pharmacy_stores`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function list(credentials, params, onSuccess, onFailure) {
