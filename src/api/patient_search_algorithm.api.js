@@ -1,13 +1,13 @@
 import { API } from './api'
 
 export const patientSearchAlgorithmApi = {
-  forHealthPlan,
+  indexForHealthPlan,
   legitimate,
   profile,
   show
 }
 
-function forHealthPlan(credentials, healthPlanId, params, onSuccess, onFailure) {
+function indexForHealthPlan(credentials, healthPlanId, params, onSuccess, onFailure) {
   if (!API.validateId('health plan ID', healthPlanId, onFailure)) {
     return
   }

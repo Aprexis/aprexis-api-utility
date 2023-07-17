@@ -3,6 +3,7 @@ import { answerHelper } from '../helpers/answer.helper'
 
 export const answerApi = {
   edit,
+  indexForIntervention,
   listForIntervention,
   update
 }
@@ -21,6 +22,16 @@ function edit(credentials, id, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/answers/${id}/edit`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForIntervention(credentials, intervention_id, params, onSuccess, onFailure) {
+  if (!API.validateId('intervention ID', intervention_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/interventions/${intervention_id}/answers`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function listForIntervention(credentials, intervention_id, params, onSuccess, onFailure) {

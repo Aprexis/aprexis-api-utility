@@ -2,6 +2,7 @@ import { API } from './'
 
 export const documentApi = {
   download,
+  indexForHealthPlan,
   listForHealthPlan,
   profile
 }
@@ -14,6 +15,16 @@ function download(credentials, document_id, onSuccess, onFailure, onDownload) {
   const method = 'GET'
   const path = `/documents/${document_id}/download`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure, { isDownload: true, onDownload })
+}
+
+function indexForHealthPlan(credentials, health_plan_id, params, onSuccess, onFailure) {
+  if (!API.validateId('health plan ID', health_plan_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/health_plans/${health_plan_id}/documents`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function listForHealthPlan(credentials, health_plan_id, params, onSuccess, onFailure) {

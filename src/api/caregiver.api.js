@@ -12,6 +12,7 @@ export const caregiverApi = {
   create,
   destroy,
   edit,
+  indexForPatient,
   listForPatient,
   profile,
   searchForPatient,
@@ -61,6 +62,16 @@ function edit(credentials, id, onSuccess, onFailure) {
   const method = 'GET'
   const path = `/caregivers/${id}/edit`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function indexForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+  if (!API.validateId('patient ID', patient_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/patients/${patient_id}/caregivers`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function listForPatient(credentials, patient_id, params, onSuccess, onFailure) {

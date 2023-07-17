@@ -11,6 +11,7 @@ export const billingContractPharmacyStoreApi = {
   buildNewForBillingContract,
   create,
   edit,
+  indexForBillingContract,
   listForBillingContract,
   profile,
   show,
@@ -50,6 +51,15 @@ function edit(credentials, contract_pharmacy_store_id, onSuccess, onFailure) {
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
 
+function indexForBillingContract(credentials, billing_contract_id, params, onSuccess, onFailure) {
+  if (!API.validateId('billing contract ID', billing_contract_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/billing/contracts/${billing_contract_id}/contract_pharmacy_stores`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
 
 function listForBillingContract(credentials, billing_contract_id, params, onSuccess, onFailure) {
   if (!API.validateId('billing contract ID', billing_contract_id, onFailure)) {

@@ -4,6 +4,7 @@ import { patientNoteHelper } from '../helpers/patient_note.helper'
 export const patientNoteApi = {
   buildNew,
   create,
+  indexForPatient,
   listForPatient,
   show
 }
@@ -46,6 +47,16 @@ function create(credentials, patientNote, onSuccess, onFailure) {
   const method = 'POST'
   const path = `/patients/${patientNote.pharmacy_store_patient.patient_id}/patient_notes`
   API.perform(method, path, '', credentials, toJSON(patientNote), onSuccess, onFailure)
+}
+
+function indexForPatient(credentials, patient_id, params, onSuccess, onFailure) {
+  if (!API.validateId('patient ID', patient_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/patients/${patient_id}/patient_notes`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function listForPatient(credentials, patient_id, params, onSuccess, onFailure) {
