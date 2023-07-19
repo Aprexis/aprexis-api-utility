@@ -221,14 +221,16 @@ function importantProps(props) {
     clearAlert,
     clearModal,
     error,
-    launchModal
+    launchModal,
+    reconnectAndRetry
   } = props
 
   return {
     clearAlert,
     clearModal,
     error,
-    launchModal
+    launchModal,
+    reconnectAndRetry
   }
 }
 
