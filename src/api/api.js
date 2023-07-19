@@ -71,8 +71,13 @@ function buildQueryString(params) {
   }
 }
 
-function handleError(method, path, error, onFailure, optional = {}) {
-  if (error.message.includes('You need to sign in or sign up before continuing.')) {
+function handleError(method, path, error, onFailure, reconnectAndRetry, retryAfterReconnect, workingCredentials, optional = {}) {
+  if (error.message.includes('You need to sign in or sign up before continuing') || error.message.includes('No login session found or login session authentication token has expired')) {
+    if (valueHelper.isFunction(reconnectAndRetry)) {
+      reconnectAndRetry('You are not signed in. You may have been signed out due to lack of activity or your username may have been changed by another user. Please sign in.', workingCredentials, retryAfterReconnect)
+      return
+    }
+
     onFailure('You are not signed in. You may have been signed out due to lack of activity or your username may have been changed by another user. Please sign in.')
     return
   }
@@ -113,7 +118,8 @@ function handleError(method, path, error, onFailure, optional = {}) {
 }
 
 function perform(method, path, queryString, credentials, body, onSuccess, onFailure, optional = {}) {
-  const { baseApiUrl, railsUrlRoot, userCredentials } = credentials
+  const { baseApiUrl, railsUrlRoot, reconnectAndRetry, userCredentials } = credentials
+  const retryAfterReconnect = (newCredentials) => { API.perform(method, path, queryString, { baseApiUrl, railsUrlRoot, userCredentials: newCredentials }, body, onSuccess, onFailure, optional) }
   let workingPath = path
 
   // If the incoming path includes the Rails relative URL root, remove it.
@@ -158,12 +164,12 @@ function perform(method, path, queryString, credentials, body, onSuccess, onFail
 
         default:
           response.text().then(
-            (errorMessage) => API.handleError(method, path, { message: errorMessage }, onFailure, optional)
+            (errorMessage) => API.handleError(method, path, { message: errorMessage }, onFailure, reconnectAndRetry, retryAfterReconnect, userCredentials, optional)
           )
       }
     }
   )
-    .catch((error) => { API.handleError(method, path, error, onFailure, optional) })
+    .catch((error) => { API.handleError(method, path, error, onFailure, reconnectAndRetry, retryAfterReconnect, userCredentials, optional) })
   return
 
   function addUserCredentials(existingHeaders, userCredentials) {
