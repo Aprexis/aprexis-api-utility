@@ -11,10 +11,12 @@ import { pharmacyStoreHelper } from './pharmacy_store.helper'
 import { programHelper } from './program.helper'
 import { userHelper } from './user.helper'
 import { diagnosisCodeHelper, placeOfServiceHelper } from './admin'
+import { modelConfigsHelper } from './model_configs.helper'
 import { modelDatesHelper } from './model_dates.helper'
 
 export const interventionHelper = {
   ...idHelper,
+  ...modelConfigsHelper,
   ...modelDatesHelper,
   appointment,
   appointmentId,
