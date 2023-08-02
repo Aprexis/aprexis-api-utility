@@ -42,6 +42,13 @@ const healthPlansFields = {
   }
 }
 
+const interventionFields = {
+  priority_authorization: {
+    label: 'Priority Authorization',
+    type: "OneZero"
+  }
+}
+
 const pharmacyStoresFields = {
   config_consent_form: {
     label: "Consent Form Defaults",
@@ -104,6 +111,7 @@ const videoFields = {
 export const modelConfigFields = {
   ...customDocumentationFields,
   ...healthPlansFields,
+  ...interventionFields,
   ...pharmacyStoresFields,
   ...usersFields,
   ...videoFields
