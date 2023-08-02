@@ -8,7 +8,8 @@ export const userApi = {
   indexForHealthPlan,
   refreshToken,
   search,
-  show
+  show,
+  userForPatient
 }
 
 function account(credentials, id, onSuccess, onFailure) {
@@ -76,5 +77,15 @@ function show(credentials, id, onSuccess, onFailure) {
 
   const method = 'GET'
   const path = `/admin/users/${id}`
+  API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function userForPatient(credentials, patient_id, onSuccess, onFailure) {
+  if (!API.validateId('patient ID', patient_id, onSuccess, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/patients/${patient_id}/user`
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
