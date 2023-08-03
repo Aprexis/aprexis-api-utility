@@ -11,6 +11,7 @@ export const medicalClaimHelper = {
   canEdit,
   claimNumber,
   healthPlanPatientMedicalClaimIdentifier,
+  medicalClaimDiagnosisCodes,
   memberNumber,
   patient,
   patientId,
@@ -39,6 +40,10 @@ function claimNumber(medicalClaim) {
 
 function healthPlanPatientMedicalClaimIdentifier(medicalClaim) {
   return fieldHelper.getField(medicalClaim, 'health_plan_patient_medical_claim_identifier')
+}
+
+function medicalClaimDiagnosisCodes(medicalClaim) {
+  return fieldHelper.getField(medicalClaim, 'medical_claim_diagnosis_codes')
 }
 
 function memberNumber(medicalClaim) {
