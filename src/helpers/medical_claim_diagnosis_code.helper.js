@@ -1,8 +1,18 @@
 import { fieldHelper } from "./field.helper"
 
 export const medicalClaimDiagnosisCodeHelper = {
+  canDelete,
+  canEdit,
   codeNumber,
   diagnosisCode
+}
+
+function canDelete(_user, _medicalClaimDiagnosisCode) {
+  return false
+}
+
+function canEdit(_user, _medicalClaimDiagnosisCode) {
+  return false
 }
 
 function codeNumber(medicalClaimDiagnosisCode) {

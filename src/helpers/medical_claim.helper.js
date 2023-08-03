@@ -1,5 +1,6 @@
 import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
+import { healthPlanHelper } from './health_plan.helper'
 import { patientHelper } from './patient.helper'
 import { idHelper } from './id.helper'
 import { modelDatesHelper } from './model_dates.helper'
@@ -10,6 +11,9 @@ export const medicalClaimHelper = {
   canDelete,
   canEdit,
   claimNumber,
+  healthPlan,
+  healthPlanId,
+  healthPlanName,
   healthPlanPatientMedicalClaimIdentifier,
   medicalClaimDiagnosisCodes,
   memberNumber,
@@ -36,6 +40,18 @@ function canEdit(_user, _medicalClaim) {
 
 function claimNumber(medicalClaim) {
   return fieldHelper.getField(medicalClaim, 'claim_number')
+}
+
+function healthPlan(medicalClaim) {
+  return fieldHelper.getField(medicalClaim, 'health_plan')
+}
+
+function healthPlanId(medicalClaim) {
+  return idHelper.associatedId(medicalClaim, 'health_plan', medicalClaimHelper)
+}
+
+function healthPlanName(medicalClaim) {
+  return healthPlanHelper.name(medicalClaimHelper.healthPlan(medicalClaim))
 }
 
 function healthPlanPatientMedicalClaimIdentifier(medicalClaim) {
