@@ -179,6 +179,10 @@ function makeDate(value) {
     return dateHelper.parseDate(value, 'yyyy-MM-dd')
   }
 
+  if (!/\d/.test(value) || !(/\-/.test(value) || /\//.test(value))) {
+    return
+  }
+
   const dateMoment = moment(value)
   if (!dateMoment.isValid()) {
     return
