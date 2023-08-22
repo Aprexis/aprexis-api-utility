@@ -33,6 +33,7 @@ export const pharmacyStoreHelper = {
   overridePharmacyOrganizationBillingInfo,
   pharmacyChain,
   pharmacyChainId,
+  pharmacyChainName,
   storeNumber,
   stripeCustomer,
   stripePharmacistLicensePrice,
@@ -72,7 +73,7 @@ function display(pharmacyStore) {
     return '(no pharmacy store)'
   }
 
-  const pharmacyChainName = pharmacyChainHelper.name(fieldHelper.getField(pharmacyStore, 'pharmacy'))
+  const pharmacyChainName = pharmacyStoreHelper.pharmacyChainName(pharmacyStore)
   return `${pharmacyChainName} - ${pharmacyStoreHelper.identification(pharmacyStore)}`
 }
 
@@ -146,6 +147,10 @@ function pharmacyChain(pharmacyStore) {
 
 function pharmacyChainId(pharmacyStore) {
   return idHelper.associatedId(pharmacyStore, 'pharmacy', pharmacyStoreHelper)
+}
+
+function pharmacyChainName(pharmacyStore) {
+  return pharmacyChainHelper.name(pharmacyStoreHelper.pharmacyChain(pharmacyStore))
 }
 
 function storeNumber(pharmacyStore) {
