@@ -15,6 +15,14 @@ export const userRoles = {
     has_npi: false,
     label: 'Aprexis User Administrator'
   },
+  dapo_admin: {
+    has_npi: false,
+    label: 'DAPO Administrator'
+  },
+  dapo_user: {
+    has_npi: false,
+    label: "DAPO User"
+  },
   health_plan_admin: {
     has_npi: false,
     label: 'Health Plan Administrator'
