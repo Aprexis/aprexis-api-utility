@@ -12,7 +12,7 @@ export const billingInvoiceApi = {
 function index(credentials, params, onSuccess, onFailure) {
   const method = 'GET'
   const path = '/billing/invoices'
-  API.perform(method, path, API.buildQueryString(params), credentials, onSuccess, onFailure)
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function indexForHealthPlan(credentials, health_plan_id, params, onSuccess, onFailure) {
@@ -28,7 +28,7 @@ function indexForHealthPlan(credentials, health_plan_id, params, onSuccess, onFa
 function list(credentials, params, onSuccess, onFailure) {
   const method = 'GET'
   const path = '/billing/invoices/list'
-  API.perform(method, path, API.buildQueryString(params), credentials, onSuccess, onFailure)
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
 function listForHealthPlan(credentials, health_plan_id, params, onSuccess, onFailure) {
