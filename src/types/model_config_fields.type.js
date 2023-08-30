@@ -39,6 +39,16 @@ const healthPlansFields = {
   save_claim_submission_files: {
     label: "Show Claim Submission Files",
     type: "OneZero"
+  },
+  video_call_requirements: {
+    label: "Video Call Requirements",
+    type: "Select",
+    options: { allow_multiple: true },
+    values: [
+      { id: "date_of_birth", label: "Date of Birth" },
+      { id: "health_plan_number", label: "Member ID" },
+      { id: "zip_code", label: "ZIP Code" }
+    ]
   }
 }
 
