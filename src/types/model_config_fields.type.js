@@ -89,6 +89,10 @@ const pharmacyStoresFields = {
   drx_store_slug: {
     label: "DRX Store Slug",
     type: "String"
+  },
+  telehealth_pharmacy_store: {
+    label: "Telehealth Pharmacy",
+    type: "OneZero"
   }
 }
 
