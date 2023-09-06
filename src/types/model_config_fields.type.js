@@ -105,9 +105,9 @@ const usersFields = {
     label: 'Weekly Notifications?',
     type: "YesNo"
   },
-  patient_overview_visibility: {
-    label: 'Patient Overview Visible?',
-    type: "YesNo"
+  user_title: {
+    label: "Title",
+    type: "String"
   }
 }
 
