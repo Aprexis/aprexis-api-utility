@@ -1,4 +1,5 @@
 import { fieldHelper, idHelper, modelDatesHelper } from "../"
+import { goldStandardGenericProductClinicalHelper } from "./gold_standard_generic_product_clinical.helper"
 
 export const goldStandardGenericProductHelper = {
   ...modelDatesHelper,
@@ -7,6 +8,7 @@ export const goldStandardGenericProductHelper = {
   genericProductId,
   goldStandardGenericProductClinical,
   goldStandardGenericProductClinicalId,
+  goldStandardGenericProductClinicalName,
   name,
   synonym
 }
@@ -34,6 +36,12 @@ function goldStandardGenericProductClinicalId(goldStandardGenericProduct) {
     goldStandardGenericProductHelper,
     "goldStandardGenericProductClinical",
     "generic_product_clinical_id"
+  )
+}
+
+function goldStandardGenericProductClinicalName(goldStandardGenericProduct) {
+  return goldStandardGenericProductClinicalHelper.name(
+    goldStandardGenericProductHelper.goldStandardGenericProductClinical(goldStandardGenericProduct)
   )
 }
 
