@@ -3,6 +3,7 @@ import { API } from '../'
 export const goldStandardSpecificProductApi = {
   index,
   list,
+  listForSpecificDrugProduct,
   profile,
   show
 }
@@ -16,6 +17,16 @@ function index(credentials, params, onSuccess, onFailure) {
 function list(credentials, params, onSuccess, onFailure) {
   const method = 'GET'
   const path = '/gold_standard/specific_products/list'
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function listForSpecificDrugProduct(credentials, specific_drug_product_id, params, onSuccess, onFailure) {
+  if (!API.validateId('specific drug product ID', specific_drug_product_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/gold_standard/specific_drug_products/${specific_drug_product_id}/specific_products/list`
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 

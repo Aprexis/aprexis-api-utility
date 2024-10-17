@@ -13,6 +13,8 @@ export const goldStandardPackageHelper = {
   canEdit,
   goldStandardProduct,
   goldStandardProductId,
+  goldStandardProductNameLong,
+  goldStandardProductNameShort,
   goldStandardUnitDoseType,
   goldStandardUnitDoseTypeId,
   gtin12,
@@ -57,6 +59,18 @@ function goldStandardProductId(goldStandardPackage) {
     goldStandardPackageHelper,
     "goldStandardProduct",
     "product_id"
+  )
+}
+
+function goldStandardProductNameLong(goldStandardPackage) {
+  return goldStandardProductHelper.productNameLong(
+    goldStandardPackageHelper.goldStandardProduct(goldStandardPackage)
+  )
+}
+
+function goldStandardProductNameShort(goldStandardPackage) {
+  return goldStandardProductHelper.productNameShort(
+    goldStandardPackageHelper.goldStandardProduct(goldStandardPackage)
   )
 }
 

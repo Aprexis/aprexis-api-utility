@@ -1,3 +1,4 @@
+import { goldStandardPackageHelper } from '.'
 import { fieldHelper, idHelper, modelDatesHelper } from '../'
 import { goldStandardInnerOuterHelper } from './gold_standard_inner_outer.helper'
 import { goldStandardNcpdpHelper } from './gold_standard_ncpdp.helper'
@@ -12,10 +13,13 @@ export const goldStandardPackageVersionHelper = {
   canEdit,
   formattedPackageIdentifier,
   goldStandardPackage,
-  goldStandardProductId,
-  goldStandardProduct,
   goldStandardPackageId,
+  goldStandardPackageDescription,
   packageDescriptorText,
+  goldStandardProduct,
+  goldStandardProductId,
+  goldStandardProductNameLong,
+  goldStandardProductNameShort,
   packageIdentifier,
   packageIdentifierType,
   packageSize,
@@ -53,6 +57,12 @@ function goldStandardPackageId(goldStandardPackageVersion) {
   )
 }
 
+function goldStandardPackageDescription(goldStandardPackageVersion) {
+  return goldStandardPackageHelper.packageDescription(
+    goldStandardPackageVersionHelper.goldStandardPackage(goldStandardPackageVersion)
+  )
+}
+
 function goldStandardProduct(goldStandardPackageVersion) {
   return fieldHelper.getField(goldStandardPackageVersion, 'product')
 }
@@ -64,6 +74,18 @@ function goldStandardProductId(goldStandardPackageVersion) {
     goldStandardPackageVersionHelper,
     "goldStandardProduct",
     "product_id"
+  )
+}
+
+function goldStandardProductNameLong(goldStandardPackageVersion) {
+  return goldStandardProductHelper.productNameLong(
+    goldStandardPackageVersionHelper.goldStandardProduct(goldStandardPackageVersion)
+  )
+}
+
+function goldStandardProductNameShort(goldStandardPackageVersion) {
+  return goldStandardProductHelper.productNameShort(
+    goldStandardPackageVersionHelper.goldStandardProduct(goldStandardPackageVersion)
   )
 }
 
