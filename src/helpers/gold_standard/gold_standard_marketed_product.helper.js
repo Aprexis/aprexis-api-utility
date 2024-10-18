@@ -1,3 +1,4 @@
+import { goldStandardSpecificProductHelper } from "./gold_standard_specific_product.helper"
 import { fieldHelper, idHelper, modelDatesHelper } from "../"
 
 export const goldStandardMarketedProductHelper = {
@@ -9,6 +10,7 @@ export const goldStandardMarketedProductHelper = {
   goldStandardCompanyId,
   goldStandardSpecificProduct,
   goldStandardSpecificProductId,
+  goldStandardSpecificProductName,
   marketedProductId,
   name,
   repackaged
@@ -51,6 +53,12 @@ function goldStandardSpecificProductId(goldStandardMarketedProduct) {
     goldStandardMarketedProductHelper,
     "goldStandardSpecificProduct",
     "specific_product_id"
+  )
+}
+
+function goldStandardSpecificProductName(goldStandardMarketedProduct) {
+  return goldStandardSpecificProductHelper.name(
+    goldStandardMarketedProductHelper.goldStandardSpecificProduct(goldStandardMarketedProduct)
   )
 }
 

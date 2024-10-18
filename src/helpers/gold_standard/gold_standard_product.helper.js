@@ -1,3 +1,6 @@
+import { goldStandardBrandGenericStatusHelper } from './gold_standard_brand_generic_status.helper'
+import { goldStandardLegendStatusHelper } from './gold_standard_legend_status.helper'
+import { goldStandardMarketedProductHelper } from './gold_standard_marketed_product.helper'
 import { fieldHelper, idHelper, valueHelper } from '../'
 import { medicationHelper } from '../admin'
 
@@ -9,24 +12,28 @@ export const goldStandardProductHelper = {
   ePrescribingName,
   goldStandardBrandGenericStatus,
   goldStandardBrandGenericStatusId,
+  goldStandardBrandGenericStatusName,
   goldStandardDesiClassification,
   goldStandardDesiClassificationId,
   goldStandardDesiStatus,
   goldStandardDesiStatusId,
   goldStandardLegendStatus,
   goldStandardLegendStatusId,
+  goldStandardLegendStatusName,
   goldStandardLimitedDistribution,
   goldStandardLimitedDistributionId,
   goldStandardLicenseType,
   goldStandardLicenseTypeId,
   goldStandardMarketedProduct,
   goldStandardMarketedProductId,
+  goldStandardMarketedProductName,
   goldStandardMarketer,
   goldStandardMarketerId,
   goldStandardProductNameType,
   goldStandardProductNameTypeId,
   goldStandardReplacedByProduct,
   goldStandardReplacedByProductId,
+  goldStandardReplacedByProductNameLong,
   innovator,
   medicationLabel,
   medications,
@@ -74,6 +81,12 @@ function goldStandardBrandGenericStatusId(goldStandardProduct) {
   )
 }
 
+function goldStandardBrandGenericStatusName(goldStandardProduct) {
+  return goldStandardBrandGenericStatusHelper.statusName(
+    goldStandardProductHelper.goldStandardBrandGenericStatusId(goldStandardProduct)
+  )
+}
+
 function goldStandardDesiClassification(goldStandardProduct) {
   return fieldHelper.getField(goldStandardProduct, "desi_classification")
 }
@@ -113,6 +126,12 @@ function goldStandardLegendStatusId(goldStandardProduct) {
     goldStandardLegendStatus,
     "goldStandardLegendStatus",
     "legend_status_id"
+  )
+}
+
+function goldStandardLegendStatusName(goldStandardProduct) {
+  return goldStandardLegendStatusHelper.statusName(
+    goldStandardProductHelper.goldStandardLegendStatus(goldStandardProduct)
   )
 }
 
@@ -158,6 +177,12 @@ function goldStandardMarketedProductId(goldStandardProduct) {
   )
 }
 
+function goldStandardMarketedProductName(goldStandardProduct) {
+  return goldStandardMarketedProductHelper.name(
+    goldStandardProductHelper.goldStandardMarketedProduct(goldStandardProduct)
+  )
+}
+
 function goldStandardMarketer(goldStandardProduct) {
   return fieldHelper.getField(goldStandardProduct, "marketer")
 }
@@ -197,6 +222,12 @@ function goldStandardReplacedByProductId(goldStandardProduct) {
     goldStandardProductHelper,
     "goldStandardReplacedByProduct",
     "replaced_by_product_id"
+  )
+}
+
+function goldStandardReplacedByProductNameLong(goldStandardProduct) {
+  return goldStandardProductHelper.productNameLong(
+    goldStandardProductHelper.goldStandardReplacedByProduct(goldStandardProduct)
   )
 }
 

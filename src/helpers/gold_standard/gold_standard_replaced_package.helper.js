@@ -1,8 +1,10 @@
+import { goldStandardPackageHelper } from '.'
 import { fieldHelper, idHelper } from '../'
 
 export const goldStandardReplacedPackageHelper = {
   goldStandardReplacedByPackage,
   goldStandardReplacedByPackageId,
+  goldStandardReplacedByPackageDescription,
   replacedDate
 }
 
@@ -17,6 +19,12 @@ function goldStandardReplacedByPackageId(goldStandardReplacedPackage) {
     goldStandardReplacedPackageHelper,
     "goldStandardReplacedByPackage",
     "replaced_by_package_id"
+  )
+}
+
+function goldStandardReplacedByPackageDescription(goldStandardReplacedPackage) {
+  return goldStandardPackageHelper.packageDescription(
+    goldStandardReplacedPackageHelper.goldStandardReplacedByPackage(goldStandardReplacedPackage)
   )
 }
 
