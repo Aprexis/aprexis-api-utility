@@ -1,4 +1,4 @@
-import { API } from '../api'
+import { API } from '../'
 
 export const goldStandardAllergyApi = {
   match_name,
