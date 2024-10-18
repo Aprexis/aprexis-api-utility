@@ -6,6 +6,8 @@ export const goldStandardAllergyHelper = {
   allergyDescription,
   allergyId,
   allergyName,
+  canDelete,
+  canEdit,
   label
 }
 
@@ -19,6 +21,14 @@ function allergyId(goldStandardAllergy) {
 
 function allergyName(goldStandardAllergy) {
   return fieldHelper.getField(goldStandardAllergy, 'allergy_name')
+}
+
+function canDelete(_user, _goldStandardAllergy) {
+  return false
+}
+
+function canEdit(_user, _goldStandardAllergy) {
+  return false
 }
 
 function label(goldStandardAllergy) {

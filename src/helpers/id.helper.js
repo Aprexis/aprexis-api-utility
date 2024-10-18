@@ -6,24 +6,24 @@ export const idHelper = {
   id
 }
 
-function associatedId(object, idFor, objectHelper) {
+function associatedId(object, idFor, objectHelper, methodName = nil, methodIdField = 'id') {
   if (!valueHelper.isValue(object)) {
     return
   }
 
-  const forName = valueHelper.camelCase(idFor)
   const associatedId = object[`${idFor}_id`]
   if (valueHelper.isNumberValue(associatedId)) {
     return associatedId
   }
 
+  const forName = valueHelper.isStringValue(methodName) ? methodName : valueHelper.camelCase(idFor)
   if (valueHelper.isFunction(objectHelper[forName])) {
-    return idHelper.id(objectHelper[forName](object))
+    return idHelper.id(objectHelper[forName](object), methodIdField)
   }
 
   return
 }
 
-function id(object) {
-  return fieldHelper.getField(object, 'id')
+function id(object, idField = 'id') {
+  return fieldHelper.getField(object, idField)
 }
