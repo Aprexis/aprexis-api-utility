@@ -83,7 +83,7 @@ function goldStandardBrandGenericStatusId(goldStandardProduct) {
 
 function goldStandardBrandGenericStatusName(goldStandardProduct) {
   return goldStandardBrandGenericStatusHelper.statusName(
-    goldStandardProductHelper.goldStandardBrandGenericStatusId(goldStandardProduct)
+    goldStandardProductHelper.goldStandardBrandGenericStatus(goldStandardProduct)
   )
 }
 
