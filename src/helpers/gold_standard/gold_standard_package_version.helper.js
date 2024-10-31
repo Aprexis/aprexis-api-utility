@@ -1,7 +1,8 @@
-import { goldStandardPackageHelper } from '.'
 import { fieldHelper, idHelper, modelDatesHelper } from '../'
 import { goldStandardInnerOuterHelper } from './gold_standard_inner_outer.helper'
 import { goldStandardNcpdpHelper } from './gold_standard_ncpdp.helper'
+import { goldStandardPackageHelper } from './gold_standard_package.helper'
+import { goldStandardProductHelper } from './gold_standard_product.helper'
 import { goldStandardReplacedPackageHelper } from './gold_standard_replaced_package.helper'
 
 export const goldStandardPackageVersionHelper = {
@@ -20,6 +21,8 @@ export const goldStandardPackageVersionHelper = {
   goldStandardProductId,
   goldStandardProductNameLong,
   goldStandardProductNameShort,
+  ndc10,
+  ndc11,
   packageIdentifier,
   packageIdentifierType,
   packageSize,
@@ -27,7 +30,7 @@ export const goldStandardPackageVersionHelper = {
   packageVersionOffMarketDate,
   packageVersionOnMarketDate,
   preservativeFree,
-  unformattedNcd10,
+  unformattedNdc10,
   version
 }
 
@@ -89,6 +92,18 @@ function goldStandardProductNameShort(goldStandardPackageVersion) {
   )
 }
 
+function ndc10(goldStandardPackageVersion) {
+  return goldStandardPackageHelper.ndc10(
+    goldStandardPackageVersionHelper.goldStandardPackage(goldStandardPackageVersion)
+  )
+}
+
+function ndc11(goldStandardPackageVersion) {
+  return goldStandardPackageHelper.ndc11(
+    goldStandardPackageVersionHelper.goldStandardPackage(goldStandardPackageVersion)
+  )
+}
+
 function packageDescriptorText(goldStandardPackageVersion) {
   return fieldHelper.getField(goldStandardPackageVersion, 'package_descriptor_text')
 }
@@ -120,7 +135,7 @@ function preservativeFree(goldStandardPackageVersion) {
   return fieldHelper.getField(goldStandardPackageVersion, 'preservative_free')
 }
 
-function unformattedNcd10(goldStandardPackageVersion) {
+function unformattedNdc10(goldStandardPackageVersion) {
   return fieldHelper.getField(goldStandardPackageVersion, 'unformatted_ndc10')
 }
 

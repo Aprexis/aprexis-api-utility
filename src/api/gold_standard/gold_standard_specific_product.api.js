@@ -4,6 +4,7 @@ export const goldStandardSpecificProductApi = {
   index,
   list,
   listForSpecificDrugProduct,
+  listForTherapeuticConcept,
   profile,
   show
 }
@@ -27,6 +28,16 @@ function listForSpecificDrugProduct(credentials, specific_drug_product_id, param
 
   const method = 'GET'
   const path = `/gold_standard/specific_drug_products/${specific_drug_product_id}/specific_products/list`
+  API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
+}
+
+function listForTherapeuticConcept(credentials, therapeutic_concept_id, params, onSuccess, onFailure) {
+  if (!API.validateId('therapeutic concept ID', therapeutic_concept_id, onFailure)) {
+    return
+  }
+
+  const method = 'GET'
+  const path = `/gold_standard/therapeutic_concepts/${therapeutic_concept_id}/specific_products/list`
   API.perform(method, path, API.buildQueryString(params), credentials, undefined, onSuccess, onFailure)
 }
 
