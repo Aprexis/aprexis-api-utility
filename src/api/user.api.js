@@ -9,7 +9,8 @@ export const userApi = {
   refreshToken,
   search,
   show,
-  userForPatient
+  userForPatient,
+  userSessionTimeout
 }
 
 function account(credentials, id, onSuccess, onFailure) {
@@ -87,5 +88,11 @@ function userForPatient(credentials, patient_id, onSuccess, onFailure) {
 
   const method = 'GET'
   const path = `/patients/${patient_id}/user`
+  API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
+}
+
+function userSessionTimeout(credentials, onSuccess, onFailure) {
+  const method = 'GET'
+  const path = '/admin/users/user_session_timeout'
   API.perform(method, path, '', credentials, undefined, onSuccess, onFailure)
 }
