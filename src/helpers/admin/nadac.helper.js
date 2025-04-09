@@ -44,7 +44,6 @@ function ndc11(nadac) {
   return fieldHelper.getField(nadac, 'ndc11')
 }
 
-
 function unitPrice(nadac) {
   return fieldHelper.getField(nadac, 'unit_price')
 }

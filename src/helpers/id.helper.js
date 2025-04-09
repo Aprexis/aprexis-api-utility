@@ -6,7 +6,7 @@ export const idHelper = {
   id
 }
 
-function associatedId(object, idFor, objectHelper, methodName = nil, methodIdField = 'id') {
+function associatedId(object, idFor, objectHelper, methodName = null, methodIdField = 'id') {
   if (!valueHelper.isValue(object)) {
     return
   }
