@@ -2,7 +2,7 @@ import { valueHelper } from './value.helper'
 import { fieldHelper } from './field.helper'
 import { patientHelper } from './patient.helper'
 import { pharmacyStoreHelper } from './pharmacy_store.helper'
-import { medicationHelper, physicianHelper } from './admin'
+import { medicationHelper, nadacHelper, physicianHelper } from './admin'
 import { idHelper } from './id.helper'
 import { modelDatesHelper } from './model_dates.helper'
 
@@ -22,9 +22,12 @@ export const pharmacyClaimHelper = {
   frequencyUnits,
   healthPlanPatientPharmacyClaimIdentifier,
   medication,
-  medicationid,
+  medicationId,
   medicationLabel,
   memberNumber,
+  nadac,
+  nadacId,
+  nadacUnitPrice,
   ndc,
   patient,
   patientId,
@@ -100,7 +103,7 @@ function medication(pharmacyClaim) {
   return fieldHelper.getField(pharmacyClaim, 'medication')
 }
 
-function medicationid(pharmacyClaim) {
+function medicationId(pharmacyClaim) {
   return idHelper.associatedId(pharmacyClaim, 'medication', pharmacyClaimHelper)
 }
 
@@ -110,6 +113,18 @@ function medicationLabel(pharmacyClaim) {
 
 function memberNumber(pharmacyClaim) {
   return fieldHelper.getField(pharmacyClaim, 'member_number')
+}
+
+function nadac(pharmacyClaim) {
+  return fieldHelper.getField(pharmacyClaim, 'nadac')
+}
+
+function nadacId(pharmacyClaim) {
+  return idHelper.associatedId(pharmacyClaim, 'nadac', pharmacyClaimHelper)
+}
+
+function nadacUnitPrice(pharmacyClaim) {
+  return nadacHelper.unitPrice(pharmacyClaimHelper.nadac(pharmacyClaim))
 }
 
 function ndc(pharmacyClaim) {

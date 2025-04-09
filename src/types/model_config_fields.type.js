@@ -8,21 +8,74 @@ const customDocumentationFields = {
 }
 
 const healthPlansFields = {
+  cmr_initial_state: {
+    label: "Initial state for CMRs",
+    type: "String"
+  },
+  completion_path: {
+    label: "Path to Complete Interventions",
+    type: "String"
+  },
   days_for_explicit_authorization: {
     label: "Days for Explicit Authorization",
+    type: "Number"
+  },
+  failed_contact_attempts_limit: {
+    label: "Maximum Number of Failed Contact Attempts Allowed",
     type: "Number"
   },
   follow_ups_inherit_answers: {
     label: "Follow-Ups Inherit Answers",
     type: 'OneZero'
   },
+  gaps_in_care_set: {
+    label: "Gaps in Care Set",
+    type: "String"
+  },
   generate_completed_interventions_report: {
     label: "Generate Completed Interventions Report",
     type: "OneZero"
   },
+  hcp_tmr_Unknown: {
+    label: "Enable Unknown HCP TMR",
+    type: "OneZero"
+  },
+  hcp_tmr_GAP_IN_CARE: {
+    label: "Enable Gap in Care HCP TMRs",
+    type: "OneZero"
+  },
+  hcp_tmr_SUPD: {
+    label: "Enable SUPD HCP TMRs",
+    type: "OneZero"
+  },
+  hcin_number: {
+    label: "Secondary Insurance ID",
+    type: "String"
+  },
+  hic_char: {
+    label: "Contract #",
+    type: "String"
+  },
+  medicare: {
+    label: "Medicare Plan",
+    type: "OneZero"
+  },
+  patient_satisfaction_survey: {
+    label: "Patient Satisfaction Survey",
+    type: "Select",
+    values: {
+      id: "Aprexis", label: "Standard Aprexis Patient Satisfaction Survey",
+      id: "Employer Group", label: "Employer Group Patient Satisfaction Survey",
+      id: "Medicare Part D", label: "Medicare Part D Patient Satisfaction Survey"
+    }
+  },
   patient_search_algorithm_classes: {
     label: "Patient Search Algorithm Classes",
     type: "List"
+  },
+  require_doc_attestation: {
+    label: "Requires Attestation of HCP Contact",
+    type: "OneZero"
   },
   requires_explicit_authorization: {
     label: "Requires Explicit Authorization",
