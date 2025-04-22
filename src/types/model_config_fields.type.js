@@ -32,6 +32,10 @@ const healthPlansFields = {
     label: "Gaps in Care Set",
     type: "String"
   },
+  pending_gaps_in_care_set: {
+    label: "Pending Gaps in Care Set",
+    type: "String"
+  },
   generate_completed_interventions_report: {
     label: "Generate Completed Interventions Report",
     type: "OneZero"
