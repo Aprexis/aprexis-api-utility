@@ -31,14 +31,17 @@ export const patientMedicationHelper = {
   displayHasPreviousFill,
   displayStrength,
   displayType,
-  filledAt,
   hasPreviousFill,
   healthPlanId,
   indication,
   label,
+  lastFilledAt,
   medication,
   medicationId,
   medicationLabel,
+  medicationSuperset,
+  medicationSupersetId,
+  medicationSupersetLabel,
   mpr,
   patient,
   patientId,
@@ -51,6 +54,7 @@ export const patientMedicationHelper = {
   physicianId,
   physicianName,
   physicianNameAndNpi,
+  removedAt,
   startDate,
   strength,
   strengthUnits,
@@ -65,11 +69,12 @@ const patientMedicationEditableFields = [
   'additional_information',
   'days_supply',
   'directions',
-  'filled_at',
   'indication',
   'start_date',
   'strength',
-  'strength_units'
+  'strength_units',
+  'last_filled_at',
+  'removed_at'
 ]
 
 const patientMedicationKeys = [
@@ -77,12 +82,14 @@ const patientMedicationKeys = [
   'additional_information',
   'days_supply',
   'directions',
-  'filled_at',
   'indication',
+  'last_filled_at',
   'medication_id',
+  'medication_superset_id',
   'patient_id',
   'pharmacy_store_id',
   'physician_id',
+  'removed_at',
   'start_date',
   'strength',
   'strength_units',
@@ -276,10 +283,6 @@ function displayType(patientMedication) {
   return typeLabel
 }
 
-function filledAt(patientMedication) {
-  return fieldHelper.getField(patientMedication, 'filled_at')
-}
-
 function hasPreviousFill(patientMedication) {
   return fieldHelper.getField(patientMedication, 'has_previous_fill')
 }
@@ -300,6 +303,10 @@ function label(patientMedication) {
   return `${patientMedicationHelper.medicationLabel(patientMedication)} filled at ${patientMedicationHelper.displayFilledAt(patientMedication)}`
 }
 
+function lastFilledAt(patientMedication) {
+  return fieldHelper.getField(patientMedication, 'last_filled_at')
+}
+
 function medication(patientMedication) {
   return fieldHelper.getField(patientMedication, 'medication')
 }
@@ -310,6 +317,18 @@ function medicationId(patientMedication) {
 
 function medicationLabel(patientMedication) {
   return medicationHelper.label(patientMedicationHelper.medication(patientMedication))
+}
+
+function medicationSuperset(patientMedication) {
+  return fieldHelper.getField(patientMedication, 'medication_superset')
+}
+
+function medicationSupersetId(patientMedication) {
+  return idHelper.associatedId(patientMedication, 'medication_superset', patientMedicationHelper)
+}
+
+function medicationSupersetLabel(patientMedication) {
+  return medicationHelper.label(patientMedicationHelper.medicationSuperset(patientMedication))
 }
 
 function mpr(patientMedication) {
@@ -358,6 +377,10 @@ function physicianName(patientMedication) {
 
 function physicianNameAndNpi(patientMedication) {
   return physicianHelper.nameAndNpi(patientMedicationHelper.physician(patientMedication))
+}
+
+function removedAt(patientMedication) {
+  return fieldHelper.getField(patientMedication, 'removed_at')
 }
 
 function startDate(patientMedication) {
