@@ -1,6 +1,6 @@
-import { valueHelper } from '../helpers/value.helper'
-import { interventionHelper } from '../helpers/intervention.helper'
-import { API } from './api'
+import { valueHelper } from '../helpers/value.helper.js'
+import { interventionHelper } from '../helpers/intervention.helper.js'
+import { API } from './api.js'
 
 export const interventionApi = {
   buildNewExternal,

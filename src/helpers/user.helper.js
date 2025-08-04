@@ -1,11 +1,11 @@
-import { valueHelper } from './value.helper'
-import { fieldHelper } from './field.helper'
-import { idHelper } from './id.helper'
-import { userRoles } from '../types'
-import { contactHelper } from './contact.helper'
-import { nameHelper } from './name.helper'
-import { modelConfigsHelper } from './model_configs.helper'
-import { modelDatesHelper } from './model_dates.helper'
+import { valueHelper } from './value.helper.js'
+import { fieldHelper } from './field.helper.js'
+import { idHelper } from './id.helper.js'
+import { userRoles } from '../types/user_roles.type.js'
+import { contactHelper } from './contact.helper.js'
+import { nameHelper } from './name.helper.js'
+import { modelConfigsHelper } from './model_configs.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 export const userHelper = {
   ...idHelper,

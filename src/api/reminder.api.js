@@ -1,5 +1,5 @@
-import { API } from './api'
-import { reminderHelper } from '../helpers/reminder.helper'
+import { API } from './api.js'
+import { reminderHelper } from '../helpers/reminder.helper.js'
 
 export const reminderApi = {
   buildNew,

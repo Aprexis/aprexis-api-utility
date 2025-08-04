@@ -1,5 +1,5 @@
-import { API } from '../api'
-import { billingContractTermHelper } from '../../helpers/billing/billing_contract_term.helper'
+import { API } from '../api.js'
+import { billingContractTermHelper } from '../../helpers/billing/billing_contract_term.helper.js'
 
 export const billingContractTermApi = {
   edit,

@@ -1,5 +1,5 @@
-import { dateHelper } from './date.helper'
-import { fieldHelper } from './field.helper'
+import { dateHelper } from './date.helper.js'
+import { fieldHelper } from './field.helper.js'
 
 export const modelDatesHelper = {
   createdAt,

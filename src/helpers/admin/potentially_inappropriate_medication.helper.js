@@ -1,6 +1,6 @@
-import { fieldHelper } from '../field.helper'
-import { idHelper } from '../id.helper'
-import { goldStandardSpecificProductHelper } from '../gold_standard'
+import { fieldHelper } from '../field.helper.js'
+import { idHelper } from '../id.helper.js'
+import { goldStandardSpecificProductHelper } from '../gold_standard/gold_standard_specific_product.helper.js'
 
 export const potentiallyInappropriateMedicationHelper = {
   ...idHelper,

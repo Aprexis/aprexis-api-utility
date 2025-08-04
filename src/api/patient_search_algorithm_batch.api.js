@@ -1,5 +1,5 @@
-import { API } from './api'
-import { dateHelper } from "../helpers"
+import { API } from './api.js'
+import { dateHelper } from "../helpers/date.helper.js"
 
 export const patientSearchAlgorithmBatchApi = {
   profile,

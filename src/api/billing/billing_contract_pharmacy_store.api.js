@@ -1,5 +1,5 @@
-import { API } from '../api'
-import { billingContractPharmacyStoreHelper } from '../../helpers/billing/billing_contract_pharmacy_store.helper'
+import { API } from '../api.js'
+import { billingContractPharmacyStoreHelper } from '../../helpers/billing/billing_contract_pharmacy_store.helper.js'
 
 function toJSON(billingContractPharmacyStore) {
   return {

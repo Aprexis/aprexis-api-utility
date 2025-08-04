@@ -1,7 +1,10 @@
 import dateFnsFormat from 'date-fns/format'
 import dateFnsParse from 'date-fns/parse'
 import moment from 'moment'
-import { valueHelper } from './value.helper'
+import { valueHelper } from './value.helper.js'
+import { enUS } from 'date-fns/locale/en-US'
+import { enCA } from 'date-fns/locale/en-CA'
+import { es } from 'date-fns/locale/es'
 
 export const dateHelper = {
   convertDateStringToDate,
@@ -32,9 +35,9 @@ function determineLocale() {
   Metro, which is used by Expo, doesn't support dynamic requires. They need to be explicitly loaded. This means that adding support for other languages will require additional entries here. For now, we'll support US English and Spanish.
 */
 const supportedLocales = {
-  'en-US': require('date-fns/locale/en-US'),
-  'en-CA': require('date-fns/locale/en-CA'),
-  'es': require('date-fns/locale/es')
+  'en-US': enUS,
+  'en-CA': enCA,
+  'es': es
 }
 
 function localeFromLocaleString(localeString) {

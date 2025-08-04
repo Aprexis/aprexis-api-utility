@@ -1,7 +1,7 @@
-import { valueHelper } from './value.helper'
-import { fieldHelper } from './field.helper'
-import { idHelper } from './id.helper'
-import { questionKeyHelper } from './question_key.helper'
+import { valueHelper } from './value.helper.js'
+import { fieldHelper } from './field.helper.js'
+import { idHelper } from './id.helper.js'
+import { questionKeyHelper } from './question_key.helper.js'
 
 export const questionOptionHelper = {
   ...questionKeyHelper,

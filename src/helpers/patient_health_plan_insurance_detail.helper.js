@@ -1,8 +1,8 @@
-import { fieldHelper } from './field.helper'
-import { idHelper } from './id.helper'
-import { patientHelper } from './patient.helper'
-import { valueHelper } from './value.helper'
-import { modelDatesHelper } from './model_dates.helper'
+import { fieldHelper } from './field.helper.js'
+import { idHelper } from './id.helper.js'
+import { patientHelper } from './patient.helper.js'
+import { valueHelper } from './value.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 export const patientHealthPlanInsuranceDetailHelper = {
   ...idHelper,

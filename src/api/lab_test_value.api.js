@@ -1,5 +1,5 @@
-import { API } from './api'
-import { labTestValueHelper, valueHelper } from '../helpers'
+import { API } from './api.js'
+import { labTestValueHelper, valueHelper } from '../helpers/index.js'
 
 export const labTestValueApi = {
   buildNewForPatient,

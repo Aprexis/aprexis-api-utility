@@ -1,5 +1,5 @@
-import { API } from './api'
-import { patientHelper } from '../helpers/patient.helper'
+import { API } from './api.js'
+import { patientHelper } from '../helpers/patient.helper.js'
 
 export const patientApi = {
   buildNew,

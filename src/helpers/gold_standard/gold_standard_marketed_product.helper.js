@@ -1,5 +1,5 @@
-import { goldStandardSpecificProductHelper } from "./gold_standard_specific_product.helper"
-import { fieldHelper, idHelper, modelDatesHelper } from "../"
+import { goldStandardSpecificProductHelper } from './gold_standard_specific_product.helper.js'
+import { fieldHelper, idHelper, modelDatesHelper } from '../index.js'
 
 export const goldStandardMarketedProductHelper = {
   ...modelDatesHelper,

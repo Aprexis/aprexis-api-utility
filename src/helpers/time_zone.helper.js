@@ -1,5 +1,5 @@
-import { valueHelper } from './value.helper'
-import { timeZones, usaTimeZones } from '../types'
+import { valueHelper } from './value.helper.js'
+import { timeZones, usaTimeZones } from '../types/index.js'
 
 export const timeZoneHelper = {
   displayTimeZone,

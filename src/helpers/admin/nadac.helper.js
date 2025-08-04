@@ -1,7 +1,7 @@
-import { idHelper } from '../id.helper'
-import { fieldHelper } from '../field.helper'
-import { modelDatesHelper } from '../model_dates.helper'
-import { goldStandardPackageHelper } from '../gold_standard/gold_standard_package.helper'
+import { idHelper } from '../id.helper.js'
+import { fieldHelper } from '../field.helper.js'
+import { modelDatesHelper } from '../model_dates.helper.js'
+import { goldStandardPackageHelper } from '../gold_standard/gold_standard_package.helper.js'
 
 export const nadacHelper = {
   ...idHelper,

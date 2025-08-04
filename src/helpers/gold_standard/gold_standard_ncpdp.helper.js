@@ -1,4 +1,4 @@
-import { fieldHelper, idHelper } from "../"
+import { fieldHelper, idHelper } from '../index.js'
 
 export const goldStandardNcpdpHelper = {
   goldStandardNcpdpBillingUnit,

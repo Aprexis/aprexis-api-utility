@@ -1,11 +1,11 @@
-import { billingContractHelper } from './billing_contract.helper'
-import { apiHelper } from '../api.helper'
-import { fieldHelper } from '../field.helper'
-import { pharmacyChainHelper } from '../pharmacy_chain.helper'
-import { userHelper } from '../user.helper'
-import { valueHelper } from '../value.helper'
-import { idHelper } from '../id.helper'
-import { modelDatesHelper } from '../model_dates.helper'
+import { billingContractHelper } from './billing_contract.helper.js'
+import { apiHelper } from '../api.helper.js'
+import { fieldHelper } from '../field.helper.js'
+import { pharmacyChainHelper } from '../pharmacy_chain.helper.js'
+import { userHelper } from '../user.helper.js'
+import { valueHelper } from '../value.helper.js'
+import { idHelper } from '../id.helper.js'
+import { modelDatesHelper } from '../model_dates.helper.js'
 
 const billingContractPharmacyChainEditableFields = [
   'claims_enabled',

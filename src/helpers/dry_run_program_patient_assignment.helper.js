@@ -1,11 +1,11 @@
-import { fieldHelper } from './field.helper'
-import { healthPlanHelper } from './health_plan.helper'
-import { healthPlanPatientSearchAlgorithmHelper } from './health_plan_patient_search_algorithm.helper'
-import { healthPlanPatientSearchStageHelper } from './health_plan_patient_search_stage.helper'
-import { idHelper } from './id.helper'
-import { patientHelper } from './patient.helper'
-import { pharmacyStoreHelper } from './pharmacy_store.helper'
-import { programHelper } from './program.helper'
+import { fieldHelper } from './field.helper.js'
+import { healthPlanHelper } from './health_plan.helper.js'
+import { healthPlanPatientSearchAlgorithmHelper } from './health_plan_patient_search_algorithm.helper.js'
+import { healthPlanPatientSearchStageHelper } from './health_plan_patient_search_stage.helper.js'
+import { idHelper } from './id.helper.js'
+import { patientHelper } from './patient.helper.js'
+import { pharmacyStoreHelper } from './pharmacy_store.helper.js'
+import { programHelper } from './program.helper.js'
 
 export const dryRunProgramPatientAssignmentHelper = {
   ...idHelper,

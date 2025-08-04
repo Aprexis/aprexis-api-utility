@@ -1,4 +1,4 @@
-import { fieldHelper } from './field.helper'
+import { fieldHelper } from './field.helper.js'
 
 export const modelConfigsHelper = {
   modelConfigField,

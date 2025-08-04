@@ -1,10 +1,10 @@
-import { billingContractHelper } from './billing_contract.helper'
-import { fieldHelper } from '../field.helper'
-import { userHelper } from '../user.helper'
-import { valueHelper } from '../value.helper'
-import { apiHelper } from '../api.helper'
-import { idHelper } from '../id.helper'
-import { modelDatesHelper } from '../model_dates.helper'
+import { billingContractHelper } from './billing_contract.helper.js'
+import { fieldHelper } from '../field.helper.js'
+import { userHelper } from '../user.helper.js'
+import { valueHelper } from '../value.helper.js'
+import { apiHelper } from '../api.helper.js'
+import { idHelper } from '../id.helper.js'
+import { modelDatesHelper } from '../model_dates.helper.js'
 
 const billingContractTermEditableFields = [
   'allow_claims_despite_physician_denial',

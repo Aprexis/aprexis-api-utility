@@ -1,8 +1,8 @@
-import { fieldHelper, idHelper, modelDatesHelper } from '../'
-import { goldStandardSpecificProductHelper } from "./gold_standard_specific_product.helper"
-import { goldStandardMarketedProductHelper } from './gold_standard_marketed_product.helper'
-import { goldStandardPackageHelper } from './gold_standard_package.helper'
-import { goldStandardProductHelper } from './gold_standard_product.helper'
+import { fieldHelper, idHelper, modelDatesHelper } from '../index.js'
+import { goldStandardSpecificProductHelper } from './gold_standard_specific_product.helper.js'
+import { goldStandardMarketedProductHelper } from './gold_standard_marketed_product.helper.js'
+import { goldStandardPackageHelper } from './gold_standard_package.helper.js'
+import { goldStandardProductHelper } from './gold_standard_product.helper.js'
 
 export const goldStandardMaintenanceMedicationHelper = {
   ...modelDatesHelper,

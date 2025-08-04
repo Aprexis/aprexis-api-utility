@@ -1,8 +1,8 @@
-import { valueHelper } from './value.helper'
-import { fieldHelper } from './field.helper'
-import { apiHelper } from './api.helper'
-import { idHelper } from './id.helper'
-import { modelDatesHelper } from './model_dates.helper'
+import { valueHelper } from './value.helper.js'
+import { fieldHelper } from './field.helper.js'
+import { apiHelper } from './api.helper.js'
+import { idHelper } from './id.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 const documentKeys = [
   'id',

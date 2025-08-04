@@ -1,8 +1,8 @@
-import { goldStandardBrandGenericStatusHelper } from './gold_standard_brand_generic_status.helper'
-import { goldStandardLegendStatusHelper } from './gold_standard_legend_status.helper'
-import { goldStandardMarketedProductHelper } from './gold_standard_marketed_product.helper'
-import { fieldHelper, idHelper, valueHelper } from '../'
-import { medicationHelper } from '../admin'
+import { goldStandardBrandGenericStatusHelper } from './gold_standard_brand_generic_status.helper.js'
+import { goldStandardLegendStatusHelper } from './gold_standard_legend_status.helper.js'
+import { goldStandardMarketedProductHelper } from './gold_standard_marketed_product.helper.js'
+import { fieldHelper, idHelper, valueHelper } from '../index.js'
+import { medicationHelper } from '../admin/index.js'
 
 export const goldStandardProductHelper = {
   bulkChemical,

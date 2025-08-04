@@ -1,11 +1,11 @@
-import { valueHelper } from './value.helper'
-import { fieldHelper } from './field.helper'
-import { idHelper } from './id.helper'
-import { apiHelper } from './api.helper'
-import { patientHelper } from './patient.helper'
-import { userHelper } from './user.helper'
-import { goldStandardAllergyHelper } from './gold_standard'
-import { modelDatesHelper } from './model_dates.helper'
+import { valueHelper } from './value.helper.js'
+import { fieldHelper } from './field.helper.js'
+import { idHelper } from './id.helper.js'
+import { apiHelper } from './api.helper.js'
+import { patientHelper } from './patient.helper.js'
+import { userHelper } from './user.helper.js'
+import { goldStandardAllergyHelper } from './gold_standard/gold_standard_allergy.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 export const patientAllergyHelper = {
   ...idHelper,

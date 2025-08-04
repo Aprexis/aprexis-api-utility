@@ -1,9 +1,9 @@
-import { fieldHelper, idHelper, modelDatesHelper } from '../'
-import { goldStandardInnerOuterHelper } from './gold_standard_inner_outer.helper'
-import { goldStandardNcpdpHelper } from './gold_standard_ncpdp.helper'
-import { goldStandardPackageHelper } from './gold_standard_package.helper'
-import { goldStandardProductHelper } from './gold_standard_product.helper'
-import { goldStandardReplacedPackageHelper } from './gold_standard_replaced_package.helper'
+import { fieldHelper, idHelper, modelDatesHelper } from '../index.js'
+import { goldStandardInnerOuterHelper } from './gold_standard_inner_outer.helper.js'
+import { goldStandardNcpdpHelper } from './gold_standard_ncpdp.helper.js'
+import { goldStandardPackageHelper } from './gold_standard_package.helper.js'
+import { goldStandardProductHelper } from './gold_standard_product.helper.js'
+import { goldStandardReplacedPackageHelper } from './gold_standard_replaced_package.helper.js'
 
 export const goldStandardPackageVersionHelper = {
   ...modelDatesHelper,

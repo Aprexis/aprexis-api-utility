@@ -1,5 +1,5 @@
-import { fieldHelper } from "./field.helper";
-import { questionKeyHelper } from "./question_key.helper";
+import { fieldHelper } from './field.helper.js'
+import { questionKeyHelper } from './question_key.helper.js'
 
 export const questionVerificationHelper = {
   ...questionKeyHelper,

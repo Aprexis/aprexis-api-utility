@@ -1,4 +1,4 @@
-import { API } from '../'
+import { API } from '../api.js'
 
 export const goldStandardProductApi = {
   index,

@@ -1,9 +1,9 @@
-import { fieldHelper } from './field.helper'
-import { healthPlanHelper } from './health_plan.helper'
-import { idHelper } from './id.helper'
-import { pharmacyChainHelper } from './pharmacy_chain.helper'
-import { pharmacyStoreHelper } from './pharmacy_store.helper'
-import { modelDatesHelper } from './model_dates.helper'
+import { fieldHelper } from './field.helper.js'
+import { healthPlanHelper } from './health_plan.helper.js'
+import { idHelper } from './id.helper.js'
+import { pharmacyChainHelper } from './pharmacy_chain.helper.js'
+import { pharmacyStoreHelper } from './pharmacy_store.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 export const pharmacyReportHelper = {
   ...idHelper,

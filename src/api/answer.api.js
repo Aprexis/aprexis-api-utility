@@ -1,5 +1,5 @@
-import { API } from './api'
-import { answerHelper } from '../helpers/answer.helper'
+import { API } from './api.js'
+import { answerHelper } from '../helpers/answer.helper.js'
 
 export const answerApi = {
   edit,

@@ -1,10 +1,10 @@
-import { fieldHelper } from './field.helper'
-import { idHelper } from './id.helper'
-import { patientHelper } from './patient.helper'
-import { physicianHelper } from './admin'
-import { valueHelper } from './value.helper'
-import { dateHelper } from './date.helper'
-import { modelDatesHelper } from './model_dates.helper'
+import { fieldHelper } from './field.helper.js'
+import { idHelper } from './id.helper.js'
+import { patientHelper } from './patient.helper.js'
+import { physicianHelper } from './admin/physician.helper.js'
+import { valueHelper } from './value.helper.js'
+import { dateHelper } from './date.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 export const patientSupplementHelper = {
   ...idHelper,

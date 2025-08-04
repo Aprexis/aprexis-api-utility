@@ -1,6 +1,6 @@
-import { fieldHelper } from '../field.helper'
-import { idHelper } from '../id.helper'
-import { valueHelper } from '../value.helper'
+import { fieldHelper } from '../field.helper.js'
+import { idHelper } from '../id.helper.js'
+import { valueHelper } from '../value.helper.js'
 
 export const labTestHelper = {
   ...idHelper,

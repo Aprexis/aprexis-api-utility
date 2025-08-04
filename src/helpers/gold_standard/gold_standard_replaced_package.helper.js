@@ -1,5 +1,5 @@
-import { goldStandardPackageHelper } from '.'
-import { fieldHelper, idHelper } from '../'
+import { goldStandardPackageHelper } from './gold_standard_package.helper.js'
+import { fieldHelper, idHelper } from '../index.js'
 
 export const goldStandardReplacedPackageHelper = {
   goldStandardReplacedByPackage,

@@ -1,8 +1,8 @@
-import { fieldHelper } from './field.helper'
-import { idHelper } from './id.helper'
-import { modelDatesHelper } from './model_dates.helper'
-import { pharmacyStoreHelper } from './pharmacy_store.helper'
-import { programHelper } from './program.helper'
+import { fieldHelper } from './field.helper.js'
+import { idHelper } from './id.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
+import { pharmacyStoreHelper } from './pharmacy_store.helper.js'
+import { programHelper } from './program.helper.js'
 
 export const pharmacyStoreProgramReportHelper = {
   ...idHelper,

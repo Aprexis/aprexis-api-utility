@@ -1,5 +1,5 @@
-import { fieldHelper, idHelper } from '..'
-import { goldStandardSpecificDrugProductHelper } from './gold_standard_specific_drug_product.helper'
+import { fieldHelper, idHelper } from '../index.js'
+import { goldStandardSpecificDrugProductHelper } from './gold_standard_specific_drug_product.helper.js'
 
 export const goldStandardSpecificProductHelper = {
   canDelete,

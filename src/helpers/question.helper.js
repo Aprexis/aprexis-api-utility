@@ -1,8 +1,8 @@
-import { valueHelper } from './value.helper'
-import { fieldHelper } from './field.helper'
-import { questionKeyHelper } from './question_key.helper'
-import { questionChoiceHelper } from './question_choice.helper'
-import { questionOptionHelper } from './question_option.helper'
+import { valueHelper } from './value.helper.js'
+import { fieldHelper } from './field.helper.js'
+import { questionKeyHelper } from './question_key.helper.js'
+import { questionChoiceHelper } from './question_choice.helper.js'
+import { questionOptionHelper } from './question_option.helper.js'
 
 export const questionHelper = {
   ...questionKeyHelper,

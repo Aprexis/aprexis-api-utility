@@ -1,6 +1,6 @@
-import { fieldHelper } from '../field.helper'
-import { idHelper } from '../id.helper'
-import { medicationHelper } from './medication.helper'
+import { fieldHelper } from '../field.helper.js'
+import { idHelper } from '../id.helper.js'
+import { medicationHelper } from './medication.helper.js'
 
 export const conditionMedicationHelper = {
   ...idHelper,

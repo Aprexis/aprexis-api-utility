@@ -1,6 +1,6 @@
-import { fieldHelper, idHelper, modelDatesHelper } from "../"
-import { goldStandardGsFormHelper } from "./gold_standard_gs_form.helper"
-import { goldStandardProductHelper } from "./gold_standard_product.helper"
+import { fieldHelper, idHelper, modelDatesHelper } from '../index.js'
+import { goldStandardGsFormHelper } from './gold_standard_gs_form.helper.js'
+import { goldStandardProductHelper } from './gold_standard_product.helper.js'
 
 export const goldStandardDrugItemHelper = {
   ...modelDatesHelper,

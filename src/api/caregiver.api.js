@@ -1,5 +1,5 @@
-import { API } from './api'
-import { caregiverHelper } from '../helpers/caregiver.helper'
+import { API } from './api.js'
+import { caregiverHelper } from '../helpers/caregiver.helper.js'
 
 function toJSON(caregiver) {
   return {

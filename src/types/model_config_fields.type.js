@@ -1,4 +1,4 @@
-import { venues } from "./venues.type"
+import { venues } from "./venues.type.js"
 
 const customDocumentationFields = {
   "custom_documentation_folder": {

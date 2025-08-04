@@ -1,12 +1,12 @@
-import { valueHelper } from './value.helper'
-import { fieldHelper } from './field.helper'
-import { addressHelper } from './address.helper'
-import { contactHelper } from './contact.helper'
-import { idHelper } from './id.helper'
-import { pharmacyChainHelper } from './pharmacy_chain.helper'
-import { userHelper } from './user.helper'
-import { modelConfigsHelper } from './model_configs.helper'
-import { modelDatesHelper } from './model_dates.helper'
+import { valueHelper } from './value.helper.js'
+import { fieldHelper } from './field.helper.js'
+import { addressHelper } from './address.helper.js'
+import { contactHelper } from './contact.helper.js'
+import { idHelper } from './id.helper.js'
+import { pharmacyChainHelper } from './pharmacy_chain.helper.js'
+import { userHelper } from './user.helper.js'
+import { modelConfigsHelper } from './model_configs.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 export const pharmacyStoreHelper = {
   ...idHelper,

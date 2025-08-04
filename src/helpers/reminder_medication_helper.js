@@ -1,7 +1,7 @@
-import { medicationHelper } from './admin/medication.helper'
-import { fieldHelper } from './field.helper'
-import { idHelper } from './id.helper'
-import { patientMedicationHelper } from './patient_medication.helper'
+import { medicationHelper } from './admin/medication.helper.js'
+import { fieldHelper } from './field.helper.js'
+import { idHelper } from './id.helper.js'
+import { patientMedicationHelper } from './patient_medication.helper.js'
 
 export const reminderMedicationHelper = {
   ...idHelper,

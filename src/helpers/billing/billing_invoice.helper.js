@@ -1,4 +1,4 @@
-import { fieldHelper, healthPlanHelper, idHelper, modelDatesHelper } from "../"
+import { fieldHelper, healthPlanHelper, idHelper, modelDatesHelper } from '../index.js'
 
 export const billingInvoiceHelper = {
   ...idHelper,

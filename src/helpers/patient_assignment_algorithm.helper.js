@@ -1,8 +1,7 @@
-import { valueHelper } from './value.helper'
-import { fieldHelper } from './field.helper'
-import { idHelper } from './id.helper'
-import { programHelper } from './program.helper'
-import { modelDatesHelper } from './model_dates.helper'
+import { fieldHelper } from './field.helper.js'
+import { idHelper } from './id.helper.js'
+import { programHelper } from './program.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 export const patientAssignmentAlgorithmHelper = {
   ...idHelper,

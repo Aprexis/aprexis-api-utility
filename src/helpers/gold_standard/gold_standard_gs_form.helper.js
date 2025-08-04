@@ -1,4 +1,4 @@
-import { idHelper, fieldHelper, modelDatesHelper } from "../"
+import { idHelper, fieldHelper, modelDatesHelper } from '../index.js'
 
 export const goldStandardGsFormHelper = {
   ...modelDatesHelper,

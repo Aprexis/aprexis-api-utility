@@ -1,13 +1,13 @@
 import moment from 'moment'
-import { valueHelper } from './value.helper'
-import { dateHelper } from './date.helper'
-import { fieldHelper } from './field.helper'
-import { apiHelper } from './api.helper'
-import { interventionHelper } from './intervention.helper'
-import { pharmacyStoreHelper } from './pharmacy_store.helper'
-import { userHelper } from './user.helper'
-import { idHelper } from './id.helper'
-import { modelDatesHelper } from './model_dates.helper'
+import { valueHelper } from './value.helper.js'
+import { dateHelper } from './date.helper.js'
+import { fieldHelper } from './field.helper.js'
+import { apiHelper } from './api.helper.js'
+import { interventionHelper } from './intervention.helper.js'
+import { pharmacyStoreHelper } from './pharmacy_store.helper.js'
+import { userHelper } from './user.helper.js'
+import { idHelper } from './id.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 export const appointmentHelper = {
   ...idHelper,

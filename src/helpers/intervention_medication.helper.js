@@ -1,9 +1,9 @@
-import { medicationHelper } from './admin'
-import { fieldHelper } from './field.helper'
-import { interventionHelper } from './intervention.helper'
-import { valueHelper } from './value.helper'
-import { idHelper } from './id.helper'
-import { modelDatesHelper } from './model_dates.helper'
+import { medicationHelper } from './admin/medication.helper.js'
+import { fieldHelper } from './field.helper.js'
+import { interventionHelper } from './intervention.helper.js'
+import { valueHelper } from './value.helper.js'
+import { idHelper } from './id.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 export const interventionMedicationHelper = {
   ...idHelper,

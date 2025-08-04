@@ -1,8 +1,8 @@
-import { fieldHelper } from '../field.helper'
-import { dateHelper } from '../date.helper'
-import { valueHelper } from '../value.helper'
-import { idHelper } from '../id.helper'
-import { modelDatesHelper } from '../model_dates.helper'
+import { fieldHelper } from '../field.helper.js'
+import { dateHelper } from '../date.helper.js'
+import { valueHelper } from '../value.helper.js'
+import { idHelper } from '../id.helper.js'
+import { modelDatesHelper } from '../model_dates.helper.js'
 
 export const billingClaimHistoryCollectionHelper = {
   ...idHelper,

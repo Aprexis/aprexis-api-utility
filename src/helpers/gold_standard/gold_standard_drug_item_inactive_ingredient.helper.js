@@ -1,6 +1,6 @@
-import { fieldHelper, idHelper, modelDatesHelper } from '../'
-import { goldStandardDrugItemHelper } from './gold_standard_drug_item.helper'
-import { goldStandardIngredientHelper } from './gold_standard_ingredient.helper'
+import { fieldHelper, idHelper, modelDatesHelper } from '../index.js'
+import { goldStandardDrugItemHelper } from './gold_standard_drug_item.helper.js'
+import { goldStandardIngredientHelper } from './gold_standard_ingredient.helper.js'
 
 export const goldStandardDrugItemInactiveIngredientHelper = {
   ...modelDatesHelper,

@@ -1,6 +1,6 @@
-import { API } from './api'
-import { patientMedicationHelper } from '../helpers/patient_medication.helper'
-import { valueHelper } from '../helpers/value.helper'
+import { API } from './api.js'
+import { patientMedicationHelper } from '../helpers/patient_medication.helper.js'
+import { valueHelper } from '../helpers/value.helper.js'
 
 export const patientMedicationApi = {
   buildNew,

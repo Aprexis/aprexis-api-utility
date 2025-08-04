@@ -1,5 +1,5 @@
-import { fieldHelper } from './field.helper'
-import { valueHelper } from './value.helper'
+import { fieldHelper } from './field.helper.js'
+import { valueHelper } from './value.helper.js'
 
 export const idHelper = {
   associatedId,

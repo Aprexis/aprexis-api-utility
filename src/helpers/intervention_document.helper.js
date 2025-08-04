@@ -1,10 +1,10 @@
-import { valueHelper } from './value.helper'
-import { dateHelper } from './date.helper'
-import { fieldHelper } from './field.helper'
-import { interventionHelper } from './intervention.helper'
-import { localeLanguages } from '../types'
-import { idHelper } from './id.helper'
-import { modelDatesHelper } from './model_dates.helper'
+import { valueHelper } from './value.helper.js'
+import { dateHelper } from './date.helper.js'
+import { fieldHelper } from './field.helper.js'
+import { interventionHelper } from './intervention.helper.js'
+import { localeLanguages } from '../types/locale_languages.type.js'
+import { idHelper } from './id.helper.js'
+import { modelDatesHelper } from './model_dates.helper.js'
 
 export const interventionDocumentHelper = {
   ...idHelper,

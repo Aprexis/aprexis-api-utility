@@ -1,6 +1,6 @@
-import { fieldHelper } from './field.helper'
-import { idHelper } from './id.helper'
-import { patientSupplementHelper } from './patient_supplement.helper'
+import { fieldHelper } from './field.helper.js'
+import { idHelper } from './id.helper.js'
+import { patientSupplementHelper } from './patient_supplement.helper.js'
 
 export const reminderSupplementHelper = {
   buildFromPatientSupplement,

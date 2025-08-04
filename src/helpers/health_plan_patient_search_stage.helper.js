@@ -1,6 +1,6 @@
-import { fieldHelper } from './field.helper'
-import { idHelper } from "./id.helper"
-import { nameHelper } from './name.helper'
+import { fieldHelper } from './field.helper.js'
+import { idHelper } from './id.helper.js'
+import { nameHelper } from './name.helper.js'
 
 export const healthPlanPatientSearchStageHelper = {
   ...idHelper,

@@ -1,7 +1,7 @@
-import { fieldHelper } from '../field.helper'
-import { valueHelper } from '../value.helper'
-import { idHelper } from '../id.helper'
-import { diagnosisCodes } from '../../types/diagnosis_codes.type'
+import { fieldHelper } from '../field.helper.js'
+import { valueHelper } from '../value.helper.js'
+import { idHelper } from '../id.helper.js'
+import { diagnosisCodes } from '../../types/diagnosis_codes.type.js'
 
 export const diagnosisCodeHelper = {
   ...idHelper,

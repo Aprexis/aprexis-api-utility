@@ -1,4 +1,4 @@
-import { valueHelper } from '../helpers/value.helper'
+import { valueHelper } from '../helpers/value.helper.js'
 
 export const API = {
   buildQueryString,

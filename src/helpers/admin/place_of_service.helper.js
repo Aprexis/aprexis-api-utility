@@ -1,5 +1,5 @@
-import { fieldHelper } from '../field.helper'
-import { idHelper } from '../id.helper'
+import { fieldHelper } from '../field.helper.js'
+import { idHelper } from '../id.helper.js'
 
 export const placeOfServiceHelper = {
   ...idHelper,

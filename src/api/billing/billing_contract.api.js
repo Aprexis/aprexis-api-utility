@@ -1,5 +1,5 @@
-import { API } from '../api'
-import { billingContractHelper } from '../../helpers/billing/billing_contract.helper'
+import { API } from '../api.js'
+import { billingContractHelper } from '../../helpers/billing/billing_contract.helper.js'
 
 export const billingContractApi = {
   buildNew,

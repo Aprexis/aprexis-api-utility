@@ -1,4 +1,4 @@
-import { fieldHelper, modelDatesHelper } from '../'
+import { fieldHelper, modelDatesHelper } from '../index.js'
 
 export const goldStandardTherapeuticConceptHelper = {
   ...modelDatesHelper,
