@@ -77,7 +77,7 @@ const healthPlansFields = {
     label: "Patient Search Algorithm Classes",
     type: "List"
   },
-  require_doc_attestation: {
+  requires_doc_attestation: {
     label: "Requires Attestation of HCP Contact",
     type: "OneZero"
   },
